@@ -6,6 +6,8 @@ You can download the presentation (PDF) is available in:
  - [english](https://github.com/gildas-lormeau/Polyglot-HTML-ZIP-PNG/blob/main/Presentation%20(en).pdf)
  - [french](https://github.com/gildas-lormeau/Polyglot-HTML-ZIP-PNG/blob/main/Presentation%20(fr).pdf)
 
+Here is the resulting file: [demo.zip.png.html](https://github.com/gildas-lormeau/Polyglot-HTML-ZIP-PNG/raw/main/demo.zip.png.html).
+
 # Requirements
 
 You must install [Deno](https://deno.com/) to run the scripts in the [`/steps`](https://github.com/gildas-lormeau/Polyglot-HTML-ZIP-PNG/tree/main/steps) folder.
