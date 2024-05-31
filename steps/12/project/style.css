@@ -29,7 +29,8 @@ figure {
 }
 
 body,
-main {
+main,
+figure {
     flex: 1;
 }
 
@@ -50,7 +51,6 @@ h1 {
 
 figure {
     justify-content: space-around;
-    flex: 1;
 }
 
 figcaption {
