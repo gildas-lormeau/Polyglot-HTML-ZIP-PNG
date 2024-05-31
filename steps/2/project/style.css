@@ -1,5 +1,14 @@
 @import url(properties.css);
 
+html,
+body,
+main,
+figure {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
 html {
     background-color: var(--background-color);
     color: var(--text-color);
@@ -19,15 +28,6 @@ html {
     }
 }
 
-html,
-body,
-main,
-figure {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
 body,
 main,
 figure {
@@ -36,7 +36,6 @@ figure {
 
 h1,
 figcaption {
-    margin-block-start: 1em;
     padding-block: .5em;
     padding-inline: 1em;
     text-align: center;
@@ -54,6 +53,7 @@ figure {
 }
 
 figcaption {
+    margin-block-start: 1em;
     font-size: min(3vw, 1.25em);
 }
 
