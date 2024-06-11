@@ -1,6 +1,6 @@
 # Introduction
 
-This repository contains a presentation showing how to create HTML/ZIP/PNG polyglot files in JavaScript.
+This repository contains a presentation showing how to create HTML/ZIP/PNG polyglot files in JavaScript. This is a work in progress.
 
 You can download the presentation (PDF) in:
  - [english](https://raw.githubusercontent.com/gildas-lormeau/Polyglot-HTML-ZIP-PNG/main/Presentation%20(en).pdf)
