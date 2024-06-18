@@ -1,0 +1,1215 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+	<title>Créez en JavaScript votre fichier polyglotte HTML/ZIP/PNG</title>
+
+	<link rel="stylesheet" href="dist/reset.css">
+	<link rel="stylesheet" href="dist/reveal.css">
+	<link rel="stylesheet" href="dist/theme/solarized.css">
+
+	<!-- Theme used for syntax highlighted code -->
+	<link rel="stylesheet" href="plugin/highlight/kimbie-light.css">
+	<style>
+		:root {
+			--r-heading-margin: 0 0 20px 0;
+			--r-block-margin: 10px;
+			--r-main-font-size: 35px;
+			--r-heading1-size: 2em;
+			--r-heading2-size: 1.5em;
+			--r-heading3-size: 1.25em;
+			--r-heading4-size: 1.1em;
+		}
+
+		section:not(:first-child) {
+			top: 0 !important;
+			left: 0 !important;
+		}
+
+		section>ul,
+		section>pre,
+		section>p,
+		section>iframe {
+			min-width: 100%;
+		}
+
+		section>ul>li {
+			width: 95%;
+		}
+
+		iframe.small {
+			height: 1em;
+			position: relative;
+			top: 5px;
+		}
+
+		section p {
+			text-align: left;
+		}
+
+		.reveal pre {
+			margin-bottom: 0;
+			box-shadow: none;
+		}
+
+		.reveal code,
+		.reveal a {
+			color: #555;
+		}
+
+		.reveal pre>code {
+			max-height: 19em;
+		}
+
+		.reveal .hljs.has-highlights tr:not(.highlight-line) {
+			opacity: .35;
+		}
+	</style>
+</head>
+
+<body>
+	<div class="reveal">
+		<div class="slides">
+			<section>
+				<h1>Créez en JavaScript votre fichier polyglotte <br> HTML / ZIP / PNG</h1>
+			</section>
+			<section>
+				<h2>Introduction</h2>
+				<ul>
+					<li class="fragment">Développeur Web depuis 20+ ans</li>
+					<li class="fragment">Auteur de projets open-source :
+						<ul>
+							<li class="fragment"><a href="https://github.com/gildas-lormeau/zip.js"
+									target="_blank">zip.js</a> : bibliothèque pour lire et écrire des fichiers zip en
+								JavaScript</li>
+							<li class="fragment"><a href="https://github.com/gildas-lormeau/SingleFile"
+									target="_blank">SingleFile</a> : extension et outil en ligne de commande pour sauver
+								une page web dans un simple fichier HTML
+								<ul>
+									<li class="fragment">utilisation de data URIs pour stocker les contenus binaires en
+										base 64, par ex. <a href="data:;base64,aGVsbG8="
+											target="_blank"><code>data:;base64,aGVsbG8=</code></a></li>
+									<li class="fragment">taille du fichier de sortie plus large que la taille de toutes
+										les ressources additionnées (environ 33%)</li>
+								</ul>
+						</ul>
+					</li>
+					<li class="fragment">Peut-on combiner SingleFile et zip.js pour produire des fichiers plus compacts
+						et plus faciles à manipuler ?</li>
+					<li class="fragment">Peut-on aller plus loin ?</li>
+				</ul>
+			</section>
+			<section>
+				<h2>Projet de test</h2>
+				<ul>
+					<li class="fragment">Page HTML simple</li>
+					<li class="fragment">Inclusion de ressources externes :
+						<ul>
+							<li class="fragment">images : <code>image.png</code>, <code>background.png</code></li>
+							<li class="fragment">feuilles de style CSS : <code>style.css</code>, <code>properties.css</code></li>
+							<li class="fragment">script JavaScript : <code>script.js</code></li>
+						</ul>
+					</li>
+					<li class="fragment">Feuilles de style et script encodés en UTF-8</li>
+					<li class="fragment">Fichiers stockés dans le répertoire <a href="dist/steps/01/project/"
+							target="_blank"><code>project/</code></a></li>
+				</ul>
+			</section>
+			<section>
+				<h2>Projet de test</h2>
+				<iframe loading="lazy" src="dist/steps/01/project/index.html"
+					style="height:550px; min-width:550px"></iframe>
+			</section>
+			<section>
+				<h2>Projet de test</h2>
+				<pre>project/index.html</pre>
+				<pre class="fragment">
+					<code data-src="dist/steps/01/project/index.html" data-line-numbers="|17|23" class="language-html"></code>
+				</pre>
+			</section>
+			<section>
+				<h2>Projet de test</h2>
+				<pre>project/script.js</pre>
+				<pre class="fragment">
+					<code data-src="dist/steps/01/project/script.js" data-line-numbers="|2" class="language-js"></code>
+				</pre>
+			</section>
+			<section>
+				<h2>Projet de test</h2>
+				<pre>project/index.html</pre>
+				<pre>
+					<code data-src="dist/steps/01/project/index.html" data-line-numbers="23|7" class="language-html"></code>
+				</pre>
+			</section>
+			<section>
+				<h2>Projet de test</h2>
+				<pre>project/style.css</pre>
+				<pre class="fragment">
+					<code data-src="dist/steps/01/project/style.css" data-line-numbers="|1|17|71" class="language-css"></code>
+				</pre>
+			</section>
+			<section>
+				<h2>Format ZIP</h2>
+				<ul>
+					<li class="fragment">Créé en 1989 par Phil Katz chez PKWARE (éditeur de PKZIP)</li>
+					<li class="fragment">Supporte :
+						<ul>
+							<li class="fragment">la compression au format <code>DEFLATE</code> depuis la version 2.0
+								(1993)</li>
+							<li class="fragment">le chiffrage <code>AES</code> depuis la version 5.2 (2003)</li>
+						</ul>
+					</li>
+					<li class="fragment">Version 2.0+ supportée sur la plupart des systèmes d'exploitation</li>
+					<li class="fragment">Exemples de formats basés sur le format ZIP :
+						<ul>
+							<li class="fragment">Documents LibreOffice/MS Office (<code>.ODT</code>, <code>.DOCX</code>,
+								...)</li>
+							<li class="fragment">Archives Java (<code>.JAR</code>)</li>
+							<li class="fragment">Packages Android (<code>.APK</code> et Archives iOS <code>.IPA</code>)
+							</li>
+							<li class="fragment">Web Extensions (<code>.CRX</code> et <code>.XPI</code>)</li>
+						</ul>
+					</li>
+				</ul>
+			</section>
+			<section>
+				<h2>Format ZIP</h2>
+				<ul>
+					<li>Entrées (<code>file entries</code>) suivies de l'annuaire central
+						(<code>central directory</code>)</li>
+					<li class="fragment">Adapté pour la lecture/écriture en streaming mais avec quelques limitations en
+						lecture</li>
+					<li class="fragment">Certaines métadonnées sont stockées en double dans les en-têtes locaux
+						(<code>local headers</code>) et l'annuaire central : nom du fichier, date de dernière
+						modification, taille des données ...</li>
+					<li class="fragment">Annuaire central est requis et fait autorité</li>
+					<li class="fragment">Annuaire central contient les positions (<code>relative offsets</code>) de
+						chacune des entrées dans le fichier ZIP</li>
+					<li class="fragment">Les metadonnées des en-têtes locaux peuvent être utilisées pour réparer un
+						fichier ZIP</li>
+				</ul>
+			</section>
+			<section>
+				<h2>Format ZIP</h2>
+				<img src="dist/images/zip-structure.svg" style="max-height: 450px;">
+				<p style="font-size: .5em; text-align: right;">Source: <a
+						href="https://en.wikipedia.org/wiki/ZIP_(file_format)"
+						target="_blank">https://en.wikipedia.org/wiki/ZIP_(file_format)</a>
+				</p>
+			</section>
+			<section>
+				<h2>Format ZIP & JavaScript</h2>
+				<ul>
+					<li class="fragment">Support natif dans les navigateurs, Node.js, Deno, Bun, etc. :
+						<ul>
+							<li class="fragment">ZIP : non</li>
+							<li class="fragment">DEFLATE : oui via l'API <a
+									href="https://developer.mozilla.org/en-US/docs/Web/API/CompressionStream"
+									target="_blank"><code>CompressionStream</code></a></li>
+						</ul>
+					</li>
+					<li class="fragment">Riche écosystème de bibliothèques tierces pour lire et écrire des fichiers ZIP
+						:
+						<ul>
+							<li><a href="https://github.com/gildas-lormeau/zip.js" target="_blank">zip.js</a></li>
+							<li><a href="https://github.com/101arrowz/fflate" target="_blank">fflate</a></li>
+							<li><a href="https://github.com/Touffy/client-zip" target="_blank">client-zip</a></li>
+							<li><a href="https://github.com/thejoshwolfe/yazl" target="_blank">yazl</a>/<a
+									href="https://github.com/thejoshwolfe/yauzl" target="_blank">yauzl</a></li>
+							<li><a href="https://github.com/Stuk/jszip" target="_blank">JSZip</a></li>
+							<li>...</li>
+						</ul>
+					</li>
+				</ul>
+			</section>
+			<section>
+				<h2>Exemple avec zip.js</h2>
+				<p>Exemple de création d'un fichier ZIP</p>
+			</section>
+			<section>
+				<h2>Exemple avec zip.js</h2>
+				<p>Exemple de création d'un fichier ZIP</p>
+				<pre>
+					<code data-line-numbers="|1|3|4|6,9|7|8|11|12"  class="language-js">import { ZipWriter, Uint8ArrayWriter } from "@zip-js/zip-js"
+
+const zipDataWriter = new Uint8ArrayWriter()
+const zipWriter = new ZipWriter(zipDataWriter)
+
+for await (const { name } of readDirectory(inputFolder)) {
+	const readableStream = await readFileStream(name)
+	await zipWriter.add(name, readableStream)
+}
+
+await zipWriter.close()
+const zipData = zipDataWriter.getData() // Uint8Array
+console.log("zip file data:", zipData)</code>
+			</pre>
+			</section>
+			<section>
+				<h2>Intégration dans le projet</h2>
+				<p>Création du fichier ZIP</p>
+				<pre>index.html</pre>
+			</section>
+			<section>
+				<h2>Intégration dans le projet</h2>
+				<p>Création du fichier ZIP</p>
+				<pre>index.html</pre>
+				<pre>
+					<code data-src="dist/steps/02/index.html" data-line-numbers="|22|23" class="language-html"></code>
+				</pre>
+			</section>
+			<section>
+				<h2>Intégration dans le projet</h2>
+				<p>Création du fichier ZIP</p>
+				<pre>index.js</pre>
+				<pre class="fragment">
+					<code data-src="dist/steps/02/index.js" data-line-numbers="|3-11|13|1"  class="language-js"></code>
+				</pre>
+			</section>
+			<section>
+				<h2>Intégration dans le projet</h2>
+				<p>Création du fichier ZIP</p>
+				<pre>lib/utils-zip.js</pre>
+				<pre class="fragment">
+					<code data-src="dist/steps/02/lib/utils-zip.js" data-line-numbers="|15-25|18,22|19-20|21|24" class="language-js"></code>
+				</pre>
+			</section>
+			<section>
+				<h2>Intégration dans le projet</h2>
+				<p>Création du fichier ZIP</p>
+				<pre>index.js</pre>
+				<pre>
+					<code data-src="dist/steps/02/index.js" data-line-numbers="1|13|14-15"  class="language-js"></code>
+				</pre>
+				<iframe loading="lazy" src="dist/steps/02/index.html" class="small fragment"></iframe>
+			</section>
+			<section>
+				<h2>Exemple avec zip.js</h2>
+				<p>Exemple de lecture d'un fichier ZIP</p>
+				<pre class="fragment">
+					<code data-line-numbers="|1|3|4|6,9|7|8|11"  class="language-js">import { ZipReader, BlobReader, BlobWriter } from "@zip-js/zip-js"
+
+const zipReader = new ZipReader(new BlobReader(blob))
+const entries = await zipReader.getEntries()
+
+for (const entry of entries) {
+	const blob = await entry.getData(new BlobWriter())
+	console.log("file:", entry.filename, "blob:", blob)
+}
+
+await zipReader.close()</code>
+			</pre>
+			</section>
+			<section>
+				<h2>Intégration dans le projet</h2>
+				<p>Lecture du fichier ZIP</p>
+				<pre>index.html</pre>
+			</section>
+			<section>
+				<h2>Intégration dans le projet</h2>
+				<p>Lecture du fichier ZIP</p>
+				<pre>index.html</pre>
+				<pre>
+					<code data-src="dist/steps/03/index.html" data-line-numbers="|31|32|33" class="language-html"></code>
+				</pre>
+			</section>
+			<section>
+				<h2>Intégration dans le projet</h2>
+				<p>Lecture du fichier ZIP</p>
+				<pre>index.js</pre>
+				<pre class="fragment">
+					<code data-src="dist/steps/03/index.js" data-line-numbers="|10-15|13|23-34|26,32|27|28-31"  class="language-js"></code>
+				</pre>
+			</section>
+			<section>
+				<h2>Intégration dans le projet</h2>
+				<p>Lecture du fichier ZIP</p>
+				<iframe loading="lazy" src="dist/steps/03/index.html" style="height: 450px;"></iframe>
+			</section>
+			<section>
+				<h2>Format ZIP (suite)</h2>
+				<ul>
+					<li class="fragment">Format extensible :
+						<ul>
+							<li class="fragment">64Ko de données après le fichier ZIP (commentaire)</li>
+							<li class="fragment">Offset supérieur à zéro pour la première entrée dans le fichier zip
+							</li>
+						</ul>
+					</li>
+					<li class="fragment">Possibilité d'ajouter du contenu avant et après un fichier ZIP tout en restant
+						valide</li>
+					<li class="fragment">Structure de page HTML auto-extractible :
+						<ol>
+							<li class="fragment">Contenu HTML jusqu'à une balise ouvrante <code>&lt;!--</code></li>
+							<li class="fragment">Contenu du fichier ZIP</li>
+							<li class="fragment">Balise fermante <code>--&gt;</code> et fin du contenu HTML</li>
+						</ol>
+					</li>
+					<li class="fragment">Contenu HTML inclut :
+						<ul>
+							<li class="fragment">script de la bibliothèque zip.js (<a
+									href="dist/steps/04/assets/zip.min.js" target="_blank">assets/zip.min.js</a>)</li>
+							<li class="fragment">script affichant le contenu du fichier zip (<a
+									href="dist/steps/04/assets/page-extraction.js"
+									target="_blank">assets/page-extraction.js</a>)</li>
+						</ul>
+					</li>
+				</ul>
+			</section>
+			<section>
+				<h2>Format ZIP (suite)</h2>
+				<p>Template du fichier HTML auto-extractible</p>
+			</section>
+			<section>
+				<h2>Format ZIP (suite)</h2>
+				<p>Template du fichier HTML auto-extractible</p>
+				<pre><code class="language-plaintext" style="background-color: #CDFAD5; color: #777777;">&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+	&lt;head&gt;
+		&lt;meta charset="utf-8"&gt;
+		&lt;title&gt;Please wait...&lt;/title&gt;
+		&lt;script&gt;&lt;!-- Contenu de assets/zip.min.js --&gt;&lt;/script&gt;
+	&lt;/head&gt;
+	&lt;body&gt;
+		&lt;p&gt;Please wait...&lt;/p&gt;
+		&lt;script&gt;&lt;!-- Contenu de assets/page-extraction.js --&gt;&lt;/script&gt;
+  &lt;/body&gt;
+&lt;/html&gt;</code></pre>
+			</section>
+			<section>
+				<h2>Format ZIP (suite)</h2>
+				<p>Template du fichier HTML auto-extractible</p>
+				<pre><code class="language-plaintext" style="background-color: #CDFAD5; color: #777777;">&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+	&lt;head&gt;
+		&lt;meta charset="utf-8"&gt;
+		&lt;title&gt;Please wait...&lt;/title&gt;
+		&lt;script&gt;&lt;!-- Contenu de assets/zip.min.js --&gt;&lt;/script&gt;
+	&lt;/head&gt;
+	&lt;body&gt;
+		&lt;p&gt;Please wait...&lt;/p&gt;&lt;!--</code><code class="language-plaintext" style="background-color: #FFCF96; color: #000000; text-align: center;"> Données ZIP </code><code class="language-plaintext" style="background-color: #CDFAD5; color: #777777;">    --&gt;
+		&lt;script&gt;&lt;!-- Contenu de assets/page-extraction.js --&gt;&lt;/script&gt;
+  &lt;/body&gt;
+&lt;/html&gt;</code></pre>
+			</section>
+			<section>
+				<h2>Fichier polyglotte HTML/ZIP</h2>
+				<p class="fragment">1/4 - Extraction et affichage des entrées du fichier ZIP</p>
+			</section>
+			<section>
+				<h2>Fichier polyglotte HTML/ZIP</h2>
+				<p>1/4 - Extraction et affichage des entrées du fichier ZIP</p>
+				<pre>index.html</pre>
+				<pre>
+					<code data-src="dist/steps/04/index.html" data-line-numbers="|22|23" class="language-html"></code>
+				</pre>
+			</section>
+			<section>
+				<h2>Fichier polyglotte HTML/ZIP</h2>
+				<p>1/4 - Extraction et affichage des entrées du fichier ZIP</p>
+				<pre>index.js</pre>
+				<pre class="fragment">
+					<code data-src="dist/steps/04/index.js" data-line-numbers="|3" class="language-js"></code>
+				</pre>
+			</section>
+			<section>
+				<h2>Fichier polyglotte HTML/ZIP</h2>
+				<p>1/4 - Extraction et affichage des entrées du fichier ZIP</p>
+				<pre>lib/html-template.js</pre>
+				<pre class="fragment">
+					<code data-src="dist/steps/04/lib/html-template.js" data-line-numbers="|2-5|7-21|8-18|18-21|19" class="language-js"></code>
+				</pre>
+			</section>
+			<section>
+				<h2>Fichier polyglotte HTML/ZIP</h2>
+				<p>1/4 - Extraction et affichage des entrées du fichier ZIP</p>
+				<pre>lib/utils.js</pre>
+				<pre class="fragment">
+					<code data-src="dist/steps/04/lib/utils.js" data-line-numbers="|17-19" class="language-js"></code>
+				</pre>
+			</section>
+			<section>
+				<h2>Fichier polyglotte HTML/ZIP</h2>
+				<p>1/4 - Extraction et affichage des entrées du fichier ZIP</p>
+				<pre>lib/html-template.js</pre>
+				<pre>
+					<code data-src="dist/steps/04/lib/html-template.js" data-line-numbers="19|23" class="language-js"></code>
+				</pre>
+			</section>
+			<section>
+				<h2>Fichier polyglotte HTML/ZIP</h2>
+				<p>1/4 - Extraction et affichage des entrées du fichier ZIP</p>
+				<pre>index.js</pre>
+				<pre>
+					<code data-src="dist/steps/04/index.js" data-line-numbers="3|21-32|22" class="language-js"></code>
+				</pre>
+			</section>
+			<section>
+				<h2>Fichier polyglotte HTML/ZIP</h2>
+				<p>1/4 - Extraction et affichage des entrées du fichier ZIP</p>
+				<pre>lib/utils.js</pre>
+				<pre class="fragment">
+					<code data-src="dist/steps/04/lib/utils.js" data-line-numbers="|7-9" class="language-js"></code>
+				</pre>
+			</section>
+			<section>
+				<h2>Fichier polyglotte HTML/ZIP</h2>
+				<p>1/4 - Extraction et affichage des entrées du fichier ZIP</p>
+				<pre>index.js</pre>
+				<pre>
+					<code data-src="dist/steps/04/index.js" data-line-numbers="22|23|24" class="language-js"></code>
+				</pre>
+			</section>
+			<section>
+				<h2>Fichier polyglotte HTML/ZIP</h2>
+				<p>1/4 - Extraction et affichage des entrées du fichier ZIP</p>
+				<pre>lib/utils-zip.js</pre>
+				<pre class="fragment">
+					<code data-src="dist/steps/04/lib/utils-zip.js" data-line-numbers="|7-20|7|9-11" class="language-js"></code>
+				</pre>
+			</section>
+			<section>
+				<h2>Fichier polyglotte HTML/ZIP</h2>
+				<p>1/4 - Extraction et affichage des entrées du fichier ZIP</p>
+				<pre>index.js</pre>
+				<pre>
+					<code data-src="dist/steps/04/index.js" data-line-numbers="24|25-29|30-31" class="language-js"></code>
+				</pre>
+			</section>
+			<section>
+				<h2>Fichier polyglotte HTML/ZIP</h2>
+				<p>1/4 - Extraction et affichage des entrées du fichier ZIP</p>
+				<pre>lib/html-template.js</pre>
+				<pre class="fragment">
+					<code data-src="dist/steps/04/lib/html-template.js" data-line-numbers="|19" class="language-js"></code>
+				</pre>
+			</section>
+			<section>
+				<h2>Fichier polyglotte HTML/ZIP</h2>
+				<p>1/4 - Extraction et affichage des entrées du fichier ZIP</p>
+				<pre>assets/page-extraction.js</pre>
+				<pre class="fragment">
+					<code data-src="dist/steps/04/assets/page-extraction.js" data-line-numbers="|6-9|7|17-31|19|20|38-40|20|22,28|25|26-27|30|7|8|47-53|49,52|51" class="language-js"></code>
+				</pre>
+				<iframe loading="lazy" src="dist/steps/04/index.html" class="small fragment"></iframe>
+			</section>
+			<section>
+				<h2>Fichier polyglotte HTML/ZIP</h2>
+				<p>2/4 - Affichage de la page <code>index.html</code></p>
+			</section>
+			<section>
+				<h2>Fichier polyglotte HTML/ZIP</h2>
+				<p>2/4 - Affichage de la page <code>index.html</code></p>
+				<pre>assets/page-extraction.js</pre>
+				<pre>
+					<code data-src="dist/steps/05/assets/page-extraction.js" data-line-numbers="|18-21|19|23-45|33-40|33|6-10|33|69-71|33|34-40|34,40|36,39|44|19|20|57-61|58|1-2|58|59|3-4|59|60" class="language-js"></code>
+				</pre>
+				<iframe loading="lazy" src="dist/steps/05/index.html" class="small fragment"></iframe>
+			</section>
+			<section>
+				<h2>Fichier polyglotte HTML/ZIP</h2>
+				<p>3/4 - Affichage de la page complète</p>
+			</section>
+			<section>
+				<h2>Fichier polyglotte HTML/ZIP</h2>
+				<p>3/4 - Affichage de la page complète</p>
+				<pre>assets/page-extraction.js</pre>
+				<pre>
+					<code data-src="dist/steps/06/assets/page-extraction.js" data-line-numbers="|1-11|12-19|34-39|36-37|72-86|73,85|74-75|76|77-83|77,83|78,82|84" class="language-js"></code>
+				</pre>
+				<iframe loading="lazy" src="dist/steps/06/index.html" class="small fragment"></iframe>
+				<p class="fragment">Code JavaScript inactif ⚠️</p>
+			</section>
+			<section>
+				<h2>Fichier polyglotte HTML/ZIP</h2>
+				<p>4/4 - Prise en charge des scripts</p>
+			</section>
+			<section>
+				<h2>Fichier polyglotte HTML/ZIP</h2>
+				<p>4/4 - Prise en charge des scripts</p>
+				<pre>assets/page-extraction.js</pre>
+				<pre>
+					<code data-src="dist/steps/07/assets/page-extraction.js" data-line-numbers="|20-21|25-29|28|72-82|76-81" class="language-js"></code>
+				</pre>
+				<iframe loading="lazy" src="dist/steps/07/index.html" class="small fragment"></iframe>
+				<p class="fragment">Lecture de la page depuis le système de fichier ⚠️</p>
+			</section>
+			<section>
+				<h2>Lecture du fichier ZIP depuis le système de fichier</h2>
+				<ul>
+					<li class="fragment">Contournement de l'appel à <code>await fetch("")</code></li>
+					<li class="fragment">Lecture du fichier ZIP depuis le DOM via <a
+							href="https://developer.mozilla.org/en-US/docs/Web/API/Node/textContent"
+							target="_blank"><code>Node#textContent</code></a></li>
+					<li class="fragment">
+						Corruption de données engendrée par l'encodage des caractères :
+						<ul>
+							<li class="fragment">encodage des caractères sur 1 octet (e.g. <code>windows-1252</code>)
+								contre plusieurs octets (e.g. <code>UTF-8</code>)
+							</li>
+							<li class="fragment">remplacement par un caractère de remplacement <code>U+FFFD</code> des
+								caractères dont le code est <code>0</code> ou est invalide</li>
+							<li class="fragment">remplacement par un passage à la ligne <code>\n</code> des caractères :
+								<ul>
+									<li class="fragment">retours chariot <code>\r</code></li>
+									<li class="fragment">retours chariot suivis immédiatement d'un passage à la ligne
+										<code>\r\n</code>
+									</li>
+								</ul>
+							</li>
+							<li class="fragment">remplacement de certains caractères (suivant l'encodage) dont le code est supérieur à 127, i.e. au
+								delà de la table <code>ASCII 7-bit</code>
+							</li>
+						</ul>
+					</li>
+				</ul>
+			</section>
+			<section>
+				<h2>Lecture du fichier ZIP depuis le DOM</h2>
+				<p>Affichage en hexadécimal des données ZIP lues sous forme de texte</p>
+			</section>
+			<section>
+				<h2>Lecture du fichier ZIP depuis le DOM</h2>
+				<p>Affichage en hexadécimal des données ZIP lues sous forme de texte</p>
+				<pre>assets/page-extraction.js</pre>
+				<pre><code data-src="dist/steps/08/assets/page-extraction.js" data-line-numbers="|3-5|4|7-27|8-11|12-25|15|29-34|15|18-24|26"></code></pre>
+				<p class="fragment" style="font-size: 0.7em;">
+					<code>UTF-8</code> : <iframe loading="lazy" src="dist/steps/08/index.html" class="small"
+						style="height: 1.3em; width: 320px; top: 13px;"></iframe>
+				</p>
+				<p class="fragment" style="font-size: 0.7em;">
+					<code>windows-1252</code> : <iframe loading="lazy" src="dist/steps/09/index.html" class="small"
+						style="height: 1.3em; width: 320px; top: 13px;"></iframe>
+				</p>
+			</section>
+			<section>
+				<h2>Lecture du fichier ZIP depuis le DOM</h2>
+				<p>1/2 - Comparaison de l'impact des différents encodages sur 1 octet</p>
+				<ul>
+					<li class=" fragment">Pages web de test contenant un contenu binaire de 256 octets avec toutes les
+						valeurs possibles</li>
+					<li class="fragment">Lecture des donnés binaires sous forme de texte en JavaScript</li>
+					<li class="fragment">Calcul et affichage du nombre de caractères :
+						<ul>
+							<li class="fragment">égaux au caractère de remplacement <code>U+FFFD</code> (première
+								colonne)</li>
+							<li class="fragment">différents de ceux attendus (seconde colonne)</li>
+						</ul>
+					</li>
+					<li class="fragment">Test avec tous les <a
+							href="https://developer.mozilla.org/en-US/docs/Web/API/TextDecoder/encoding#value"
+							target="_blank">encodages supportés</a></li>
+				</ul>
+			</section>
+			<section>
+				<h2>Lecture du fichier ZIP depuis le DOM</h2>
+				<p>2/2 - Comparaison de l'impact des différents encodages sur 1 octet</p>
+				<iframe loading="lazy" src="dist/steps/10/index.html" style="height: 485px;"></iframe>
+			</section>
+			<section>
+				<h2>Lecture du fichier ZIP depuis le DOM</h2>
+				<p>Evolutions dans le template HTML :</p>
+				<ul>
+					<li class="fragment">Remplacement de l'encodage <code>UTF-8</code> par <code>windows-1252</code>
+					</li>
+					<li class="fragment">Calcul des données consolidées permettant de restaurer le contenu binaire</li>
+					<li class="fragment">Tableau de 2 tableaux contenant les index de tous les :
+						<ul>
+							<li class="fragment">retours chariot <code>\r</code></li>
+							<li class="fragment">retours chariot suivis immédiatement d'un passage à la ligne
+								<code>\r\n</code>
+							</li>
+						</ul>
+					</li>
+					<li class="fragment">Insertion des données consolidées en JSON dans une balise
+						<code>&lt;script&gt;</code>
+					</li>
+				</ul>
+			</section>
+			<section>
+				<h2>Lecture du fichier ZIP depuis le DOM</h2>
+				<p>Template du fichier HTML auto-extractible (avant)</p>
+			</section>
+			<section>
+				<h2>Lecture du fichier ZIP depuis le DOM</h2>
+				<p>Template du fichier HTML auto-extractible (avant)</p>
+				<pre><code class="language-plaintext" style="background-color: #CDFAD5; color: #777777;">&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+	&lt;head&gt;
+		&lt;meta charset="utf-8"&gt;
+		&lt;title&gt;Please wait...&lt;/title&gt;
+		&lt;script&gt;&lt;!-- Contenu de assets/zip.min.js --&gt;&lt;/script&gt;
+	&lt;/head&gt;
+	&lt;body&gt;
+		&lt;p&gt;Please wait...&lt;/p&gt;&lt;!--</code><code class="language-plaintext"
+									style="background-color: #CDFAD5; color: #777777;">      Données ZIP </code><code
+									class="language-plaintext" style="background-color: #CDFAD5; color: #777777;">    --&gt;
+		&lt;script&gt;&lt;!-- Contenu de assets/page-extraction.js --&gt;&lt;/script&gt;
+  &lt;/body&gt;
+&lt;/html&gt;</code></pre>
+				</code></pre>
+			</section>
+			<section>
+				<h2>Lecture du fichier ZIP depuis le DOM</h2>
+				<p>Template du fichier HTML auto-extractible (après)</p>
+				<pre><code class="language-plaintext" style="background-color: #CDFAD5; color: #777777;">&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+	&lt;head&gt;
+		&lt;meta charset="windows-1252"&gt;
+		&lt;title&gt;Please wait...&lt;/title&gt;
+		&lt;script&gt;&lt;!-- Contenu de assets/zip.min.js --&gt;&lt;/script&gt;
+	&lt;/head&gt;
+	&lt;body&gt;
+		&lt;p&gt;Please wait...&lt;/p&gt;&lt;!--</code><code class="language-plaintext"
+									style="background-color: #CDFAD5; color: #777777;">      Données ZIP </code><code
+									class="language-plaintext" style="background-color: #CDFAD5; color: #777777;">    --&gt;
+		&lt;script&gt;&lt;!-- Contenu de assets/page-extraction.js --&gt;&lt;/script&gt;
+  &lt;/body&gt;
+&lt;/html&gt;</code></pre>
+				</code></pre>
+			</section>
+			<section>
+				<h2>Lecture du fichier ZIP depuis le DOM</h2>
+				<p>Template du fichier HTML auto-extractible (après)</p>
+				<pre><code class="language-plaintext" style="background-color: #CDFAD5; color: #777777;">&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+	&lt;head&gt;
+		&lt;meta charset="windows-1252"&gt;
+		&lt;title&gt;Please wait...&lt;/title&gt;
+		&lt;script&gt;&lt;!-- Contenu de assets/zip.min.js --&gt;&lt;/script&gt;
+	&lt;/head&gt;
+	&lt;body&gt;
+		&lt;p&gt;Please wait...&lt;/p&gt;&lt;!--</code><code class="language-plaintext" style="background-color: #CDFAD5; color: #777777;;">      Données ZIP </code><code class="language-plaintext" style="background-color: #CDFAD5; color: #777777;">    --&gt;&lt;script type="text/json"&gt;</code><code class="language-plaintext" style="background-color: #FFCF96; color: #000000; text-align: center;"> Données de consolidation </code><code class="language-plaintext" style="background-color: #CDFAD5; color: #777777;">    &lt;/script&gt;
+		&lt;script&gt;&lt;!-- Contenu de assets/page-extraction.js --&gt;&lt;/script&gt;
+  &lt;/body&gt;
+&lt;/html&gt;</code></pre>
+			</section>
+			<section>
+				<h2>Lecture du fichier ZIP depuis le DOM</h2>
+				<p>Contournement de l'appel à <code>await fetch("")</code></p>
+			</section>
+			<section>
+				<h2>Lecture du fichier ZIP depuis le DOM</h2>
+				<p>Contournement de l'appel à <code>await fetch("")</code></p>
+				<pre>index.js</pre>
+				<pre>
+					<code data-src="dist/steps/11/index.js" data-line-numbers="|3" class="language-js"></code>
+				</pre>
+			</section>
+			<section>
+				<h2>Lecture du fichier ZIP depuis le DOM</h2>
+				<p>Contournement de l'appel à <code>await fetch("")</code></p>
+				<pre>lib/html-template.js</pre>
+				<pre class="fragment">
+					<code data-src="dist/steps/11/lib/html-template.js" data-line-numbers="|6-16|16-17|17-20" class="language-js"></code>
+				</pre>
+			</section>
+			<section>
+				<h2>Lecture du fichier ZIP depuis le DOM</h2>
+				<p>Contournement de l'appel à <code>await fetch("")</code></p>
+				<pre>index.js</pre>
+				<pre>
+					<code data-src="dist/steps/11/index.js" data-line-numbers="3|17-31|18-24|25-26|1" class="language-js"></code>
+				</pre>
+			</section>
+			<section>
+				<h2>Lecture du fichier ZIP depuis le DOM</h2>
+				<p>Contournement de l'appel à <code>await fetch("")</code></p>
+				<pre>lib/utils-zip.js</pre>
+				<pre class="fragment">
+					<code data-src="dist/steps/11/lib/utils-zip.js" data-line-numbers="|35-49|36|37|38,47|39-40,43,45-46|41,44|48" class="language-js"></code>
+				</pre>
+			</section>
+			<section>
+				<h2>Lecture du fichier ZIP depuis le DOM</h2>
+				<p>Contournement de l'appel à <code>await fetch("")</code></p>
+				<pre>index.js</pre>
+				<pre>
+					<code data-src="dist/steps/11/index.js" data-line-numbers="1|26|27" class="language-js"></code>
+				</pre>
+			</section>
+			<section>
+				<h2>Lecture du fichier ZIP depuis le DOM</h2>
+				<p>Contournement de l'appel à <code>await fetch("")</code></p>
+				<pre>lib/html-template.js</pre>
+				<pre class="fragment">
+					<code data-src="dist/steps/11/lib/html-template.js" data-line-numbers="|18" class="language-js"></code>
+				</pre>
+			</section>
+			<section>
+				<h2>Lecture du fichier ZIP depuis le DOM</h2>
+				<p>Contournement de l'appel à <code>await fetch("")</code></p>
+				<pre>assets/page-extraction.js</pre>
+				<pre class="fragment">
+					<code data-src="dist/steps/11/assets/page-extraction.js" data-line-numbers="|38-42|39|44-63|47|70-93|71-74|75-81|79|80|27-34|80|82-85|21-22|82-85|86-91|23-26|86-91|92" class="language-js"></code>
+				</pre>
+				<iframe loading="lazy" src="dist/steps/11/index.html" class="small fragment"></iframe>
+				<p class="fragment">Les ressources de la page sont décodées en <code>windows-1252</code> ⚠️</p>
+			</section>
+			<section>
+				<h2>Lecture du fichier ZIP depuis le DOM</h2>
+				<p>Correction des problèmes de type MIME des ressources externes</p>
+			</section>
+			<section>
+				<h2>Lecture du fichier ZIP depuis le DOM</h2>
+				<p>Correction des problèmes de type MIME des ressources externes</p>
+				<pre>assets/page-extraction.js</pre>
+				<pre>
+					<code data-src="dist/steps/12/assets/page-extraction.js" data-line-numbers="|39-43|41|88-115|96-99|99|15-20|99|102-106|21-24|102-106|108-110" class="language-js"></code>
+				</pre>
+				<iframe loading="lazy" src="dist/steps/12/index.html" class="small fragment"></iframe>
+			</section>
+			<section>
+				<h2>Format PNG</h2>
+				<ul>
+					<li class="fragment">Créé en 1996 par un groupe de travail public</li>
+					<li class="fragment">Format d'image standard et libre de droits</li>
+					<li class="fragment">Compression sans perte (<code>DEFLATE</code>)</li>
+					<li class="fragment">Fichier composé d'une suite de blocs (<code>chunk</code>)</li>
+					<li class="fragment">Structure d'un bloc :
+						<ol>
+							<li class="fragment">Longueur des données du bloc (4 octets)</li>
+							<li class="fragment">Type du bloc (4 octets) : <code>IHDR</code>, <code>IDAT</code>,
+								<code>IEND</code>,
+								<code>tEXt</code> ...
+							</li>
+							<li class="fragment">Données du bloc (longueur variable)</li>
+							<li class="fragment">Code redondant cyclique (<code>CRC32</code>) calculé à partir de
+								l'ensemble des
+								données du bloc
+							</li>
+						</ol>
+					</li>
+				</ul>
+			</section>
+			<section>
+				<h2>Format PNG</h2>
+				<ul>
+					<li>Structure minimale d'un fichier PNG :
+						<ol>
+							<li class="fragment">
+								Signature PNG (8 octets)
+								<pre><code class="language-plaintext">89 50 4E 47  0D 0A 1A 0A</code></pre>
+							</li>
+							<li class="fragment">
+								Bloc <code>IHDR</code> pour l'en-tête (13 octets)
+								<pre><code class="language-plaintext">00 00 00 0D  49 48 44 52  ...</code></pre>
+							</li>
+							<li class="fragment">
+								Bloc(s) <code>IDAT</code> pour les données de l'image
+							</li>
+							<li class="fragment">
+								Bloc <code>IEND</code> pour la fin des données (12 octets)
+								<pre><code class="language-plaintext">00 00 00 00  49 45 4E 44  AE 42 60 82</code></pre>
+							</li>
+						</ol>
+					</li>
+					<li class="fragment">
+						Bloc <code>tEXt</code> pour stocker des données textes ou binaires
+						<pre><code class="language-plaintext">xx xx xx xx  74 45 58 74  ...</code></pre>
+					</li>
+				</ul>
+			</section>
+			<section>
+				<h2>Format PNG</h2>
+				<p>Structure minimale d'un fichier PNG</p>
+				<br>
+				<table style="font-size: .7em; white-space: pre;">
+					<thead>
+						<tr>
+							<th colspan="2">Type de données</th>
+							<th>Données en hexadécimal</th>
+							<th>Obligatoire</th>
+							<th>Taille (octets)</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td>Signature PNG</td>
+							<td></td>
+							<td><code>89 50 4E 47  0D 0A 1A 0A</code></td>
+							<td>✓</td>
+							<td><code>8</code></td>
+						</tr>
+						<tr>
+							<td>Bloc d'en tête</td>
+							<td><code>IHDR</code></td>
+							<td><code>00 00 00 0D  49 48 44 52  ...</code></td>
+							<td>✓</td>
+							<td><code>13</code></td>
+						</tr>
+						<tr>
+							<td colspan="5">...</td>
+						</tr>
+						<tr>
+							<td>Bloc de données</td>
+							<td><code>IDAT</code></td>
+							<td><code>xx xx xx xx  49 44 41 54  ...</code></td>
+							<td></td>
+							<td><code>12 + n</code></td>
+						</tr>
+						<tr>
+							<td colspan="5">...</td>
+						</tr>
+						<tr>
+							<td>Bloc de fin</td>
+							<td><code>IEND</code></td>
+							<td><code>00 00 00 00  49 45 4E 44  AE 42 60 82</code></td>
+							<td>✓</td>
+							<td><code>12</code></td>
+						</tr>
+					</tbody>
+				</table>
+			</section>
+			<section>
+				<h2>Fichier polyglotte HTML/ZIP/PNG </h2>
+				<ul>
+					<li class="fragment">Encapsulation du fichier HTML/ZIP dans un fichier PNG</li>
+					<li class="fragment">Structure de fichier polyglotte PNG :
+						<ol>
+							<li class="fragment">Signature PNG </li>
+							<li class="fragment">Bloc d'en-tête PNG</li>
+							<li class="fragment">Bloc de texte PNG : contenu HTML jusqu'à la balise ouvrante
+								<code>&lt;!--</code>
+							</li>
+							<li class="fragment">Bloc(s) de données PNG</li>
+							<li class="fragment">Bloc de texte PNG : balise fermante <code>--&gt;</code> et fin du
+								contenu HTML</li>
+							<li class="fragment">Bloc de fin PNG</li>
+						</ol>
+					</li>
+				</ul>
+			</section>
+			<section>
+				<h2>Fichier polyglotte HTML/ZIP/PNG </h2>
+				<p>Structure du fichier PNG (avant)</p>
+				<br>
+				<table style="font-size: .7em; white-space: pre;">
+					<thead>
+						<tr>
+							<th colspan="2">Type de données</th>
+							<th>Données en hexadécimal</th>
+							<th>Obligatoire</th>
+							<th>Taille (octets)</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td>Signature PNG</td>
+							<td></td>
+							<td><code>89 50 4E 47  0D 0A 1A 0A</code></td>
+							<td>✓</td>
+							<td><code>8</code></td>
+						</tr>
+						<tr>
+							<td>Bloc d'en tête</td>
+							<td><code>IHDR</code></td>
+							<td><code>00 00 00 0D  49 48 44 52  ...</code></td>
+							<td>✓</td>
+							<td><code>13</code></td>
+						</tr>
+						<tr style="background-color: #FFCF96;">
+							<td colspan="5">...</td>
+						</tr>
+						<tr style="background-color: #FFCF96;">
+							<td>Bloc de données</td>
+							<td><code>IDAT</code></td>
+							<td><code>xx xx xx xx  49 44 41 54  ...</code></td>
+							<td></td>
+							<td><code>12 + n</code></td>
+						</tr>
+						<tr style="background-color: #FFCF96;">
+							<td colspan="5">...</td>
+						</tr>
+						<tr>
+							<td>Bloc de fin</td>
+							<td><code>IEND</code></td>
+							<td><code>00 00 00 00  49 45 4E 44  AE 42 60 82</code></td>
+							<td>✓</td>
+							<td><code>12</code></td>
+						</tr>
+					</tbody>
+				</table>
+			</section>
+			<section>
+				<h2>Fichier polyglotte HTML/ZIP/PNG </h2>
+				<p>Structure du fichier PNG (après)</p>
+				<br>
+				<table style="font-size: .7em; white-space: pre;">
+					<thead>
+						<tr>
+							<th colspan="2">Type de données</th>
+							<th>Données en hexadécimal</th>
+							<th>Obligatoire</th>
+							<th>Taille (octets)</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td>Signature PNG</td>
+							<td></td>
+							<td><code>89 50 4E 47  0D 0A 1A 0A</code></td>
+							<td>✓</td>
+							<td><code>8</code></td>
+						</tr>
+						<tr>
+							<td>Bloc d'en tête</td>
+							<td><code>IHDR</code></td>
+							<td><code>00 00 00 0D  49 48 44 52  ...</code></td>
+							<td>✓</td>
+							<td><code>13</code></td>
+						</tr>
+						<tr style="background-color: #CDFAD5;">
+							<td>Bloc de texte</td>
+							<td><code>tEXt</code></td>
+							<td><code>xx xx xx xx  74 45 58 74  ...</code></td>
+							<td></td>
+							<td><code>12 + n</code></td>
+						</tr>
+						<tr style="background-color: #FFCF96;">
+							<td colspan="5">...</td>
+						</tr>
+						<tr style="background-color: #FFCF96;">
+							<td>Bloc de données</td>
+							<td><code>IDAT</code></td>
+							<td><code>xx xx xx xx  49 44 41 54  ...</code></td>
+							<td></td>
+							<td><code>12 + n</code></td>
+						</tr>
+						<tr style="background-color: #FFCF96;">
+							<td colspan="5">...</td>
+						</tr>
+						<tr style="background-color: #F6FDC3;">
+							<td>Bloc de texte</td>
+							<td><code>tEXt</code></td>
+							<td><code>xx xx xx xx  74 45 58 74  ...</code></td>
+							<td></td>
+							<td><code>12 + n</code></td>
+						</tr>
+						<tr>
+							<td>Bloc de fin</td>
+							<td><code>IEND</code></td>
+							<td><code>00 00 00 00  49 45 4E 44  AE 42 60 82</code></td>
+							<td>✓</td>
+							<td><code>12</code></td>
+						</tr>
+					</tbody>
+				</table>
+			</section>
+			<section>
+				<h2>Fichier polyglotte HTML/ZIP/PNG </h2>
+				<p>Template du fichier HTML auto-extractible (avant)</p>
+				<pre><code class="language-plaintext" style="background-color: #CDFAD5; color: #777777;">&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+	&lt;head&gt;
+		&lt;meta charset="windows-1252"&gt;
+		&lt;title&gt;Please wait...&lt;/title&gt;
+		&lt;script&gt;&lt;!-- Contenu de assets/zip.min.js --&gt;&lt;/script&gt;
+	&lt;/head&gt;
+	&lt;body&gt;
+		&lt;p&gt;Please wait...&lt;/p&gt;&lt;!--</code><code class="language-plaintext" style="background-color: #F6FDC3; color: #777777;">      Données ZIP </code><code class="language-plaintext" style="background-color: #F6FDC3; color: #777777;">    --&gt;&lt;script type="text/json"&gt;</code><code class="language-plaintext" style="background-color: #F6FDC3; color: #777777;">      Données de consolidation </code><code class="language-plaintext" style="background-color: #F6FDC3; color: #777777;">    &lt;/script&gt;
+		&lt;script&gt;&lt;!-- Contenu de assets/page-extraction.js --&gt;&lt;/script&gt;
+  &lt;/body&gt;
+&lt;/html&gt;</code></pre>
+			</section>
+			<section>
+				<h2>Fichier polyglotte HTML/ZIP/PNG </h2>
+				<p>Template du fichier HTML auto-extractible (après)</p>
+				<pre><code class="language-plaintext" style="background-color: #CDFAD5; color: #777777;">&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+	&lt;head&gt;
+		&lt;meta charset="windows-1252"&gt;
+		&lt;title&gt;Please wait...&lt;/title&gt;
+		&lt;script&gt;&lt;!-- Contenu de assets/zip.min.js --&gt;&lt;/script&gt;
+	&lt;/head&gt;
+	&lt;body&gt;
+		&lt;p&gt;Please wait...&lt;/p&gt;&lt;!--</code><code class="language-plaintext" style="background-color: #FFCF96; color: #000000; text-align: center;"> Bloc(s) IDAT </code><code class="language-plaintext" style="background-color: #F6FDC3; color: #777777;">    --&gt;&lt;!--</code><code class="language-plaintext" style="background-color: #F6FDC3; color: #777777;">      Données ZIP </code><code class="language-plaintext" style="background-color: #F6FDC3; color: #777777;">    --&gt;&lt;script type="text/json"&gt;
+		  Données de consolidation
+		&lt;/script&gt;
+		&lt;script&gt;&lt;!-- Contenu de assets/page-extraction.js --&gt;&lt;/script&gt;
+  &lt;/body&gt;
+&lt;/html&gt;</code></pre>
+			</section>
+
+			<section>
+				<h2>Fichier polyglotte HTML/ZIP/PNG </h2>
+				<p>Template du fichier HTML auto-extractible (après)</p>
+				<pre><code class="language-plaintext" style="text-align: center;">Signature PNG + Bloc IHDR (21 octets)</code>
+<code class="language-plaintext" style="background-color: #CDFAD5; color: #777777;">&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+	&lt;head&gt;
+		&lt;meta charset="windows-1252"&gt;
+		&lt;title&gt;Please wait...&lt;/title&gt;
+		&lt;script&gt;&lt;!-- Contenu de assets/zip.min.js --&gt;&lt;/script&gt;
+	&lt;/head&gt;
+	&lt;body&gt;
+		&lt;p&gt;Please wait...&lt;/p&gt;&lt;!--</code><code class="language-plaintext" style="background-color: #FFCF96; color: #000000; text-align: center;"> Bloc(s) IDAT </code><code class="language-plaintext" style="background-color: #F6FDC3; color: #777777;">    --&gt;&lt;!--</code><code class="language-plaintext" style="background-color: #F6FDC3; color: #777777;">      Données ZIP </code><code class="language-plaintext" style="background-color: #F6FDC3; color: #777777;">    --&gt;&lt;script type="text/json"&gt;
+		  Données de consolidation
+		&lt;/script&gt;
+		&lt;script&gt;&lt;!-- Contenu de assets/page-extraction.js --&gt;&lt;/script&gt;
+  &lt;/body&gt;
+&lt;/html&gt;</code>
+<code class="language-plaintext" style="text-align: center;">Bloc IEND (12 octets)</code></pre>
+			</section>
+
+			<section>
+				<h2>Fichier polyglotte HTML/ZIP/PNG </h2>
+				<p>Encapsulation du fichier HTML/ZIP dans un fichier PNG</p>
+				<pre>index.js</pre>
+				<pre class="fragment">
+					<code data-src="dist/steps/13/index.js" data-line-numbers="|3-9" class="language-js"></code>
+				</pre>
+			</section>
+			<section>
+				<h2>Fichier polyglotte HTML/ZIP/PNG </h2>
+				<p>Encapsulation du fichier HTML/ZIP dans un fichier PNG</p>
+				<pre>lib/utils-png.js</pre>
+				<pre class="fragment">
+					<code data-src="dist/steps/13/lib/utils-png.js" data-line-numbers="|5-12|13-14|15-22|30-33|41-45|53-56|65-80|66-70|71-75|122-126|71-75|76-79|105-114|76-79|87-89" class="language-js"></code>
+				</pre>
+			</section>
+			<section>
+				<h2>Fichier polyglotte HTML/ZIP/PNG </h2>
+				<p>Encapsulation du fichier HTML/ZIP dans un fichier PNG</p>
+				<pre>index.js</pre>
+				<pre>
+					<code data-src="dist/steps/13/index.js" data-line-numbers="3-9|10" class="language-js"></code>
+				</pre>
+			</section>
+			<section>
+				<h2>Fichier polyglotte HTML/ZIP/PNG </h2>
+				<p>Encapsulation du fichier HTML/ZIP dans un fichier PNG</p>
+				<pre>lib/html-template.js</pre>
+				<pre class="fragment">
+					<code data-src="dist/steps/13/lib/html-template.js" data-line-numbers="|6-21|6-16|16-17|17-18|18-21" class="language-js"></code>
+				</pre>
+			</section>
+			<section>
+				<h2>Fichier polyglotte HTML/ZIP/PNG </h2>
+				<p>Encapsulation du fichier HTML/ZIP dans un fichier PNG</p>
+				<pre>index.js</pre>
+				<pre>
+					<code data-src="dist/steps/13/index.js" data-line-numbers="10|22-27|32-33|35-36|37-38|40-45|47-53|54-66|67-68" class="language-js"></code>
+				</pre>
+			</section>
+			<section>
+				<h2>Fichier polyglotte HTML/ZIP/PNG </h2>
+				<p>Encapsulation du fichier HTML/ZIP dans un fichier PNG</p>
+				<pre>assets/page-extraction.js</pre>
+				<pre class="fragment">
+					<code data-src="dist/steps/13/assets/page-extraction.js" data-line-numbers="|37-41|37-38" class="language-js"></code>
+				</pre>
+				<iframe loading="lazy" src="dist/steps/13/index.html" class="small fragment"></iframe>
+				<p class="fragment">Des noeuds textes induits par le format PNG sont visibles ⚠️</p>
+			</section>
+			<section>
+				<h2>Fichier polyglotte HTML/ZIP/PNG </h2>
+				<p>Suppression des nœuds texte induits par le format PNG</p>
+			</section>
+			<section>
+				<h2>Fichier polyglotte HTML/ZIP/PNG </h2>
+				<p>Suppression des nœuds texte induits par le format PNG</p>
+				<pre>assets/page-extraction.js</pre>
+				<pre>
+					<code data-src="dist/steps/14/assets/page-extraction.js" data-line-numbers="|33-34|39-40|53-59|54|55,58|56-57" class="language-js"></code>
+				</pre>
+				<iframe loading="lazy" src="dist/steps/14/index.html" class="small fragment"></iframe>
+				<p class="fragment">La page est rendue en <a href="https://en.wikipedia.org/wiki/Quirks_mode">mode
+						quirks</a> ⚠️</p>
+			</section>
+			<section>
+				<h2>Fichier polyglotte HTML/ZIP/PNG </h2>
+				<p>Correction du mode de rendu de la page HTML et du chargement des scripts</p>
+			</section>
+			<section>
+				<h2>Fichier polyglotte HTML/ZIP/PNG </h2>
+				<p>Correction du mode de rendu de la page HTML et du chargement des scripts</p>
+				<pre>assets/page-extraction.js</pre>
+				<pre>
+					<code data-src="dist/steps/15/assets/page-extraction.js" data-line-numbers="|35-43|39|120-126|121-122|123|124-125" class="language-js"></code>
+				</pre>
+				<iframe loading="lazy" src="dist/steps/15/index.html" class="small fragment"></iframe>
+			</section>
+			<section>
+				<h2>Fichier polyglotte HTML/ZIP/PNG </h2>
+				<p>Réutilisation de l'image dans la page HTML</p>
+			</section>
+			<section>
+				<h2>Fichier polyglotte HTML/ZIP/PNG </h2>
+				<p>Réutilisation de l'image dans la page HTML</p>
+				<pre>project/index.html</pre>
+				<pre>
+					<code data-src="dist/steps/16/project/index.html" data-line-numbers="|17" class="language-html"></code>
+				</pre>
+			</section>
+			<section>
+				<h2>Fichier polyglotte HTML/ZIP/PNG </h2>
+				<p>Réutilisation de l'image dans la page HTML</p>
+				<pre>assets/page-extraction.js</pre>
+				<pre class="fragment">
+					<code data-src="dist/steps/16/assets/page-extraction.js" data-line-numbers="|6-12" class="language-js"></code>
+				</pre>
+			</section>
+			<section>
+				<h2>Fichier polyglotte HTML/ZIP/PNG </h2>
+				<p>Réutilisation de l'image dans la page HTML</p>
+				<pre>index.js</pre>
+				<pre class="fragment">
+					<code data-src="dist/steps/16/index.js" data-line-numbers="|13-20|22-24" class="language-js"></code>
+				</pre>
+				<iframe loading="lazy" src="dist/steps/16/index.html" class="small fragment"></iframe>
+			</section>
+			<section>
+				<h2>Conclusion</h2>
+				<ul>
+					<li>Limitations de l'implémentation finale :
+						<ul>
+							<li class="fragment">Résolution des dépendances faite manuellement</li>
+							<li class="fragment">Dépassement de la limite de 64Ko de données après le fichier ZIP (commentaire)</li>
+							<li class="fragment">Présence de <code>--&gt;</code> dans les données binaires ZIP ou PNG
+							</li>
+							<li class="fragment">Utilisation de <code>String#replaceAll()</code> pour remplacer les
+								chemins dans les fichiers texte au lieu de s'appuyer sur une analyse syntaxique</li>
+							<li class="fragment">Absence de tag <code>&lt;meta&gt;</code> contenant la <a
+									href="https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP" target="_blank">Content
+									Security Policy (CSP)</a>
+							</li>
+							<li class="fragment">Non prise en charge des frames</li>
+							<li class="fragment">...</li>
+						</ul>
+					</li>
+					<li class="fragment">Formats alternatifs : MHTML, Web Bundle, WARC/WACZ, MAFF ...</li>
+					<li class="fragment">Est-ce dangereux ? 🤷 (GIFAR)</li>
+				</ul>
+			</section>
+		</div>
+	</div>
+
+	<script src="dist/reveal.js"></script>
+	<script src="plugin/notes/notes.js"></script>
+	<script src="plugin/markdown/markdown.js"></script>
+	<script src="plugin/highlight/highlight.js"></script>
+	<script type=module>
+		const codeElements = document.querySelectorAll("code");
+		for (const codeElement of codeElements) {
+			const path = codeElement.dataset.src;
+			if (path) {
+				const text = await (await fetch(path)).text();
+				codeElement.textContent = text;
+			}
+		}
+		Reveal.initialize({
+			width: 1200,
+			height: 650,
+			hash: true,
+			margin: 0.05,
+			transition: "none",
+			plugins: [RevealMarkdown, RevealHighlight, RevealNotes]
+		});
+	</script>
+</body>
+
+</html>
