@@ -307,6 +307,9 @@
 			</section>
 			<section>
 				<h2>Exemple avec zip.js</h2>
+			</section>
+			<section>
+				<h2>Exemple avec zip.js</h2>
 				<p>Exemple de création d'un fichier ZIP</p>
 				<pre class="fragment">
 					<code data-line-numbers="|1|3|4|6,9|7|8|11|12"  class="language-js">import { ZipWriter, Uint8ArrayWriter } from "@zip-js/zip-js"
@@ -323,6 +326,9 @@ await zipWriter.close()
 const zipData = zipDataWriter.getData() // Uint8Array
 console.log("zip file data:", zipData)</code>
 				</pre>
+			</section>
+			<section>
+				<h2>Intégration dans le projet</h2>
 			</section>
 			<section>
 				<h2>Intégration dans le projet</h2>
@@ -399,6 +405,9 @@ console.log("zip file data:", zipData)</code>
 			</section>
 			<section>
 				<h2>Exemple avec zip.js</h2>
+			</section>
+			<section>
+				<h2>Exemple avec zip.js</h2>
 				<p>Exemple de lecture d'un fichier ZIP</p>
 				<pre class="fragment">
 					<code data-line-numbers="|1|3|4|6,9|7|8|11"  class="language-js">import { ZipReader, BlobReader, BlobWriter } from "@zip-js/zip-js"
@@ -416,7 +425,6 @@ await zipReader.close()</code>
 			</section>
 			<section>
 				<h2>Intégration dans le projet</h2>
-				<p>Lecture du fichier ZIP</p>
 			</section>
 			<section>
 				<h2>Intégration dans le projet</h2>
@@ -887,7 +895,6 @@ await zipReader.close()</code>
 			</section>
 			<section>
 				<h2>Lecture du fichier ZIP depuis le DOM</h2>
-				<p>Affichage en hexadécimal des données ZIP lues sous forme de texte</p>
 			</section>
 			<section>
 				<h2>Lecture du fichier ZIP depuis le DOM</h2>
@@ -1069,10 +1076,6 @@ await zipReader.close()</code>
 			<section>
 				<h2>Lecture du fichier ZIP depuis le DOM</h2>
 				<p>Ajout des données consolidées</p>
-			</section>
-			<section>
-				<h2>Lecture du fichier ZIP depuis le DOM</h2>
-				<p>Ajout des données consolidées</p>
 				<div class="panels">
 					<div class="panel panel-left">
 						<pre>index.html</pre>
@@ -1086,7 +1089,7 @@ await zipReader.close()</code>
 					</div>
 					<div class="panel panel-right">
 						<pre>
-							<code data-src="dist/steps/11/index.js" data-line-numbers="3|17-31|18-24|25-26|1" class="language-js"></code>
+							<code data-src="dist/steps/11/index.js" data-line-numbers="|3|17-31|18-24|25-26|1" class="language-js"></code>
 						</pre>
 					</div>
 				</div>
@@ -1136,10 +1139,6 @@ await zipReader.close()</code>
 			<section>
 				<h2>Lecture du fichier ZIP depuis le DOM</h2>
 				<p>Contournement de l'appel à <code>await fetch("")</code></p>
-			</section>
-			<section>
-				<h2>Lecture du fichier ZIP depuis le DOM</h2>
-				<p>Contournement de l'appel à <code>await fetch("")</code></p>
 				<div class="panels">
 					<div class="panel panel-left">
 						<pre>index.html</pre>
@@ -1180,10 +1179,6 @@ await zipReader.close()</code>
 				</div>
 				<iframe loading="lazy" src="dist/steps/11/index.html" class="small fragment"></iframe>
 				<p class="fragment">Les ressources de la page sont décodées en <code>windows-1252</code> ⚠️</p>
-			</section>
-			<section>
-				<h2>Lecture du fichier ZIP depuis le DOM</h2>
-				<p>Correction des problèmes de type MIME des ressources externes</p>
 			</section>
 			<section>
 				<h2>Lecture du fichier ZIP depuis le DOM</h2>
@@ -1636,11 +1631,7 @@ await zipReader.close()</code>
 			</section>
 			<section>
 				<h2>Fichier polyglotte HTML/ZIP/PNG </h2>
-				<p>Suppression des nœuds texte induits par le format PNG</p>
-			</section>
-			<section>
-				<h2>Fichier polyglotte HTML/ZIP/PNG </h2>
-				<p>Suppression des nœuds texte induits par le format PNG</p>
+				<p>Suppression des nœuds textes induits par le format PNG</p>
 				<div class="panels">
 					<div class="panel panel-left">
 						<pre>index.html</pre>
@@ -1666,10 +1657,6 @@ await zipReader.close()</code>
 			<section>
 				<h2>Fichier polyglotte HTML/ZIP/PNG </h2>
 				<p>Correction du mode de rendu de la page HTML et du chargement des scripts</p>
-			</section>
-			<section>
-				<h2>Fichier polyglotte HTML/ZIP/PNG </h2>
-				<p>Correction du mode de rendu de la page HTML et du chargement des scripts</p>
 				<div class="panels">
 					<div class="panel panel-left">
 						<pre>index.html</pre>
@@ -1690,10 +1677,6 @@ await zipReader.close()</code>
 				</div>
 				<iframe loading="lazy" src="dist/steps/15/index.html" class="small fragment"></iframe>
 				<p class="fragment">L'image principale est stockée en double dans le fichier 🤔</p>
-			</section>
-			<section>
-				<h2>Fichier polyglotte HTML/ZIP/PNG </h2>
-				<p>Réutilisation de l'image dans la page HTML</p>
 			</section>
 			<section>
 				<h2>Fichier polyglotte HTML/ZIP/PNG </h2>
