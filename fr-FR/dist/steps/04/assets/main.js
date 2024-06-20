@@ -36,7 +36,7 @@ async function extractResources(zip) {
  * @returns {Promise<Blob>} The zip data.
  */
 async function getZipData() {
-  return (await fetch("")).blob();
+  return (await globalThis.fetch("")).blob();
 }
 
 /**

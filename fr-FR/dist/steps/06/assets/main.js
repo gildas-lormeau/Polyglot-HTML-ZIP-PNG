@@ -60,7 +60,7 @@ async function extractResources(zip) {
 }
 
 async function getZipData() {
-  return (await fetch("")).blob();
+  return (await globalThis.fetch("")).blob();
 }
 
 /**
