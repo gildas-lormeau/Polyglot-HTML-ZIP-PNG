@@ -8,4 +8,4 @@ You can download the presentation (PDF) in:
  
 Here is the resulting file: [demo.zip.png.html](demo.png.zip.html).
 
-If you're using a Chromium-based browsers, you should install the extension located in [util/web-extension](util/web-extension) to add the support of `file://` URI in the `fetch` API.
+If you're using a Chromium-based browsers, you should install the extension located in [util/web-extension](https://github.com/gildas-lormeau/Polyglot-HTML-ZIP-PNG/tree/main/util/web-extension) to add the support of `file://` URI in the `fetch` API.
