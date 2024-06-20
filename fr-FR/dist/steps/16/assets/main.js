@@ -96,8 +96,8 @@ function resolveDependencies(resources) {
     if (dependentResource.blobURI) {
       dependentURI = dependentResource.blobURI;
     } else {
-      const dependantPathExtension = getExtension(dependentPath);
-      const matchTextType = TEXT_TYPES[dependantPathExtension];
+      const dependentPathExtension = getExtension(dependentPath);
+      const matchTextType = TEXT_TYPES[dependentPathExtension];
       let dependentDataType;
       if (matchTextType) {
         dependentDataType = `${matchTextType};${CHARSET_UTF8}`;

@@ -94,9 +94,9 @@ function resolveDependencies(resources) {
       dependentURI = dependentResource.blobURI;
     } else {
       /* Get the extension of the dependent path */
-      const dependantPathExtension = getExtension(dependentPath);
+      const dependentPathExtension = getExtension(dependentPath);
       /* Get the MIME type of the dependent path extension */
-      const matchTextType = TEXT_TYPES[dependantPathExtension];
+      const matchTextType = TEXT_TYPES[dependentPathExtension];
       /* Determine the MIME type of the dependent data */
       let dependentDataType;
       if (matchTextType) {
