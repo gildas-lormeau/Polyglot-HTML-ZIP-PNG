@@ -311,7 +311,7 @@
 			<section>
 				<h2>Exemple avec zip.js</h2>
 				<p>Exemple de création d'un fichier ZIP</p>
-				<pre class="fragment">
+				<pre>
 					<code data-line-numbers="|1|3|4|6,9|7|8|11|12"  class="language-js">import { ZipWriter, Uint8ArrayWriter } from "@zip-js/zip-js"
 
 const zipDataWriter = new Uint8ArrayWriter()
@@ -329,10 +329,6 @@ console.log("zip file data:", zipData)</code>
 			</section>
 			<section>
 				<h2>Intégration dans le projet</h2>
-			</section>
-			<section>
-				<h2>Intégration dans le projet</h2>
-				<p>Création du fichier ZIP</p>
 			</section>
 			<section>
 				<h2>Intégration dans le projet</h2>
@@ -409,7 +405,7 @@ console.log("zip file data:", zipData)</code>
 			<section>
 				<h2>Exemple avec zip.js</h2>
 				<p>Exemple de lecture d'un fichier ZIP</p>
-				<pre class="fragment">
+				<pre>
 					<code data-line-numbers="|1|3|4|6,9|7|8|11"  class="language-js">import { ZipReader, BlobReader, BlobWriter } from "@zip-js/zip-js"
 
 const zipReader = new ZipReader(new BlobReader(blob))
@@ -493,10 +489,6 @@ await zipReader.close()</code>
 			<section>
 				<h2>Format ZIP (suite)</h2>
 				<p>Template du fichier HTML auto-extractible</p>
-			</section>
-			<section>
-				<h2>Format ZIP (suite)</h2>
-				<p>Template du fichier HTML auto-extractible</p>
 				<pre><code class="language-plaintext" style="background-color: #CDFAD5; color: #777777;">&lt;!DOCTYPE html&gt;
 &lt;html&gt;
 	&lt;head&gt;
@@ -525,10 +517,6 @@ await zipReader.close()</code>
 		&lt;script&gt;&lt;!-- Contenu de assets/main.js --&gt;&lt;/script&gt;
   &lt;/body&gt;
 &lt;/html&gt;</code></pre>
-			</section>
-			<section>
-				<h2>Fichier polyglotte HTML/ZIP</h2>
-				<p class="fragment">1/4 - Extraction et affichage des entrées du fichier ZIP</p>
 			</section>
 			<section>
 				<h2>Fichier polyglotte HTML/ZIP</h2>
@@ -786,10 +774,6 @@ await zipReader.close()</code>
 			<section>
 				<h2>Fichier polyglotte HTML/ZIP</h2>
 				<p>2/4 - Affichage de la page <code>index.html</code></p>
-			</section>
-			<section>
-				<h2>Fichier polyglotte HTML/ZIP</h2>
-				<p>2/4 - Affichage de la page <code>index.html</code></p>
 				<div class="panels">
 					<div class="panel panel-left">
 						<pre>index.html</pre>
@@ -808,10 +792,6 @@ await zipReader.close()</code>
 					</div>
 				</div>
 				<iframe loading="lazy" src="dist/steps/05/index.html" class="small fragment"></iframe>
-			</section>
-			<section>
-				<h2>Fichier polyglotte HTML/ZIP</h2>
-				<p>3/4 - Affichage de la page complète</p>
 			</section>
 			<section>
 				<h2>Fichier polyglotte HTML/ZIP</h2>
@@ -835,10 +815,6 @@ await zipReader.close()</code>
 				</div>
 				<iframe loading="lazy" src="dist/steps/06/index.html" class="small fragment"></iframe>
 				<p class="fragment">Code JavaScript inactif ⚠️</p>
-			</section>
-			<section>
-				<h2>Fichier polyglotte HTML/ZIP</h2>
-				<p>4/4 - Prise en charge des scripts</p>
 			</section>
 			<section>
 				<h2>Fichier polyglotte HTML/ZIP</h2>
@@ -927,7 +903,7 @@ await zipReader.close()</code>
 			</section>
 			<section>
 				<h2>Lecture du fichier ZIP depuis le DOM</h2>
-				<p>1/2 - Comparaison de l'impact des différents encodages sur 1 octet</p>
+				<p>Comparaison de l'impact des différents encodages sur 1 octet</p>
 				<ul>
 					<li class=" fragment">Pages web de test contenant un contenu binaire de 256 octets avec toutes les
 						valeurs possibles</li>
@@ -946,12 +922,12 @@ await zipReader.close()</code>
 			</section>
 			<section>
 				<h2>Lecture du fichier ZIP depuis le DOM</h2>
-				<p>2/2 - Comparaison de l'impact des différents encodages sur 1 octet</p>
+				<p>Comparaison de l'impact des différents encodages sur 1 octet</p>
 				<iframe loading="lazy" src="dist/steps/10/index.html" style="height: 485px;"></iframe>
 			</section>
 			<section>
 				<h2>Lecture du fichier ZIP depuis le DOM</h2>
-				<p>Evolutions dans le template HTML :</p>
+				<p>Evolutions dans le template HTML</p>
 				<ul>
 					<li class="fragment">Remplacement de l'encodage <code>UTF-8</code> par <code>windows-1252</code>
 					</li>
@@ -968,10 +944,6 @@ await zipReader.close()</code>
 						<code>&lt;script&gt;</code>
 					</li>
 				</ul>
-			</section>
-			<section>
-				<h2>Lecture du fichier ZIP depuis le DOM</h2>
-				<p>Template du fichier HTML auto-extractible (avant)</p>
 			</section>
 			<section>
 				<h2>Lecture du fichier ZIP depuis le DOM</h2>
@@ -1026,10 +998,6 @@ await zipReader.close()</code>
 		&lt;script&gt;&lt;!-- Contenu de assets/main.js --&gt;&lt;/script&gt;
   &lt;/body&gt;
 &lt;/html&gt;</code></pre>
-			</section>
-			<section>
-				<h2>Lecture du fichier ZIP depuis le DOM</h2>
-				<p>Prise en charge des données consolidées dans le template HTML</p>
 			</section>
 			<section>
 				<h2>Lecture du fichier ZIP depuis le DOM</h2>
