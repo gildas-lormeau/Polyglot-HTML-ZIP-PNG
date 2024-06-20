@@ -1,0 +1,30 @@
+    {
+        "manifest_version": 3,
+        "name": "Support fetch from filesystem",
+        "version": "1.0",
+        "description": "Support fetch from filesystem",
+        "background": {
+            "service_worker": "background.js"
+        },
+        "content_scripts": [
+            {
+                "matches": [
+                    "<all_urls>"
+                ],
+                "run_at": "document_start",
+                "js": [
+                    "script-proxy.js"
+                ]
+            },
+            {
+                "matches": [
+                    "<all_urls>"
+                ],
+                "run_at": "document_start",
+                "js": [
+                    "script.js"
+                ],
+                "world": "MAIN"
+            }
+        ]
+    }
