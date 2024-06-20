@@ -30,5 +30,7 @@ function getCharCodeHex(data, index) {
   const charCode = data.charCodeAt(index);
   return charCode < 256 ?
     charCode.toString(16).padStart(2, "0") :
-    `<span title=${charCode} class="${charCode === 65533 ? "yellow" : "orange"}">  </span>`;
+    `<span title=${charCode} class="$
+      {charCode === 65533 ? "yellow" : "orange"}">
+    </span>`;
 }

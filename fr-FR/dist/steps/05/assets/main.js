@@ -51,7 +51,8 @@ async function getZipData() {
 /**
  * Display the index page.
  * 
- * @param {{ [filename: string]: { blobURI: string, text: string } }} resources The resources.
+ * @param {{ [filename: string]: { blobURI: string, text: string } }} resources
+ *  The resources.
  * @returns {void}
  */
 function displayPage(resources) {

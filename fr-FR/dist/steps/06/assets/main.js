@@ -66,7 +66,8 @@ async function getZipData() {
 /**
  * Resolve dependencies between resources.
  * 
- * @param {{ [filename: string]: { text: string, blobURI?: string } }} resources The resources.
+ * @param {{ [filename: string]: { text: string, blobURI?: string } }} resources
+ *  The resources.
  * @returns {void}
  */
 function resolveDependencies(resources) {
