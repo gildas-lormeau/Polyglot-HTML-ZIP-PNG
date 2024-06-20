@@ -2,7 +2,7 @@ import { minifyScript } from "./utils.js";
 // The zip.js script
 const ZIP_JS_SCRIPT = await (await fetch("assets/zip.min.js")).text();
 // The main script for the page extraction
-const MAIN_SCRIPT = await (await fetch("assets/page-extraction.js")).text();
+const MAIN_SCRIPT = await (await fetch("assets/main.js")).text();
 
 // The HTML template for the output file
 const template = [`<!DOCTYPE html>

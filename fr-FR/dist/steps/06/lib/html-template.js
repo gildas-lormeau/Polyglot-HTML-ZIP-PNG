@@ -1,7 +1,7 @@
 import { minifyScript } from "./utils.js";
 
 const ZIP_JS_SCRIPT = await (await fetch("assets/zip.min.js")).text();
-const MAIN_SCRIPT = await (await fetch("assets/page-extraction.js")).text();
+const MAIN_SCRIPT = await (await fetch("assets/main.js")).text();
 
 const template = [`<!DOCTYPE html>
 <html>
