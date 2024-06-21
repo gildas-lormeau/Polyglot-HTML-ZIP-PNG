@@ -24,7 +24,7 @@ async function getZipData(inputFolder, filenames, offset = 0) {
   return zipDataWriter.getData();
 }
 
-function getExtraData(zipData) {
+function getConsolidationData(zipData) {
   const insertionsCRLF = [];
   const substitutionsLF = [];
   for (let index = 0; index < zipData.length; index++) {
@@ -42,5 +42,5 @@ function getExtraData(zipData) {
 
 export {
   getZipData,
-  getExtraData
+  getConsolidationData
 };

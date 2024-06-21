@@ -1,4 +1,4 @@
-import { getZipData, getExtraData } from "./lib/utils-zip.js";
+import { getZipData, getConsolidationData } from "./lib/utils-zip.js";
 import { encodeText } from "./lib/utils.js";
 import HTML_PARTS from "./lib/html-template.js";
 
@@ -22,7 +22,7 @@ async function main() {
     htmlPart0,
     zipData,
     encodeText(HTML_PARTS[1]),
-    getExtraData(zipData),
+    getConsolidationData(zipData),
     encodeText(HTML_PARTS[2])
   ], { type: "text/html" });
   const linkElement = document.querySelector("a");

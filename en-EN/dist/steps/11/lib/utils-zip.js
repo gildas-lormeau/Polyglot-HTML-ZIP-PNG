@@ -32,7 +32,7 @@ async function getZipData(inputFolder, filenames, offset = 0) {
  * @param {Blob} zipData The zip data.
  * @returns {Uint8Array} The consolidation data consolidating the zip data.
  */
-function getExtraData(zipData) {
+function getConsolidationData(zipData) {
   const insertionsCRLF = [];
   const substitutionsLF = [];
   for (let index = 0; index < zipData.length; index++) {
@@ -50,5 +50,5 @@ function getExtraData(zipData) {
 
 export {
   getZipData,
-  getExtraData
+  getConsolidationData
 };

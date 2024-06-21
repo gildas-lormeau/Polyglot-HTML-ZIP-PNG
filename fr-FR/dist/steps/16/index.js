@@ -1,4 +1,4 @@
-import { getZipData, getExtraData } from "./lib/utils-zip.js";
+import { getZipData, getConsolidationData } from "./lib/utils-zip.js";
 import { encodeText, mergeData } from "./lib/utils.js";
 import {
   createTextChunk,
@@ -48,7 +48,7 @@ async function main() {
       htmlPart1,
       zipData,
       encodeText(HTML_PARTS[2]),
-      getExtraData(zipData),
+      getConsolidationData(zipData),
       encodeText(HTML_PARTS[3])
     )),
     getTrailerChunk(IMAGE_DATA)
