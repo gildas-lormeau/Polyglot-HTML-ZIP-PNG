@@ -10,4 +10,4 @@ Here is the resulting file: [demo.png.zip.html](https://github.com/gildas-lormea
 
 # Installation
 
-If you're using a Chromium-based browsers, you should install the extension located in [util/web-extension](https://github.com/gildas-lormeau/Polyglot-HTML-ZIP-PNG/tree/main/util/web-extension) to add the support of `file://` URIs in the `fetch` API.
+If you are using a Chromium-based browser to view the presentation and test examples, you should install the extension located in [util/web-extension](https://github.com/gildas-lormeau/Polyglot-HTML-ZIP-PNG/tree/main/util/web-extension) to add the support of `file://` URIs in the `fetch` API.
