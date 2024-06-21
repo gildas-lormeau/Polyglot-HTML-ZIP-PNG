@@ -1725,7 +1725,7 @@ await zipReader.close()</code>
 					<li class="fragment">Limitations of the final implementation:
 						<ul>
 							<li class="fragment">Manual resolution of dependencies</li>
-							<li class="fragment">Overflow of 64KB of data after ZIP file (comment)</li>
+							<li class="fragment">Avoid overflow of 64KB of data after ZIP file (comment)</li>
 							<li class="fragment">Presence of <code>--&gt;</code> in ZIP or PNG binary data</li>
 							<li class="fragment">Use of <code>String#replaceAll()</code> to replace paths in text files
 								instead of relying on parsing</li>
