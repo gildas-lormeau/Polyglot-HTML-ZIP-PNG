@@ -1,0 +1,1771 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+	<title>Créez en JavaScript votre fichier polyglotte HTML/ZIP/PNG</title>
+
+	<link rel="stylesheet" href="dist/reset.css">
+	<link rel="stylesheet" href="dist/reveal.css">
+	<link rel="stylesheet" href="dist/theme/solarized.css">
+
+	<!-- Theme used for syntax highlighted code -->
+	<link rel="stylesheet" href="plugin/highlight/kimbie-light.css">
+	<style>
+		:root {
+			--r-heading-margin: 0 0 20px 0;
+			--r-block-margin: 10px;
+			--r-main-font-size: 35px;
+			--r-heading1-size: 2em;
+			--r-heading2-size: 1.5em;
+			--r-heading3-size: 1.25em;
+			--r-heading4-size: 1.1em;
+		}
+
+		section:not(:first-child) {
+			top: 0 !important;
+			left: 0 !important;
+		}
+
+		section>ul,
+		section>pre,
+		section>p,
+		section>iframe {
+			min-width: 100%;
+		}
+
+		section>ul>li {
+			width: 95%;
+		}
+
+		iframe.small {
+			height: 1em;
+			position: relative;
+			top: 5px;
+		}
+
+		section p {
+			text-align: left;
+		}
+
+		section h2 {
+			position: relative;
+			top: -15px;
+		}
+
+		.reveal pre {
+			margin: 0;
+			box-shadow: none;
+		}
+
+		.reveal code,
+		.reveal a {
+			color: #555;
+		}
+
+		.reveal .panel-right pre {
+			width: 950px;
+		}
+
+		.reveal .panel-right pre>code {
+			height: 19em;
+		}
+
+		.reveal .hljs.has-highlights tr:not(.highlight-line) {
+			opacity: .35;
+		}
+
+		.panels {
+			display: flex;
+			margin-block: 8px;
+		}
+
+		.panel-left {
+			padding: 8px;
+			padding-right: 20px;
+			background-color: #f0e2cd;
+		}
+
+		.panel-left strong {
+			font-weight: normal;
+			color: #f06431;
+		}
+
+		.panel-left hr {
+			margin-block: .25em;
+			border-color: var(--r-main-color);
+			border-width: .5px;
+		}
+
+		.panel-right {
+			flex: 1;
+		}
+
+		.hljs-ln-line.hljs-ln-numbers {
+			display: none;
+		}
+	</style>
+</head>
+
+<body>
+	<div class="reveal">
+		<div class="slides">
+			<section>
+				<h1>Create your HTML / ZIP / PNG polyglot file in JavaScript</h1>
+			</section>
+			<section>
+				<h2>Introduction</h2>
+				<ul>
+					<li class="fragment">Web developer for 20+ years</li>
+					<li class="fragment">Author of open-source projects:
+						<ul>
+							<li class="fragment"><a href="https://github.com/gildas-lormeau/zip.js"
+									target="_blank">zip.js</a>: library for reading and writing zip files in JavaScript
+							</li>
+							<li class="fragment"><a href="https://github.com/gildas-lormeau/SingleFile"
+									target="_blank">SingleFile</a>: extension and command-line tool for saving a web
+								page as a single HTML file
+								<ul>
+									<li class="fragment">use of data URIs to store binary content in base 64, e.g. <a
+											href="data:;base64,aGVsbG8="
+											target="_blank"><code>data:;base64,aGVsbG8=</code></a></li>
+									<li class="fragment">output file size larger than the size of all resources added
+										together (approx. 33%)</li>
+								</ul>
+						</ul>
+					</li>
+					<li class="fragment">Can SingleFile and zip.js be combined to produce more compact, easier-to-handle
+						files?</li>
+					<li class="fragment">Can we go further?</li>
+				</ul>
+			</section>
+			<section>
+				<h2>Test project</h2>
+				<ul>
+					<li class="fragment">Simple HTML page</li>
+					<li class="fragment">Inclusion of external resources:
+						<ul>
+							<li class="fragment">images: <code>image.png</code>, <code>background.png</code></li>
+							<li class="fragment">CSS stylesheets: <code>style.css</code>,
+								<code>properties.css</code>
+							</li>
+							<li class="fragment">JavaScript script: <code>script.js</code></li>
+						</ul>
+					</li>
+					<li class="fragment">Stylesheets and scripts encoded in UTF-8</li>
+					<li class="fragment">Files stored in the <a href="dist/steps/01/project/"
+							target="_blank"><code>project/</code></a> folder</li>
+				</ul>
+			</section>
+			<section>
+				<h2>Test project</h2>
+				<iframe loading="lazy" src="dist/steps/01/project/index.html"
+					style="height:550px; min-width:550px"></iframe>
+			</section>
+			<section>
+				<h2>Test project</h2>
+				<div class="panels">
+					<div class="panel panel-left">
+						<pre><strong>project/index.html</strong></pre>
+						<pre>project/script.js</pre>
+						<pre>project/style.css</pre>
+						<pre>project/properties.css</pre>
+						<pre>project/image.png</pre>
+						<pre>project/background.png</pre>
+					</div>
+					<div class="panel panel-right">
+						<pre>
+							<code data-src="dist/steps/01/project/index.html" data-line-numbers="|17|23" class="language-html"></code>
+						</pre>
+					</div>
+				</div>
+			</section>
+			<section>
+				<h2>Test project</h2>
+				<div class="panels">
+					<div class="panel panel-left">
+						<pre>project/index.html</pre>
+						<pre><strong>project/script.js</strong></pre>
+						<pre>project/style.css</pre>
+						<pre>project/properties.css</pre>
+						<pre>project/image.png</pre>
+						<pre>project/background.png</pre>
+					</div>
+					<div class="panel panel-right">
+						<pre>
+							<code data-src="dist/steps/01/project/script.js" data-line-numbers="|2" class="language-js"></code>
+						</pre>
+					</div>
+				</div>
+			</section>
+			<section>
+				<h2>Test project</h2>
+				<div class="panels">
+					<div class="panel panel-left">
+						<pre><strong>project/index.html</strong></pre>
+						<pre>project/script.js</pre>
+						<pre>project/style.css</pre>
+						<pre>project/properties.css</pre>
+						<pre>project/image.png</pre>
+						<pre>project/background.png</pre>
+					</div>
+					<div class="panel panel-right">
+						<pre>
+							<code data-src="dist/steps/01/project/index.html" data-line-numbers="23|7" class="language-html"></code>
+						</pre>
+					</div>
+				</div>
+			</section>
+			<section>
+				<h2>Test project</h2>
+				<div class="panels">
+					<div class="panel panel-left">
+						<pre>project/index.html</pre>
+						<pre>project/script.js</pre>
+						<pre><strong>project/style.css</strong></pre>
+						<pre>project/properties.css</pre>
+						<pre>project/image.png</pre>
+						<pre>project/background.png</pre>
+					</div>
+					<div class="panel panel-right">
+						<pre>
+							<code data-src="dist/steps/01/project/style.css" data-line-numbers="|1|17|71" class="language-css"></code>
+						</pre>
+					</div>
+				</div>
+			</section>
+			<section>
+				<h2>ZIP Format</h2>
+				<ul>
+					<li class="fragment">Created in 1989 by Phil Katz at PKWARE (publisher of PKZIP)</li>
+					<li class="fragment">Supports:
+						<ul>
+							<li class="fragment">compression in <code>DEFLATE</code> format since version 2.0 (1993)
+							</li>
+							<li class="fragment"><code>AES</code> encryption since version 5.2 (2003)</li>
+						</ul>
+					</li>
+					<li class="fragment">Version 2.0+ supported on most operating systems</li>
+					<li class="fragment">Examples of formats based on the ZIP format:
+						<ul>
+							<li class="fragment">LibreOffice/MS Office Documents (<code>.ODT</code>, <code>.DOCX</code>,
+								...)</li>
+							<li class="fragment">Java Archives (<code>.JAR</code>)</li>
+							<li class="fragment">Android Packages (<code>.APK</code> et Archives iOS <code>.IPA</code>)
+							</li>
+							<li class="fragment">Web Extensions (<code>.CRX</code> et <code>.XPI</code>)</li>
+						</ul>
+					</li>
+				</ul>
+			</section>
+			<section>
+				<h2>ZIP Format</h2>
+				<ul>
+					<li>File entries followed by the Central directory</li>
+					<li class="fragment">Adapted for reading/writing in streaming but with some limitations in reading
+					</li>
+					<li class="fragment">Some metadata is stored in duplicate in the local headers and the central
+						directory: file name, last modification date, data size, etc.</li>
+					<li class="fragment">Central directory is required and authoritative</li>
+					<li class="fragment">Central directory contains the relative offsets of each entry in the ZIP file
+					</li>
+					<li class="fragment">Metadata from local headers can be used to repair a ZIP file</li>
+				</ul>
+			</section>
+			<section>
+				<h2>ZIP Format</h2>
+				<img src="dist/images/zip-structure.svg" style="max-height: 450px;">
+				<p style="font-size: .5em; text-align: right;">Source: <a
+						href="https://en.wikipedia.org/wiki/ZIP_(file_format)"
+						target="_blank">https://en.wikipedia.org/wiki/ZIP_(file_format)</a>
+				</p>
+			</section>
+			<section>
+				<h2>ZIP Format & JavaScript</h2>
+				<ul>
+					<li class="fragment">Native support in browsers, Node.js, Deno, Bun, etc.:
+						<ul>
+							<li class="fragment">ZIP: no</li>
+							<li class="fragment">DEFLATE: yes via the <a
+									href="https://developer.mozilla.org/en-US/docs/Web/API/CompressionStream"
+									target="_blank"><code>CompressionStream</code></a> API</li>
+						</ul>
+					</li>
+					<li class="fragment">Rich ecosystem of third-party libraries for reading and writing ZIP files:
+						<ul>
+							<li><a href="https://github.com/gildas-lormeau/zip.js" target="_blank">zip.js</a></li>
+							<li><a href="https://github.com/101arrowz/fflate" target="_blank">fflate</a></li>
+							<li><a href="https://github.com/Touffy/client-zip" target="_blank">client-zip</a></li>
+							<li><a href="https://github.com/thejoshwolfe/yazl" target="_blank">yazl</a>/<a
+									href="https://github.com/thejoshwolfe/yauzl" target="_blank">yauzl</a></li>
+							<li><a href="https://github.com/Stuk/jszip" target="_blank">JSZip</a></li>
+							<li>...</li>
+						</ul>
+					</li>
+				</ul>
+			</section>
+			<section>
+				<h2>Example with zip.js</h2>
+			</section>
+			<section>
+				<h2>Example with zip.js</h2>
+				<p>Example of ZIP file creation</p>
+				<pre>
+					<code data-line-numbers="|1|3|4|6,9|7|8|11|12"  class="language-js">import { ZipWriter, Uint8ArrayWriter } from "@zip-js/zip-js"
+
+const zipDataWriter = new Uint8ArrayWriter()
+const zipWriter = new ZipWriter(zipDataWriter)
+
+for await (const { name } of readDirectory(inputFolder)) {
+	const readableStream = await readFileStream(name)
+	await zipWriter.add(name, readableStream)
+}
+
+await zipWriter.close()
+const zipData = zipDataWriter.getData() // Uint8Array
+console.log("zip file data:", zipData)</code>
+				</pre>
+			</section>
+			<section>
+				<h2>Integration in the project</h2>
+			</section>
+			<section>
+				<h2>Integration in the project</h2>
+				<p>Creation of the ZIP file</p>
+				<div class="panels">
+					<div class="panel panel-left">
+						<pre><strong>index.html</strong></pre>
+						<pre>index.js</pre>
+						<hr>
+						<pre>lib/utils-zip.js</pre>
+					</div>
+					<div class="panel panel-right">
+						<pre>
+							<code data-src="dist/steps/02/index.html" data-line-numbers="|22|23" class="language-html"></code>
+						</pre>
+					</div>
+				</div>
+			</section>
+			<section>
+				<h2>Integration in the project</h2>
+				<p>Creation of the ZIP file</p>
+				<div class="panels">
+					<div class="panel panel-left">
+						<pre>index.html</pre>
+						<pre><strong>index.js</strong></pre>
+						<hr>
+						<pre>lib/utils-zip.js</pre>
+					</div>
+					<div class="panel panel-right">
+						<pre>
+							<code data-src="dist/steps/02/index.js" data-line-numbers="|3-11|13|1"  class="language-js"></code>
+						</pre>
+					</div>
+				</div>
+			</section>
+			<section>
+				<h2>Integration in the project</h2>
+				<p>Creation of the ZIP file</p>
+				<div class="panels">
+					<div class="panel panel-left">
+						<pre>index.html</pre>
+						<pre>index.js</pre>
+						<hr>
+						<pre><strong>lib/utils-zip.js</strong></pre>
+					</div>
+					<div class="panel panel-right">
+						<pre>
+							<code data-src="dist/steps/02/lib/utils-zip.js" data-line-numbers="|15-25|18,22|19-20|21|24" class="language-js"></code>
+						</pre>
+					</div>
+				</div>
+			</section>
+			<section>
+				<h2>Integration in the project</h2>
+				<p>Creation of the ZIP file</p>
+				<div class="panels">
+					<div class="panel panel-left">
+						<pre>index.html</pre>
+						<pre><strong>index.js</strong></pre>
+						<hr>
+						<pre>lib/utils-zip.js</pre>
+					</div>
+					<div class="panel panel-right">
+						<pre>
+							<code data-src="dist/steps/02/index.js" data-line-numbers="1|13|14-15"  class="language-js"></code>
+						</pre>
+					</div>
+				</div>
+				<iframe loading="lazy" src="dist/steps/02/index.html" class="small fragment"></iframe>
+			</section>
+			<section>
+				<h2>Example with zip.js</h2>
+			</section>
+			<section>
+				<h2>Example with zip.js</h2>
+				<p>Example of reading a ZIP file</p>
+				<pre>
+					<code data-line-numbers="|1|3|4|6,9|7|8|11"  class="language-js">import { ZipReader, BlobReader, BlobWriter } from "@zip-js/zip-js"
+
+const zipReader = new ZipReader(new BlobReader(blob))
+const entries = await zipReader.getEntries()
+
+for (const entry of entries) {
+	const blob = await entry.getData(new BlobWriter())
+	console.log("file:", entry.filename, "blob:", blob)
+}
+
+await zipReader.close()</code>
+			</pre>
+			</section>
+			<section>
+				<h2>Integration in the project</h2>
+			</section>
+			<section>
+				<h2>Integration in the project</h2>
+				<p>Reading the ZIP file</p>
+				<div class="panels">
+					<div class="panel panel-left">
+						<pre><strong>index.html</strong></pre>
+						<pre>index.js</pre>
+					</div>
+					<div class="panel panel-right">
+						<pre>
+							<code data-src="dist/steps/03/index.html" data-line-numbers="|31|32|33" class="language-html"></code>
+						</pre>
+					</div>
+				</div>
+			</section>
+			<section>
+				<h2>Integration in the project</h2>
+				<p>Reading the ZIP file</p>
+				<div class="panels">
+					<div class="panel panel-left">
+						<pre>index.html</pre>
+						<pre><strong>index.js</strong></pre>
+					</div>
+					<div class="panel panel-right">
+						<pre>
+							<code data-src="dist/steps/03/index.js" data-line-numbers="|10-15|13|23-34|26,32|27|28-31"  class="language-js"></code>
+						</pre>
+					</div>
+				</div>
+			</section>
+			<section>
+				<h2>Integration in the project</h2>
+				<p>Reading the ZIP file</p>
+				<iframe loading="lazy" src="dist/steps/03/index.html" style="height: 450px;"></iframe>
+			</section>
+			<section>
+				<h2>ZIP Format (cont.)</h2>
+				<ul>
+					<li class="fragment">Extensible format:
+						<ul>
+							<li class="fragment">64KB of data after ZIP file (comment)</li>
+							<li class="fragment">Offset greater than zero for the first entry in the zip file</li>
+						</ul>
+					</li>
+					<li class="fragment">Possibility of adding content before and after a ZIP file, while maintaining
+						its validity</li>
+					<li class="fragment">Self-extracting HTML page structure:
+						<ol>
+							<li class="fragment">HTML content up to an opening tag <code>&lt;!--</code></li>
+							<li class="fragment">ZIP file content</li>
+							<li class="fragment">Closing tag <code>--&gt;</code> and end of HTML content</li>
+						</ol>
+					</li>
+					<li class="fragment">HTML content includes:
+						<ul>
+							<li class="fragment">the zip.js library script (<a href="dist/steps/04/assets/zip.min.js"
+									target="_blank">assets/zip.min.js</a>)</li>
+							<li class="fragment">the script displaying the contents of the zip file (<a
+									href="dist/steps/04/assets/main.js" target="_blank">assets/main.js</a>)</li>
+						</ul>
+					</li>
+				</ul>
+			</section>
+			<section>
+				<h2>ZIP Format (cont.)</h2>
+				<p>Self-extracting HTML file template</p>
+				<pre><code class="language-plaintext" style="background-color: #CDFAD5; color: #777777;">&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+	&lt;head&gt;
+		&lt;meta charset="utf-8"&gt;
+		&lt;title&gt;Please wait...&lt;/title&gt;
+		&lt;script&gt;&lt;!-- Content of assets/zip.min.js --&gt;&lt;/script&gt;
+	&lt;/head&gt;
+	&lt;body&gt;
+		&lt;p&gt;Please wait...&lt;/p&gt;
+		&lt;script&gt;&lt;!-- Content of assets/main.js --&gt;&lt;/script&gt;
+  &lt;/body&gt;
+&lt;/html&gt;</code></pre>
+			</section>
+			<section>
+				<h2>ZIP Format (cont.)</h2>
+				<p>Self-extracting HTML file template</p>
+				<pre><code class="language-plaintext" style="background-color: #CDFAD5; color: #777777;">&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+	&lt;head&gt;
+		&lt;meta charset="utf-8"&gt;
+		&lt;title&gt;Please wait...&lt;/title&gt;
+		&lt;script&gt;&lt;!-- Content of assets/zip.min.js --&gt;&lt;/script&gt;
+	&lt;/head&gt;
+	&lt;body&gt;
+		&lt;p&gt;Please wait...&lt;/p&gt;
+		&lt;!--</code><code class="language-plaintext" style="background-color: #FFCF96; color: #000000; text-align: center;"> ZIP data </code><code class="language-plaintext" style="background-color: #CDFAD5; color: #777777;">    --&gt;
+		&lt;script&gt;&lt;!-- Content of assets/main.js --&gt;&lt;/script&gt;
+  &lt;/body&gt;
+&lt;/html&gt;</code></pre>
+			</section>
+			<section>
+				<h2>Polyglot HTML/ZIP file</h2>
+				<p>1/4 - Extracting and displaying ZIP file entries</p>
+				<div class="panels">
+					<div class="panel panel-left">
+						<pre><strong>index.html</strong></pre>
+						<pre>index.js</pre>
+						<hr>
+						<pre>lib/html-template.js</pre>
+						<pre>lib/utils.js</pre>
+						<pre>lib/utils-zip.js</pre>
+						<hr>
+						<pre>assets/main.js</pre>
+					</div>
+					<div class="panel panel-right">
+						<pre>
+							<code data-src="dist/steps/04/index.html" data-line-numbers="|22|23" class="language-html"></code>
+						</pre>
+					</div>
+				</div>
+			</section>
+			<section>
+				<h2>Polyglot HTML/ZIP file</h2>
+				<p>1/4 - Extracting and displaying ZIP file entries</p>
+				<div class="panels">
+					<div class="panel panel-left">
+						<pre>index.html</pre>
+						<pre><strong>index.js</strong></pre>
+						<hr>
+						<pre>lib/html-template.js</pre>
+						<pre>lib/utils.js</pre>
+						<pre>lib/utils-zip.js</pre>
+						<hr>
+						<pre>assets/main.js</pre>
+					</div>
+					<div class="panel panel-right">
+						<pre>
+							<code data-src="dist/steps/04/index.js" data-line-numbers="|3" class="language-js"></code>
+						</pre>
+					</div>
+				</div>
+			</section>
+			<section>
+				<h2>Polyglot HTML/ZIP file</h2>
+				<p>1/4 - Extracting and displaying ZIP file entries</p>
+				<div class="panels">
+					<div class="panel panel-left">
+						<pre>index.html</pre>
+						<pre>index.js</pre>
+						<hr>
+						<pre><strong>lib/html-template.js</strong></pre>
+						<pre>lib/utils.js</pre>
+						<pre>lib/utils-zip.js</pre>
+						<hr>
+						<pre>assets/main.js</pre>
+					</div>
+					<div class="panel panel-right">
+						<pre>
+							<code data-src="dist/steps/04/lib/html-template.js" data-line-numbers="|2-5|7-21|8-18|18-21|19" class="language-js"></code>
+						</pre>
+					</div>
+				</div>
+			</section>
+			<section>
+				<h2>Polyglot HTML/ZIP file</h2>
+				<p>1/4 - Extracting and displaying ZIP file entries</p>
+				<div class="panels">
+					<div class="panel panel-left">
+						<pre>index.html</pre>
+						<pre>index.js</pre>
+						<hr>
+						<pre>lib/html-template.js</pre>
+						<pre><strong>lib/utils.js</strong></pre>
+						<pre>lib/utils-zip.js</pre>
+						<hr>
+						<pre>assets/main.js</pre>
+					</div>
+					<div class="panel panel-right">
+						<pre>
+							<code data-src="dist/steps/04/lib/utils.js" data-line-numbers="|17-19" class="language-js"></code>
+						</pre>
+					</div>
+				</div>
+			</section>
+			<section>
+				<h2>Polyglot HTML/ZIP file</h2>
+				<p>1/4 - Extracting and displaying ZIP file entries</p>
+				<div class="panels">
+					<div class="panel panel-left">
+						<pre>index.html</pre>
+						<pre>index.js</pre>
+						<hr>
+						<pre><strong>lib/html-template.js</strong></pre>
+						<pre>lib/utils.js</pre>
+						<pre>lib/utils-zip.js</pre>
+						<hr>
+						<pre>assets/main.js</pre>
+					</div>
+					<div class="panel panel-right">
+						<pre>
+							<code data-src="dist/steps/04/lib/html-template.js" data-line-numbers="19|23" class="language-js"></code>
+						</pre>
+					</div>
+				</div>
+			</section>
+			<section>
+				<h2>Polyglot HTML/ZIP file</h2>
+				<p>1/4 - Extracting and displaying ZIP file entries</p>
+				<div class="panels">
+					<div class="panel panel-left">
+						<pre>index.html</pre>
+						<pre><strong>index.js</strong></pre>
+						<hr>
+						<pre>lib/html-template.js</pre>
+						<pre>lib/utils.js</pre>
+						<pre>lib/utils-zip.js</pre>
+						<hr>
+						<pre>assets/main.js</pre>
+					</div>
+					<div class="panel panel-right">
+						<pre>
+							<code data-src="dist/steps/04/index.js" data-line-numbers="3|21-32|22|2" class="language-js"></code>
+						</pre>
+					</div>
+				</div>
+			</section>
+			<section>
+				<h2>Polyglot HTML/ZIP file</h2>
+				<p>1/4 - Extracting and displaying ZIP file entries</p>
+				<div class="panels">
+					<div class="panel panel-left">
+						<pre>index.html</pre>
+						<pre>index.js</pre>
+						<hr>
+						<pre>lib/html-template.js</pre>
+						<pre><strong>lib/utils.js</strong></pre>
+						<pre>lib/utils-zip.js</pre>
+						<hr>
+						<pre>assets/main.js</pre>
+					</div>
+					<div class="panel panel-right">
+						<pre>
+							<code data-src="dist/steps/04/lib/utils.js" data-line-numbers="|7-9" class="language-js"></code>
+						</pre>
+					</div>
+				</div>
+			</section>
+			<section>
+				<h2>Polyglot HTML/ZIP file</h2>
+				<p>1/4 - Extracting and displaying ZIP file entries</p>
+				<div class="panels">
+					<div class="panel panel-left">
+						<pre>index.html</pre>
+						<pre><strong>index.js</strong></pre>
+						<hr>
+						<pre>lib/html-template.js</pre>
+						<pre>lib/utils.js</pre>
+						<pre>lib/utils-zip.js</pre>
+						<hr>
+						<pre>assets/main.js</pre>
+					</div>
+					<div class="panel panel-right">
+						<pre>
+							<code data-src="dist/steps/04/index.js" data-line-numbers="2|22|23|24" class="language-js"></code>
+						</pre>
+					</div>
+				</div>
+			</section>
+			<section>
+				<h2>Polyglot HTML/ZIP file</h2>
+				<p>1/4 - Extracting and displaying ZIP file entries</p>
+				<div class="panels">
+					<div class="panel panel-left">
+						<pre>index.html</pre>
+						<pre>index.js</pre>
+						<hr>
+						<pre>lib/html-template.js</pre>
+						<pre>lib/utils.js</pre>
+						<pre><strong>lib/utils-zip.js</strong></pre>
+						<hr>
+						<pre>assets/main.js</pre>
+					</div>
+					<div class="panel panel-right">
+						<pre>
+							<code data-src="dist/steps/04/lib/utils-zip.js" data-line-numbers="|7-20|7|9-11" class="language-js"></code>
+						</pre>
+					</div>
+				</div>
+			</section>
+			<section>
+				<h2>Polyglot HTML/ZIP file</h2>
+				<p>1/4 - Extracting and displaying ZIP file entries</p>
+				<div class="panels">
+					<div class="panel panel-left">
+						<pre>index.html</pre>
+						<pre><strong>index.js</strong></pre>
+						<hr>
+						<pre>lib/html-template.js</pre>
+						<pre>lib/utils.js</pre>
+						<pre>lib/utils-zip.js</pre>
+						<hr>
+						<pre>assets/main.js</pre>
+					</div>
+					<div class="panel panel-right">
+						<pre>
+							<code data-src="dist/steps/04/index.js" data-line-numbers="24|25-29|30-31" class="language-js"></code>
+						</pre>
+					</div>
+				</div>
+			</section>
+			<section>
+				<h2>Polyglot HTML/ZIP file</h2>
+				<p>1/4 - Extracting and displaying ZIP file entries</p>
+				<div class="panels">
+					<div class="panel panel-left">
+						<pre>index.html</pre>
+						<pre>index.js</pre>
+						<hr>
+						<pre><strong>lib/html-template.js</strong></pre>
+						<pre>lib/utils.js</pre>
+						<pre>lib/utils-zip.js</pre>
+						<hr>
+						<pre>assets/main.js</pre>
+					</div>
+					<div class="panel panel-right">
+						<pre>
+							<code data-src="dist/steps/04/lib/html-template.js" data-line-numbers="|19" class="language-js"></code>
+						</pre>
+					</div>
+				</div>
+			</section>
+			<section>
+				<h2>Polyglot HTML/ZIP file</h2>
+				<p>1/4 - Extracting and displaying ZIP file entries</p>
+				<div class="panels">
+					<div class="panel panel-left">
+						<pre>index.html</pre>
+						<pre>index.js</pre>
+						<hr>
+						<pre>lib/html-template.js</pre>
+						<pre>lib/utils.js</pre>
+						<pre>lib/utils-zip.js</pre>
+						<hr>
+						<pre><strong>assets/main.js</strong></pre>
+					</div>
+					<div class="panel panel-right">
+						<pre>
+							<code data-src="dist/steps/04/assets/main.js" data-line-numbers="|6-9|7|17-31|19|20|38-40|20|22,28|25|26-27|30|7|8|47-53|49,52|51" class="language-js"></code>
+						</pre>
+					</div>
+				</div>
+				<iframe loading="lazy" src="dist/steps/04/index.html" class="small fragment"></iframe>
+			</section>
+			<section>
+				<h2>Polyglot HTML/ZIP file</h2>
+				<p>2/4 - Displaying the <code>index.html</code> page</p>
+				<div class="panels">
+					<div class="panel panel-left">
+						<pre>index.html</pre>
+						<pre>index.js</pre>
+						<hr>
+						<pre>lib/html-template.js</pre>
+						<pre>lib/utils.js</pre>
+						<pre>lib/utils-zip.js</pre>
+						<hr>
+						<pre><strong>assets/main.js</strong></pre>
+					</div>
+					<div class="panel panel-right">
+						<pre>
+							<code data-src="dist/steps/05/assets/main.js" data-line-numbers="|18-21|19|23-45|33-40|33|69-71|33|6-10|33|34-40|34,40|36,39|44|19|20|57-61|58|1-2|58|59|3-4|59|60" class="language-js"></code>
+						</pre>
+					</div>
+				</div>
+				<iframe loading="lazy" src="dist/steps/05/index.html" class="small fragment"></iframe>
+			</section>
+			<section>
+				<h2>Polyglot HTML/ZIP file</h2>
+				<p>3/4 - Displaying the full page</p>
+				<div class="panels">
+					<div class="panel panel-left">
+						<pre>index.html</pre>
+						<pre>index.js</pre>
+						<hr>
+						<pre>lib/html-template.js</pre>
+						<pre>lib/utils.js</pre>
+						<pre>lib/utils-zip.js</pre>
+						<hr>
+						<pre><strong>assets/main.js</strong></pre>
+					</div>
+					<div class="panel panel-right">
+						<pre>
+							<code data-src="dist/steps/06/assets/main.js" data-line-numbers="|1-11|12-19|34-39|36-37|72-86|73,85|74-75|76|77-83|77,83|78,82|84" class="language-js"></code>
+						</pre>
+					</div>
+				</div>
+				<iframe loading="lazy" src="dist/steps/06/index.html" class="small fragment"></iframe>
+				<p class="fragment">Inactive JavaScript code ⚠️</p>
+			</section>
+			<section>
+				<h2>Polyglot HTML/ZIP file</h2>
+				<p>4/4 - Scripts support</p>
+				<div class="panels">
+					<div class="panel panel-left">
+						<pre>index.html</pre>
+						<pre>index.js</pre>
+						<hr>
+						<pre>lib/html-template.js</pre>
+						<pre>lib/utils.js</pre>
+						<pre>lib/utils-zip.js</pre>
+						<hr>
+						<pre><strong>assets/main.js</strong></pre>
+					</div>
+					<div class="panel panel-right">
+						<pre>
+							<code data-src="dist/steps/07/assets/main.js" data-line-numbers="|20-21|25-29|28|72-82|76-81" class="language-js"></code>
+						</pre>
+					</div>
+				</div>
+				<iframe loading="lazy" src="dist/steps/07/index.html" class="small fragment"></iframe>
+				<p class="fragment">Reading the page from the file system ⚠️</p>
+			</section>
+			<section>
+				<h2>Reading the page from the file system</h2>
+				<ul>
+					<li class="fragment">Bypassing the call to <code>await fetch("")</code></li>
+					<li class="fragment">Read ZIP file from DOM via <a
+							href="https://developer.mozilla.org/en-US/docs/Web/API/Node/textContent"
+							target="_blank"><code>Node#textContent</code></a></li>
+					<li class="fragment">
+						Data corruption caused by character encoding:
+						<ul>
+							<li class="fragment">1-byte character encoding (e.g. <code>windows-1252</code>) versus
+								multiple bytes (e.g. <code>UTF-8</code>)
+							</li>
+							<li class="fragment">substitution of <code>U+FFFD</code> replacement characters for
+								characters whose code is <code>0</code> or invalid</li>
+							<li class="fragment">replacement by a line feed <code>\n</code> of the characters:
+								<ul>
+									<li class="fragment">carriage returns <code>\r</code></li>
+									<li class="fragment">carriage returns followed immediately by a line feed
+										<code>\r\n</code>
+									</li>
+								</ul>
+							</li>
+							<li class="fragment">replacement of certain characters (depending on encoding) whose code is
+								greater than 127, i.e. beyond the <code>ASCII 7-bit</code> table</li>
+						</ul>
+					</li>
+				</ul>
+			</section>
+			<section>
+				<h2>Reading the ZIP file from the DOM</h2>
+			</section>
+			<section>
+				<h2>Reading the ZIP file from the DOM</h2>
+				<p>Hexadecimal display of ZIP data read as text</p>
+				<div class="panels">
+					<div class="panel panel-left">
+						<pre>index.html</pre>
+						<pre>index.js</pre>
+						<hr>
+						<pre>lib/html-template.js</pre>
+						<pre>lib/utils.js</pre>
+						<pre>lib/utils-zip.js</pre>
+						<hr>
+						<pre><strong>assets/main.js</strong></pre>
+					</div>
+					<div class="panel panel-right">
+						<pre>
+							<code data-src="dist/steps/08/assets/main.js" data-line-numbers="|3-5|4|7-27|8-11|12-25|15|29-40|15|18-24|26"></code>
+						</pre>
+					</div>
+				</div>
+				<p class="fragment" style="font-size: 0.7em;">
+					<code>UTF-8</code>: <iframe loading="lazy" src="dist/steps/08/index.html" class="small"
+						style="height: 1.3em; width: 320px; top: 13px;"></iframe>
+				</p>
+				<p class="fragment" style="font-size: 0.7em;">
+					<code>windows-1252</code>: <iframe loading="lazy" src="dist/steps/09/index.html" class="small"
+						style="height: 1.3em; width: 320px; top: 13px;"></iframe>
+				</p>
+			</section>
+			<section>
+				<h2>Reading the ZIP file from the DOM</h2>
+				<p>Comparison of the impact of different 1-byte encodings</p>
+				<ul>
+					<li class=" fragment">Web pages containing a 256-byte binary content with all possible values</li>
+					<li class="fragment">Reading of binary data as text in JavaScript</li>
+					<li class="fragment">Determining and displaying the number of characters:
+						<ul>
+							<li class="fragment">equal to the replacement character <code>U+FFFD</code> (first
+								column)</li>
+							<li class="fragment">different from those expected (second column)</li>
+						</ul>
+					</li>
+					<li class="fragment">Test with all <a
+							href="https://developer.mozilla.org/en-US/docs/Web/API/TextDecoder/encoding#value"
+							target="_blank">supported encodings</a></li>
+				</ul>
+			</section>
+			<section>
+				<h2>Reading the ZIP file from the DOM</h2>
+				<p>Comparison of the impact of different 1-byte encodings</p>
+				<iframe loading="lazy" src="dist/steps/10/index.html" style="height: 485px;"></iframe>
+			</section>
+			<section>
+				<h2>Reading the ZIP file from the DOM</h2>
+				<p>Changes in the HTML template</p>
+				<ul>
+					<li class="fragment">Replacement of <code>UTF-8</code> encoding with <code>windows-1252</code></li>
+					<li class="fragment">Computing of consolidation data to restore binary content</li>
+					<li class="fragment">Array of 2 arrays containing the indexes of all:
+						<ul>
+							<li class="fragment">carriage returns <code>\r</code></li>
+							<li class="fragment">carriage returns followed immediately by a line feed <code>\r\n</code>
+							</li>
+						</ul>
+					</li>
+					<li class="fragment">Insertion of consolidated JSON data in a <code>&lt;script&gt;</code> tag
+					</li>
+				</ul>
+			</section>
+			<section>
+				<h2>Reading the ZIP file from the DOM</h2>
+				<p>Self-extracting HTML file template (before)</p>
+				<pre><code class="language-plaintext" style="background-color: #CDFAD5; color: #777777;">&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+	&lt;head&gt;
+		&lt;meta charset="utf-8"&gt;
+		&lt;title&gt;Please wait...&lt;/title&gt;
+		&lt;script&gt;&lt;!-- Content of assets/zip.min.js --&gt;&lt;/script&gt;
+	&lt;/head&gt;
+	&lt;body&gt;
+		&lt;p&gt;Please wait...&lt;/p&gt;&lt;!--<
+		  ZIP data 
+		--&gt;
+		&lt;script&gt;&lt;!-- Content of assets/main.js --&gt;&lt;/script&gt;
+  &lt;/body&gt;
+&lt;/html&gt;</code></pre>
+				</code></pre>
+			</section>
+			<section>
+				<h2>Reading the ZIP file from the DOM</h2>
+				<p>Self-extracting HTML file template (after)</p>
+				<pre><code class="language-plaintext" style="background-color: #CDFAD5; color: #777777;">&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+	&lt;head&gt;
+		&lt;meta charset="windows-1252"&gt;
+		&lt;title&gt;Please wait...&lt;/title&gt;
+		&lt;script&gt;&lt;!-- Content of assets/zip.min.js --&gt;&lt;/script&gt;
+	&lt;/head&gt;
+	&lt;body&gt;
+		&lt;p&gt;Please wait...&lt;/p&gt;&lt;!--
+		  ZIP data 
+		--&gt;
+		&lt;script&gt;&lt;!-- Content of assets/main.js --&gt;&lt;/script&gt;
+  &lt;/body&gt;
+&lt;/html&gt;</code></pre>
+				</code></pre>
+			</section>
+			<section>
+				<h2>Reading the ZIP file from the DOM</h2>
+				<p>Self-extracting HTML file template (after)</p>
+				<pre><code class="language-plaintext" style="background-color: #CDFAD5; color: #777777;">&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+	&lt;head&gt;
+		&lt;meta charset="windows-1252"&gt;
+		&lt;title&gt;Please wait...&lt;/title&gt;
+		&lt;script&gt;&lt;!-- Content of assets/zip.min.js --&gt;&lt;/script&gt;
+	&lt;/head&gt;
+	&lt;body&gt;
+		&lt;p&gt;Please wait...&lt;/p&gt;&lt;!--
+		  ZIP data 
+		--&gt;
+		&lt;script type="text/json"&gt;</code><code class="language-plaintext" style="background-color: #FFCF96; color: #000000; text-align: center;"> Consolidation data </code><code class="language-plaintext" style="background-color: #CDFAD5; color: #777777;">    &lt;/script&gt;
+		&lt;script&gt;&lt;!-- Content of assets/main.js --&gt;&lt;/script&gt;
+  &lt;/body&gt;
+&lt;/html&gt;</code></pre>
+			</section>
+			<section>
+				<h2>Reading the ZIP file from the DOM</h2>
+				<p>Support for consolidation data in the HTML template</p>
+				<div class="panels">
+					<div class="panel panel-left">
+						<pre>index.html</pre>
+						<pre><strong>index.js</strong></pre>
+						<hr>
+						<pre>lib/html-template.js</pre>
+						<pre>lib/utils.js</pre>
+						<pre>lib/utils-zip.js</pre>
+						<hr>
+						<pre>assets/main.js</pre>
+					</div>
+					<div class="panel panel-right">
+						<pre>
+							<code data-src="dist/steps/11/index.js" data-line-numbers="|3" class="language-js"></code>
+						</pre>
+					</div>
+				</div>
+			</section>
+			<section>
+				<h2>Reading the ZIP file from the DOM</h2>
+				<p>Support for consolidation data in the HTML template</p>
+				<div class="panels">
+					<div class="panel panel-left">
+						<pre>index.html</pre>
+						<pre>index.js</pre>
+						<hr>
+						<pre><strong>lib/html-template.js</strong></pre>
+						<pre>lib/utils.js</pre>
+						<pre>lib/utils-zip.js</pre>
+						<hr>
+						<pre>assets/main.js</pre>
+					</div>
+					<div class="panel panel-right">
+						<pre>
+							<code data-src="dist/steps/11/lib/html-template.js" data-line-numbers="|6-16|16-17|17-20" class="language-js"></code>
+						</pre>
+					</div>
+				</div>
+			</section>
+			<section>
+				<h2>Reading the ZIP file from the DOM</h2>
+				<p>Adding consolidation data to the HTML page</p>
+				<div class="panels">
+					<div class="panel panel-left">
+						<pre>index.html</pre>
+						<pre><strong>index.js</strong></pre>
+						<hr>
+						<pre>lib/html-template.js</pre>
+						<pre>lib/utils.js</pre>
+						<pre>lib/utils-zip.js</pre>
+						<hr>
+						<pre>assets/main.js</pre>
+					</div>
+					<div class="panel panel-right">
+						<pre>
+							<code data-src="dist/steps/11/index.js" data-line-numbers="|3|17-31|18-24|25-26|1" class="language-js"></code>
+						</pre>
+					</div>
+				</div>
+			</section>
+			<section>
+				<h2>Reading the ZIP file from the DOM</h2>
+				<p>Adding consolidation data to the HTML page</p>
+				<div class="panels">
+					<div class="panel panel-left">
+						<pre>index.html</pre>
+						<pre>index.js</pre>
+						<hr>
+						<pre>lib/html-template.js</pre>
+						<pre>lib/utils.js</pre>
+						<pre><strong>lib/utils-zip.js</strong></pre>
+						<hr>
+						<pre>assets/main.js</pre>
+					</div>
+					<div class="panel panel-right">
+						<pre>
+							<code data-src="dist/steps/11/lib/utils-zip.js" data-line-numbers="|35-49|36|37|38,47|39-40,43,45-46|41,44|48" class="language-js"></code>
+						</pre>
+					</div>
+				</div>
+			</section>
+			<section>
+				<h2>Reading the ZIP file from the DOM</h2>
+				<p>Adding consolidation data to the HTML page</p>
+				<div class="panels">
+					<div class="panel panel-left">
+						<pre>index.html</pre>
+						<pre><strong>index.js</strong></pre>
+						<hr>
+						<pre>lib/html-template.js</pre>
+						<pre>lib/utils.js</pre>
+						<pre>lib/utils-zip.js</pre>
+						<hr>
+						<pre>assets/main.js</pre>
+					</div>
+					<div class="panel panel-right">
+						<pre>
+							<code data-src="dist/steps/11/index.js" data-line-numbers="1|26|27" class="language-js"></code>
+						</pre>
+					</div>
+				</div>
+			</section>
+			<section>
+				<h2>Reading the ZIP file from the DOM</h2>
+				<p>Bypassing the call to <code>await fetch("")</code></p>
+				<div class="panels">
+					<div class="panel panel-left">
+						<pre>index.html</pre>
+						<pre>index.js</pre>
+						<hr>
+						<pre><strong>lib/html-template.js</strong></pre>
+						<pre>lib/utils.js</pre>
+						<pre>lib/utils-zip.js</pre>
+						<hr>
+						<pre>assets/main.js</pre>
+					</div>
+					<div class="panel panel-right">
+						<pre>
+							<code data-src="dist/steps/11/lib/html-template.js" data-line-numbers="|18" class="language-js"></code>
+						</pre>
+					</div>
+				</div>
+			</section>
+			<section>
+				<h2>Reading the ZIP file from the DOM</h2>
+				<p>Bypassing the call to <code>await fetch("")</code></p>
+				<div class="panels">
+					<div class="panel panel-left">
+						<pre>index.html</pre>
+						<pre>index.js</pre>
+						<hr>
+						<pre>lib/html-template.js</pre>
+						<pre>lib/utils.js</pre>
+						<pre>lib/utils-zip.js</pre>
+						<hr>
+						<pre><strong>assets/main.js</strong></pre>
+					</div>
+					<div class="panel panel-right">
+						<pre>
+							<code data-src="dist/steps/11/assets/main.js" data-line-numbers="|38-42|39|44-63|47|70-93|71-74|75-81|79|80|27-34|80|82-85|21-22|82-85|86-91|23-26|86-91|92" class="language-js"></code>
+						</pre>
+					</div>
+				</div>
+				<iframe loading="lazy" src="dist/steps/11/index.html" class="small fragment"></iframe>
+				<p class="fragment">Page resources are decoded in <code>windows-1252</code> ⚠️</p>
+			</section>
+			<section>
+				<h2>Reading the ZIP file from the DOM</h2>
+				<p>Correction of MIME type issues in external resources</p>
+				<div class="panels">
+					<div class="panel panel-left">
+						<pre>index.html</pre>
+						<pre>index.js</pre>
+						<hr>
+						<pre>lib/html-template.js</pre>
+						<pre>lib/utils.js</pre>
+						<pre>lib/utils-zip.js</pre>
+						<hr>
+						<pre><strong>assets/main.js</strong></pre>
+					</div>
+					<div class="panel panel-right">
+						<pre>
+							<code data-src="dist/steps/12/assets/main.js" data-line-numbers="|39-43|41|88-115|96-99|99|15-20|99|102-106|21-24|102-106|108-110" class="language-js"></code>
+						</pre>
+					</div>
+				</div>
+				<iframe loading="lazy" src="dist/steps/12/index.html" class="small fragment"></iframe>
+			</section>
+			<section>
+				<h2>PNG Format</h2>
+				<ul>
+					<li class="fragment">Created in 1996 by a public working group</li>
+					<li class="fragment">Standard, royalty-free image format</li>
+					<li class="fragment">Lossless compression (<code>DEFLATE</code>)</li>
+					<li class="fragment">File composed of a signature folloxed by a sequence of chunks
+						(<code>chunk</code>)</li>
+					<li class="fragment">Chunk structure:
+						<ol>
+							<li class="fragment">Chunk data length (4 bytes)</li>
+							<li class="fragment">Chunk type (4 bytes): <code>IHDR</code>, <code>IDAT</code>,
+								<code>IEND</code>, <code>tEXt</code> ...
+							</li>
+							<li class="fragment">Chunk data (variable length)</li>
+							<li class="fragment">Cyclic redundant code (<code>CRC32</code>) computed from all the chunk
+								data</li>
+						</ol>
+					</li>
+				</ul>
+			</section>
+			<section>
+				<h2>PNG Format</h2>
+				<ul>
+					<li>Minimal PNG file structure:
+						<ol>
+							<li class="fragment">
+								PNG signature (8 octets)
+								<pre><code class="language-plaintext">89 50 4E 47  0D 0A 1A 0A</code></pre>
+							</li>
+							<li class="fragment">
+								<code>IHDR</code> chunk for the header (13 bytes)
+								<pre><code class="language-plaintext">00 00 00 0D  49 48 44 52  ...</code></pre>
+							</li>
+							<li class="fragment">
+								<code>IDAT</code> chunk(s) for the data
+							</li>
+							<li class="fragment">
+								<code>IEND</code> chunk for the trailer (12 bytes)
+								<pre><code class="language-plaintext">00 00 00 00  49 45 4E 44  AE 42 60 82</code></pre>
+							</li>
+						</ol>
+					</li>
+					<li class="fragment">
+						<code>tEXt</code> chunk to store text or binary data
+						<pre><code class="language-plaintext">xx xx xx xx  74 45 58 74  ...</code></pre>
+					</li>
+				</ul>
+			</section>
+			<section>
+				<h2>PNG Format</h2>
+				<p>Minimal PNG file structure</p>
+				<br>
+				<table style="font-size: .7em; white-space: pre;">
+					<thead>
+						<tr>
+							<th colspan="2">Data type</th>
+							<th>Data in hexadecimal</th>
+							<th>Mandatory</th>
+							<th>Length (bytes)</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td>PNG signature</td>
+							<td></td>
+							<td><code>89 50 4E 47  0D 0A 1A 0A</code></td>
+							<td>✓</td>
+							<td><code>8</code></td>
+						</tr>
+						<tr>
+							<td>Header chunk</td>
+							<td><code>IHDR</code></td>
+							<td><code>00 00 00 0D  49 48 44 52  ...</code></td>
+							<td>✓</td>
+							<td><code>13</code></td>
+						</tr>
+						<tr>
+							<td colspan="5">...</td>
+						</tr>
+						<tr>
+							<td>Data chunk</td>
+							<td><code>IDAT</code></td>
+							<td><code>xx xx xx xx  49 44 41 54  ...</code></td>
+							<td></td>
+							<td><code>12 + n</code></td>
+						</tr>
+						<tr>
+							<td colspan="5">...</td>
+						</tr>
+						<tr>
+							<td>Trailer chunk</td>
+							<td><code>IEND</code></td>
+							<td><code>00 00 00 00  49 45 4E 44  AE 42 60 82</code></td>
+							<td>✓</td>
+							<td><code>12</code></td>
+						</tr>
+					</tbody>
+				</table>
+			</section>
+			<section>
+				<h2>Polyglot HTML/ZIP/PNG file</h2>
+				<ul>
+					<li class="fragment">Encapsulation of the HTML/ZIP file in a PNG file</li>
+					<li class="fragment">PNG polyglot file structure:
+						<ol>
+							<li class="fragment">PNG signatue</li>
+							<li class="fragment">PNG header chunk</li>
+							<li class="fragment">PNG text chunk: HTML content up to the opening tag <code>&lt;!--</code>
+							</li>
+							<li class="fragment">PNG data chunk(s)</li>
+							<li class="fragment">PNG text chunk: closing tag <code>--&gt;</code> and end of HTML content
+							</li>
+							<li class="fragment">PNG trailer chunk</li>
+						</ol>
+					</li>
+				</ul>
+			</section>
+			<section>
+				<h2>Polyglot HTML/ZIP/PNG file</h2>
+				<p>PNG file structure (before)</p>
+				<br>
+				<table style="font-size: .7em; white-space: pre;">
+					<thead>
+						<tr>
+							<th colspan="2">Data type</th>
+							<th>Data in hexadecimal</th>
+							<th>Mandatory</th>
+							<th>Length (bytes)</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td>PNG signature</td>
+							<td></td>
+							<td><code>89 50 4E 47  0D 0A 1A 0A</code></td>
+							<td>✓</td>
+							<td><code>8</code></td>
+						</tr>
+						<tr>
+							<td>Header chunk</td>
+							<td><code>IHDR</code></td>
+							<td><code>00 00 00 0D  49 48 44 52  ...</code></td>
+							<td>✓</td>
+							<td><code>13</code></td>
+						</tr>
+						<tr style="background-color: #FFCF96;">
+							<td colspan="5">...</td>
+						</tr>
+						<tr style="background-color: #FFCF96;">
+							<td>Data chunk</td>
+							<td><code>IDAT</code></td>
+							<td><code>xx xx xx xx  49 44 41 54  ...</code></td>
+							<td></td>
+							<td><code>12 + n</code></td>
+						</tr>
+						<tr style="background-color: #FFCF96;">
+							<td colspan="5">...</td>
+						</tr>
+						<tr>
+							<td>Trailer chunk</td>
+							<td><code>IEND</code></td>
+							<td><code>00 00 00 00  49 45 4E 44  AE 42 60 82</code></td>
+							<td>✓</td>
+							<td><code>12</code></td>
+						</tr>
+					</tbody>
+				</table>
+			</section>
+			<section>
+				<h2>Polyglot HTML/ZIP/PNG file</h2>
+				<p>PNG file structure (after)</p>
+				<br>
+				<table style="font-size: .7em; white-space: pre;">
+					<thead>
+						<tr>
+							<th colspan="2">Data type</th>
+							<th>Data in hexadecimal</th>
+							<th>Mandatory</th>
+							<th>Length (bytes)</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td>PNG signature</td>
+							<td></td>
+							<td><code>89 50 4E 47  0D 0A 1A 0A</code></td>
+							<td>✓</td>
+							<td><code>8</code></td>
+						</tr>
+						<tr>
+							<td>Header chunk</td>
+							<td><code>IHDR</code></td>
+							<td><code>00 00 00 0D  49 48 44 52  ...</code></td>
+							<td>✓</td>
+							<td><code>13</code></td>
+						</tr>
+						<tr style="background-color: #CDFAD5;">
+							<td>Text chunk</td>
+							<td><code>tEXt</code></td>
+							<td><code>xx xx xx xx  74 45 58 74  ...</code></td>
+							<td></td>
+							<td><code>12 + n</code></td>
+						</tr>
+						<tr style="background-color: #FFCF96;">
+							<td colspan="5">...</td>
+						</tr>
+						<tr style="background-color: #FFCF96;">
+							<td>Data chunk</td>
+							<td><code>IDAT</code></td>
+							<td><code>xx xx xx xx  49 44 41 54  ...</code></td>
+							<td></td>
+							<td><code>12 + n</code></td>
+						</tr>
+						<tr style="background-color: #FFCF96;">
+							<td colspan="5">...</td>
+						</tr>
+						<tr style="background-color: #F6FDC3;">
+							<td>Text chunk</td>
+							<td><code>tEXt</code></td>
+							<td><code>xx xx xx xx  74 45 58 74  ...</code></td>
+							<td></td>
+							<td><code>12 + n</code></td>
+						</tr>
+						<tr>
+							<td>Trailer chunk</td>
+							<td><code>IEND</code></td>
+							<td><code>00 00 00 00  49 45 4E 44  AE 42 60 82</code></td>
+							<td>✓</td>
+							<td><code>12</code></td>
+						</tr>
+					</tbody>
+				</table>
+			</section>
+			<section>
+				<h2>Polyglot HTML/ZIP/PNG file</h2>
+				<p>Self-extracting HTML file template (before)</p>
+				<pre><code class="language-plaintext" style="background-color: #CDFAD5; color: #777777;">&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+	&lt;head&gt;
+		&lt;meta charset="windows-1252"&gt;
+		...
+	&lt;/head&gt;
+	&lt;body&gt;
+		&lt;p&gt;Please wait...&lt;/p&gt;&lt;!--</code><code class="language-plaintext" style="background-color: #F6FDC3; color: #777777;">      ZIP data 
+		--&gt;&lt;script type="text/json"&gt;
+		  Consolidation data
+		&lt;/script&gt;
+		&lt;script&gt;&lt;!-- Content of assets/main.js --&gt;&lt;/script&gt;
+  &lt;/body&gt;
+&lt;/html&gt;</code></pre>
+			</section>
+			<section>
+				<h2>Polyglot HTML/ZIP/PNG file</h2>
+				<p>Self-extracting HTML file template (after)</p>
+				<pre><code class="language-plaintext" style="background-color: #CDFAD5; color: #777777;">&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+	&lt;head&gt;
+		&lt;meta charset="windows-1252"&gt;
+		...
+	&lt;/head&gt;
+	&lt;body&gt;
+		&lt;p&gt;Please wait...&lt;/p&gt;&lt;!--</code><code class="language-plaintext" style="background-color: #FFCF96; color: #000000; text-align: center;"> IDAT chunk(s) </code><code class="language-plaintext" style="background-color: #F6FDC3; color: #777777;">    --&gt;&lt;!--
+		  ZIP data
+		--&gt;&lt;script type="text/json"&gt;
+		  Consolidation data
+		&lt;/script&gt;
+		&lt;script&gt;&lt;!-- Content of assets/main.js --&gt;&lt;/script&gt;
+  &lt;/body&gt;
+&lt;/html&gt;</code></pre>
+			</section>
+
+			<section>
+				<h2>Polyglot HTML/ZIP/PNG file</h2>
+				<p>Self-extracting HTML file template (after)</p>
+				<pre><code class="language-plaintext" style="text-align: center;">PNG signature + IHDR chunk (21 bytes)</code>
+<code class="language-plaintext" style="background-color: #CDFAD5; color: #777777;">&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+	&lt;head&gt;
+		&lt;meta charset="windows-1252"&gt;
+		...
+	&lt;/head&gt;
+	&lt;body&gt;
+		&lt;p&gt;Please wait...&lt;/p&gt;&lt;!--</code><code class="language-plaintext" style="background-color: #FFCF96; color: #000000; text-align: center;"> IDAT chunk(s) </code><code class="language-plaintext" style="background-color: #F6FDC3; color: #777777;">    --&gt;&lt;!--
+		  ZIP data 
+		--&gt;&lt;script type="text/json"&gt;
+		  Consolidation data
+		&lt;/script&gt;
+		&lt;script&gt;&lt;!-- Content of assets/main.js --&gt;&lt;/script&gt;
+  &lt;/body&gt;
+&lt;/html&gt;</code>
+<code class="language-plaintext" style="text-align: center;">IEND chunk (12 bytes)</code></pre>
+			</section>
+
+			<section>
+				<h2>Polyglot HTML/ZIP/PNG file</h2>
+				<p>Encapsulation of the HTML/ZIP file into a PNG file</p>
+				<div class="panels">
+					<div class="panel panel-left">
+						<pre>index.html</pre>
+						<pre><strong>index.js</strong></pre>
+						<hr>
+						<pre>lib/html-template.js</pre>
+						<pre>lib/utils.js</pre>
+						<pre>lib/utils-zip.js</pre>
+						<pre>lib/utils-png.js</pre>
+						<hr>
+						<pre>assets/main.js</pre>
+					</div>
+					<div class="panel panel-right">
+						<pre>
+							<code data-src="dist/steps/13/index.js" data-line-numbers="|3-9" class="language-js"></code>
+						</pre>
+					</div>
+				</div>
+			</section>
+			<section>
+				<h2>Polyglot HTML/ZIP/PNG file</h2>
+				<p>Encapsulation of the HTML/ZIP file into a PNG file</p>
+				<div class="panels">
+					<div class="panel panel-left">
+						<pre>index.html</pre>
+						<pre>index.js</pre>
+						<hr>
+						<pre>lib/html-template.js</pre>
+						<pre>lib/utils.js</pre>
+						<pre>lib/utils-zip.js</pre>
+						<pre><strong>lib/utils-png.js</strong></pre>
+						<hr>
+						<pre>assets/main.js</pre>
+					</div>
+					<div class="panel panel-right">
+						<pre>
+							<code data-src="dist/steps/13/lib/utils-png.js" data-line-numbers="|5-12|13-14|15-22|30-33|41-45|53-56|65-80|66-70|71-75|122-126|71-75|76-79|105-114|76-79|87-89" class="language-js"></code>
+						</pre>
+					</div>
+				</div>
+			</section>
+			<section>
+				<h2>Polyglot HTML/ZIP/PNG file</h2>
+				<p>Encapsulation of the HTML/ZIP file into a PNG file</p>
+				<div class="panels">
+					<div class="panel panel-left">
+						<pre>index.html</pre>
+						<pre><strong>index.js</strong></pre>
+						<hr>
+						<pre>lib/html-template.js</pre>
+						<pre>lib/utils.js</pre>
+						<pre>lib/utils-zip.js</pre>
+						<pre>lib/utils-png.js</pre>
+						<hr>
+						<pre>assets/main.js</pre>
+					</div>
+					<div class="panel panel-right">
+						<pre>
+							<code data-src="dist/steps/13/index.js" data-line-numbers="3-9|10" class="language-js"></code>
+						</pre>
+					</div>
+				</div>
+			</section>
+			<section>
+				<h2>Polyglot HTML/ZIP/PNG file</h2>
+				<p>Encapsulation of the HTML/ZIP file into a PNG file</p>
+				<div class="panels">
+					<div class="panel panel-left">
+						<pre>index.html</pre>
+						<pre>index.js</pre>
+						<hr>
+						<pre><strong>lib/html-template.js</strong></pre>
+						<pre>lib/utils.js</pre>
+						<pre>lib/utils-zip.js</pre>
+						<pre>lib/utils-png.js</pre>
+						<hr>
+						<pre>assets/main.js</pre>
+					</div>
+					<div class="panel panel-right">
+						<pre>
+							<code data-src="dist/steps/13/lib/html-template.js" data-line-numbers="|6-21|6-16|16-17|17-18|18-21" class="language-js"></code>
+						</pre>
+					</div>
+				</div>
+			</section>
+			<section>
+				<h2>Polyglot HTML/ZIP/PNG file</h2>
+				<p>Encapsulation of the HTML/ZIP file into a PNG file</p>
+				<div class="panels">
+					<div class="panel panel-left">
+						<pre>index.html</pre>
+						<pre><strong>index.js</strong></pre>
+						<hr>
+						<pre>lib/html-template.js</pre>
+						<pre>lib/utils.js</pre>
+						<pre>lib/utils-zip.js</pre>
+						<pre>lib/utils-png.js</pre>
+						<hr>
+						<pre>assets/main.js</pre>
+					</div>
+					<div class="panel panel-right">
+						<pre>
+							<code data-src="dist/steps/13/index.js" data-line-numbers="10|22-27|32-33|35-36|37-38|40-45|47-53|54-66|67-68" class="language-js"></code>
+						</pre>
+					</div>
+				</div>
+			</section>
+			<section>
+				<h2>Polyglot HTML/ZIP/PNG file</h2>
+				<p>Encapsulation of the HTML/ZIP file into a PNG file</p>
+				<div class="panels">
+					<div class="panel panel-left">
+						<pre>index.html</pre>
+						<pre>index.js</pre>
+						<hr>
+						<pre>lib/html-template.js</pre>
+						<pre>lib/utils.js</pre>
+						<pre>lib/utils-zip.js</pre>
+						<pre>lib/utils-png.js</pre>
+						<hr>
+						<pre><strong>assets/main.js</strong></pre>
+					</div>
+					<div class="panel panel-right">
+						<pre>
+							<code data-src="dist/steps/13/assets/main.js" data-line-numbers="|37-41|37-38" class="language-js"></code>
+						</pre>
+					</div>
+				</div>
+				<iframe loading="lazy" src="dist/steps/13/index.html" class="small fragment"></iframe>
+				<p class="fragment">Text nodes induced by the PNG format are visible ⚠️</p>
+			</section>
+			<section>
+				<h2>Polyglot HTML/ZIP/PNG file</h2>
+				<p>Removal of text nodes induced by PNG format</p>
+				<div class="panels">
+					<div class="panel panel-left">
+						<pre>index.html</pre>
+						<pre>index.js</pre>
+						<hr>
+						<pre>lib/html-template.js</pre>
+						<pre>lib/utils.js</pre>
+						<pre>lib/utils-zip.js</pre>
+						<pre>lib/utils-png.js</pre>
+						<hr>
+						<pre><strong>assets/main.js</strong></pre>
+					</div>
+					<div class="panel panel-right">
+						<pre>
+							<code data-src="dist/steps/14/assets/main.js" data-line-numbers="|33-34|39-40|53-59|54|55,58|56-57" class="language-js"></code>
+						</pre>
+					</div>
+				</div>
+				<iframe loading="lazy" src="dist/steps/14/index.html" class="small fragment"></iframe>
+				<p class="fragment">The page is rendered in <a href="https://en.wikipedia.org/wiki/Quirks_mode">quirks
+						mode</a> ⚠️</p>
+			</section>
+			<section>
+				<h2>Polyglot HTML/ZIP/PNG file</h2>
+				<p>Correction of HTML page rendering mode and script loading</p>
+				<div class="panels">
+					<div class="panel panel-left">
+						<pre>index.html</pre>
+						<pre>index.js</pre>
+						<hr>
+						<pre>lib/html-template.js</pre>
+						<pre>lib/utils.js</pre>
+						<pre>lib/utils-zip.js</pre>
+						<pre>lib/utils-png.js</pre>
+						<hr>
+						<pre><strong>assets/main.js</strong></pre>
+					</div>
+					<div class="panel panel-right">
+						<pre>
+							<code data-src="dist/steps/15/assets/main.js" data-line-numbers="|35-43|39|120-126|121-122|123|124-125" class="language-js"></code>
+						</pre>
+					</div>
+				</div>
+				<iframe loading="lazy" src="dist/steps/15/index.html" class="small fragment"></iframe>
+				<p class="fragment">The main image is stored twice in the file 🤔</p>
+			</section>
+			<section>
+				<h2>Polyglot HTML/ZIP/PNG file</h2>
+				<p>Reuse of the image in the HTML page</p>
+				<div class="panels">
+					<div class="panel panel-left">
+						<pre>index.html</pre>
+						<pre>index.js</pre>
+						<hr>
+						<pre>lib/html-template.js</pre>
+						<pre>lib/utils.js</pre>
+						<pre>lib/utils-zip.js</pre>
+						<pre>lib/utils-png.js</pre>
+						<hr>
+						<pre>assets/main.js</pre>
+						<hr>
+						<pre><strong>project/index.html</strong></pre>
+					</div>
+					<div class="panel panel-right">
+						<pre>
+							<code data-src="dist/steps/16/project/index.html" data-line-numbers="|17" class="language-html"></code>
+						</pre>
+					</div>
+				</div>
+			</section>
+			<section>
+				<h2>Polyglot HTML/ZIP/PNG file</h2>
+				<p>Reuse of the image in the HTML page</p>
+				<div class="panels">
+					<div class="panel panel-left">
+						<pre>index.html</pre>
+						<pre>index.js</pre>
+						<hr>
+						<pre>lib/html-template.js</pre>
+						<pre>lib/utils.js</pre>
+						<pre>lib/utils-zip.js</pre>
+						<pre>lib/utils-png.js</pre>
+						<hr>
+						<pre><strong>assets/main.js</strong></pre>
+						<hr>
+						<pre>project/index.html</pre>
+					</div>
+					<div class="panel panel-right">
+						<pre>
+							<code data-src="dist/steps/16/assets/main.js" data-line-numbers="|6-12" class="language-js"></code>
+						</pre>
+					</div>
+				</div>
+			</section>
+			<section>
+				<h2>Polyglot HTML/ZIP/PNG file</h2>
+				<p>Reuse of the image in the HTML page</p>
+				<div class="panels">
+					<div class="panel panel-left">
+						<pre>index.html</pre>
+						<pre><strong>index.js</strong></pre>
+						<hr>
+						<pre>lib/html-template.js</pre>
+						<pre>lib/utils.js</pre>
+						<pre>lib/utils-zip.js</pre>
+						<pre>lib/utils-png.js</pre>
+						<hr>
+						<pre>assets/main.js</pre>
+						<hr>
+						<pre>project/index.html</pre>
+					</div>
+					<div class="panel panel-right">
+						<pre>
+							<code data-src="dist/steps/16/index.js" data-line-numbers="|13-20|22-24" class="language-js"></code>
+						</pre>
+					</div>
+				</div>
+				<iframe loading="lazy" src="dist/steps/16/index.html" class="small fragment"></iframe>
+			</section>
+			<section>
+				<h2>Conclusion</h2>
+				<ul>
+					<li class="fragment">Limitations of the final implementation:
+						<ul>
+							<li class="fragment">Manual resolution of dependencies</li>
+							<li class="fragment">Overflow of 64KB of data after ZIP file (comment)</li>
+							<li class="fragment">Presence of <code>--&gt;</code> in ZIP or PNG binary data</li>
+							<li class="fragment">Use of <code>String#replaceAll()</code> to replace paths in text files
+								instead of relying on parsing</li>
+							<li class="fragment">Lack of <code>&lt;meta&gt;</code> tag containing the <a
+									href="https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP" target="_blank">Content
+									Security Policy (CSP)</a>
+							</li>
+							<li class="fragment">No support for frames</li>
+							<li class="fragment">...</li>
+						</ul>
+					</li>
+					<li class="fragment">Alternative formats: MHTML, Web Bundle, WARC/WACZ, MAFF ...</li>
+					<li class="fragment">Is it dangerous? 🤷 (GIFAR)</li>
+				</ul>
+			</section>
+		</div>
+	</div>
+
+	<script src="dist/reveal.js"></script>
+	<script src="plugin/notes/notes.js"></script>
+	<script src="plugin/markdown/markdown.js"></script>
+	<script src="plugin/highlight/highlight.js"></script>
+	<script type=module>
+		const codeElements = document.querySelectorAll("code");
+		for (const codeElement of codeElements) {
+			const path = codeElement.dataset.src;
+			if (path) {
+				const text = await (await fetch(path)).text();
+				codeElement.textContent = text;
+			}
+		}
+		Reveal.initialize({
+			width: 1200,
+			height: 650,
+			hash: true,
+			margin: 0.05,
+			transition: "none",
+			plugins: [RevealMarkdown, RevealHighlight, RevealNotes]
+		});
+	</script>
+</body>
+
+</html>
