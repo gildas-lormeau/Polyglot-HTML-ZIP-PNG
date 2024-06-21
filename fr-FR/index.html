@@ -1179,7 +1179,8 @@ await zipReader.close()</code>
 					<li class="fragment">Créé en 1996 par un groupe de travail public</li>
 					<li class="fragment">Format d'image standard et libre de droits</li>
 					<li class="fragment">Compression sans perte (<code>DEFLATE</code>)</li>
-					<li class="fragment">Fichier composé d'une suite de blocs (<code>chunk</code>)</li>
+					<li class="fragment">Fichier composé d'une signature suivie d'une séquence de blocs
+						(<code>chunk</code>)</li>
 					<li class="fragment">Structure d'un bloc :
 						<ol>
 							<li class="fragment">Longueur des données du bloc (4 octets)</li>
@@ -1189,9 +1190,7 @@ await zipReader.close()</code>
 							</li>
 							<li class="fragment">Données du bloc (longueur variable)</li>
 							<li class="fragment">Code redondant cyclique (<code>CRC32</code>) calculé à partir de
-								l'ensemble des
-								données du bloc
-							</li>
+								l'ensemble des données du bloc</li>
 						</ol>
 					</li>
 				</ul>
