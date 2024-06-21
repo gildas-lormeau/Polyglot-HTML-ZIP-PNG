@@ -18,7 +18,7 @@ const TEXT_EXTENSIONS = [
   ".js"
 ];
 const SCRIPT_TAG_NAME = "script";
-/* CSS Selector for the extra data element */
+/* CSS Selector for the consolidation data element */
 const EXTRA_DATA_ELEMENT_SELECTOR = "script[type='text/json']";
 /* Carriage return character code */
 const CARRIAGE_RETURN_CHAR_CODE = 13;
@@ -79,11 +79,11 @@ function getZipData() {
     let charCode = textContent.charCodeAt(index);
     zipData.push(CHAR_CODE_SUBSTITUTIONS.get(charCode) ?? charCode);
   }
-  /* Find and parse the extra data node */
+  /* Find and parse the consolidation data node */
   const extraDataNode = document.querySelector(EXTRA_DATA_ELEMENT_SELECTOR);
   const extraData = JSON.parse(extraDataNode.textContent);
   const [insertionsCRLF, substitutionsLF] = extraData;
-  /* Consolidate the zip data with the extra data */
+  /* Consolidate the zip data with the consolidation data */
   insertionsCRLF.forEach(index => zipData.splice(index, 1,
     CARRIAGE_RETURN_CHAR_CODE,
     LINE_FEED_CHAR_CODE));

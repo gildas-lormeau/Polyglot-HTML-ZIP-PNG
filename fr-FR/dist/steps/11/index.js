@@ -22,7 +22,7 @@ async function main() {
     htmlPart0,
     zipData,
     encodeText(HTML_PARTS[1]),
-    // Generate and write extra data to the page
+    // Generate and write consolidation data to the page
     getExtraData(zipData),
     encodeText(HTML_PARTS[2])
   ], { type: "text/html" });

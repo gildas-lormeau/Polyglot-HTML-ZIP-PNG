@@ -55,7 +55,7 @@ async function main() {
     // - second part of the HTML
     // - ZIP data
     // - third part of the HTML
-    // - extra data
+    // - consolidation data
     // - fourth part of the HTML
     createTextChunk(ZIP_CHUNK_KEYWORD, mergeData(
       htmlPart1,
