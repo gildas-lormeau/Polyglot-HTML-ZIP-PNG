@@ -10,7 +10,7 @@ You can view the presentation in:
 
 # Demo
  
-Here is the resulting file: [demo.png.zip.html](https://github.com/gildas-lormeau/Polyglot-HTML-ZIP-PNG/raw/main/demo.png.zip.html). 
+Here is the resulting file: [demo.png.zip.html](https://github.com/gildas-lormeau/Polyglot-HTML-ZIP-PNG/raw/main/demo.png.zip.html)
 
 This file is compatible with: 
  - HTML (in Standards Mode)
