@@ -25,4 +25,4 @@ If you are using a Chromium-based browser to view the presentation and test exam
 
 # Known issues
 
-A bug in "Archive Utility" on macOS prevents it from decompressing the resulting file. You can use "unzip" to get around this problem.
+A bug in "Archive Utility" on macOS prevents it from decompressing the resulting file. You can use "unzip" to get around this issue.
