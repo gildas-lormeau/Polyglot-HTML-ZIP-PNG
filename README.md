@@ -2,9 +2,13 @@
 
 This [code repository](https://github.com/gildas-lormeau/Polyglot-HTML-ZIP-PNG/) contains a presentation for [RennesJS](https://www.meetup.com/fr-FR/RennesJS) showing how to create HTML/ZIP/PNG [polyglot files](https://en.wikipedia.org/wiki/Polyglot_(computing)) in JavaScript step by step.
 
+# Presentation
+
 You can view the presentation in:
  - [english](https://gildas-lormeau.github.io/Polyglot-HTML-ZIP-PNG/en-EN/)
  - [french](https://gildas-lormeau.github.io/Polyglot-HTML-ZIP-PNG/fr-FR/)
+
+# Demo
  
 Here is the resulting file: [demo.png.zip.html](https://github.com/gildas-lormeau/Polyglot-HTML-ZIP-PNG/raw/main/demo.png.zip.html). 
 
