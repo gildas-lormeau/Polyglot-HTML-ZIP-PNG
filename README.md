@@ -14,8 +14,8 @@ Here is the resulting file: [demo.png.zip.html](https://github.com/gildas-lormea
 
 This file is compatible with: 
  - HTML (in [no-quirks mode](https://dom.spec.whatwg.org/#concept-document-no-quirks))
- - PNG
  - ZIP
+ - PNG
 
 The image displayed at the center of the HTML page is the page itself but interpreted as a PNG file.
 
