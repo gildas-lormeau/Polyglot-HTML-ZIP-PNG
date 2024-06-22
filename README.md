@@ -18,8 +18,8 @@ This file is compatible with:
  - HTML (page displayed in [no-quirks mode](https://dom.spec.whatwg.org/#concept-document-no-quirks))
  - ZIP
 - PNG
-  
-# Fun fact
+
+# Fun fact (the icing on the cake)
 
 The image displayed at the center of the page when viewed in HTML is the page itself, but interpreted as a PNG file.
 
