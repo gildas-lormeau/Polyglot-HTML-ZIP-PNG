@@ -23,7 +23,7 @@ The image displayed at the center of the page when viewed in HTML is the page it
 
 # Installation
 
-If you are using a Chromium-based browser to view examples from the presentation, you should install the extension as an "[unpacked extension](https://developer.chrome.com/docs/extensions/get-started/tutorial/hello-world#load-unpacked)" from the zip file located in [util/web-extension](https://github.com/gildas-lormeau/Polyglot-HTML-ZIP-PNG/tree/main/util/web-extension) in order to add the support of `file://` URIs in the `fetch` API.
+If you are using a Chromium-based or WebKit-based browser to view examples from the presentation, you should install the extension as an "[unpacked extension](https://developer.chrome.com/docs/extensions/get-started/tutorial/hello-world#load-unpacked)" from the zip file located in [util/web-extension](https://github.com/gildas-lormeau/Polyglot-HTML-ZIP-PNG/tree/main/util/web-extension) in order to add the support of `file://` URIs in the [`Fetch` API](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API).
 
 # Known issues
 
