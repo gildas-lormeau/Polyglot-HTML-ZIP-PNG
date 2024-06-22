@@ -12,7 +12,7 @@ You can view the presentation in:
 
 # TL;DR
  
-Here is the resulting file: [demo.png.zip.html](https://github.com/gildas-lormeau/Polyglot-HTML-ZIP-PNG/raw/main/demo.png.zip.html)
+Here is the resulting self-extracting HTML file: [demo.png.zip.html](https://github.com/gildas-lormeau/Polyglot-HTML-ZIP-PNG/raw/main/demo.png.zip.html)
 
 This file is compatible with: 
  - HTML (page displayed in [no-quirks mode](https://dom.spec.whatwg.org/#concept-document-no-quirks))
