@@ -6,7 +6,7 @@ This presentation provides a didactic explanation of how (universal) self-extrac
 
 # Presentation
 
-You can view the presentation in:
+You can view the web presentation in:
  - [english](https://gildas-lormeau.github.io/Polyglot-HTML-ZIP-PNG/en-EN/)
  - [french](https://gildas-lormeau.github.io/Polyglot-HTML-ZIP-PNG/fr-FR/)
 
