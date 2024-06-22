@@ -274,6 +274,10 @@
 					</li>
 					<li class="fragment">Metadata from local headers can be used to repair a ZIP file</li>
 				</ul>
+				<aside class="notes">
+					<p>To read a ZIP file, you must first read the central directory and ignore local headers</p>
+					<p>⇒ A ZIP file is read from the end</p>
+				</aside>
 			</section>
 			<section>
 				<h2>ZIP Format</h2>
@@ -348,6 +352,11 @@ console.log("zip file data:", zipData)</code>
 						</pre>
 					</div>
 				</div>
+				<aside class="notes">
+					<p>The <code>index.html</code> file is used to launch the <code>index.js</code> script generating
+						the ZIP file
+					</p>
+				</aside>
 			</section>
 			<section>
 				<h2>Integration in the project</h2>
@@ -400,6 +409,9 @@ console.log("zip file data:", zipData)</code>
 					</div>
 				</div>
 				<iframe loading="lazy" src="dist/steps/02/index.html" class="small fragment"></iframe>
+				<aside class="notes">
+					<p><code>URL.createObjectURL()</code> creates a URL for binary content in <code>Blob</code> form</p>
+				</aside>
 			</section>
 			<section>
 				<h2>Example with zip.js</h2>
@@ -438,6 +450,9 @@ await zipReader.close()</code>
 						</pre>
 					</div>
 				</div>
+				<aside class="notes">
+					<p>The <code>index.html</code> file is used to read the previously generated ZIP file</p>
+				</aside>
 			</section>
 			<section>
 				<h2>Integration in the project</h2>
@@ -477,15 +492,16 @@ await zipReader.close()</code>
 							<li class="fragment">Closing tag <code>--&gt;</code> and end of HTML content</li>
 						</ol>
 					</li>
-					<li class="fragment">HTML content includes:
-						<ul>
-							<li class="fragment">the zip.js library script (<a href="dist/steps/04/assets/zip.min.js"
-									target="_blank">assets/zip.min.js</a>)</li>
-							<li class="fragment">the script displaying the contents of the zip file (<a
-									href="dist/steps/04/assets/main.js" target="_blank">assets/main.js</a>)</li>
-						</ul>
-					</li>
 				</ul>
+				<aside class="notes">
+					<p>HTML content includes:</p>
+					<ul>
+						<li class="fragment">the zip.js library script (<a href="dist/steps/04/assets/zip.min.js"
+								target="_blank">assets/zip.min.js</a>)</li>
+						<li class="fragment">the script displaying the contents of the zip file (<a
+								href="dist/steps/04/assets/main.js" target="_blank">assets/main.js</a>)</li>
+					</ul>
+				</aside>
 			</section>
 			<section>
 				<h2>ZIP Format (cont.)</h2>
@@ -687,6 +703,9 @@ await zipReader.close()</code>
 						</pre>
 					</div>
 				</div>
+				<aside class="notes">
+					<p><code>zipOffset</code> is the offset of the first entry in the ZIP file</p>
+				</aside>
 			</section>
 			<section>
 				<h2>Polyglot HTML/ZIP file</h2>
@@ -771,6 +790,9 @@ await zipReader.close()</code>
 						</pre>
 					</div>
 				</div>
+				<aside class="notes">
+					<p><code>globalThis.fetch("")</code> reads the page displayed in binary form</p>
+				</aside>
 				<iframe loading="lazy" src="dist/steps/04/index.html" class="small fragment"></iframe>
 			</section>
 			<section>
@@ -817,6 +839,10 @@ await zipReader.close()</code>
 				</div>
 				<iframe loading="lazy" src="dist/steps/06/index.html" class="small fragment"></iframe>
 				<p class="fragment">Inactive JavaScript code ⚠️</p>
+				<aside class="notes">
+					<p>A <code>&lt;script&gt;</code> tag must not have a parent element in order to be executed when
+						added to the DOM</p>
+				</aside>
 			</section>
 			<section>
 				<h2>Polyglot HTML/ZIP file</h2>
@@ -840,6 +866,9 @@ await zipReader.close()</code>
 				</div>
 				<iframe loading="lazy" src="dist/steps/07/index.html" class="small fragment"></iframe>
 				<p class="fragment">Reading the page from the file system ⚠️</p>
+				<aside class="notes">
+					<p>The <code>fetch</code> API cannot read the file from the filesystem in non-Firefox browsers</p>
+				</aside>
 			</section>
 			<section>
 				<h2>Reading the page from the file system</h2>
@@ -901,6 +930,11 @@ await zipReader.close()</code>
 					<code>windows-1252</code>: <iframe loading="lazy" src="dist/steps/09/index.html" class="small"
 						style="height: 1.3em; width: 320px; top: 13px;"></iframe>
 				</p>
+				<aside class="notes">
+					<p>Characters displayed with a yellow background are those replaced by the <code>U+FFFD</code>
+						wildcard</p>
+					<p>Characters displayed with an orange background are those with a code greater than 255</p>
+				</aside>
 			</section>
 			<section>
 				<h2>Reading the ZIP file from the DOM</h2>
@@ -1573,6 +1607,10 @@ await zipReader.close()</code>
 						</pre>
 					</div>
 				</div>
+				<aside class="notes">
+					<p>The value of <code>zipOffset</code> is adjusted to take into account the PNG data added at the
+						beginning of the file</p>
+				</aside>
 			</section>
 			<section>
 				<h2>Polyglot HTML/ZIP/PNG file</h2>

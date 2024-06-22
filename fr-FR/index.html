@@ -277,6 +277,11 @@
 					<li class="fragment">Les metadonnées des en-têtes locaux peuvent être utilisées pour réparer un
 						fichier ZIP</li>
 				</ul>
+				<aside class="notes">
+					<p>Pour lire un fichier ZIP, il faut lire d'abord l'annuaire central d'abord et ignorer les en-têtes
+						locaux</p>
+					<p>⇒ Un fichier ZIP est lu par la fin</p>
+				</aside>
 			</section>
 			<section>
 				<h2>Format ZIP</h2>
@@ -352,6 +357,10 @@ console.log("zip file data:", zipData)</code>
 						</pre>
 					</div>
 				</div>
+				<aside class="notes">
+					<p>Le fichier <code>index.html</code> sert à lancer le script <code>index.js</code> générant le
+						fichier ZIP</p>
+				</aside>
 			</section>
 			<section>
 				<h2>Intégration dans le projet</h2>
@@ -404,6 +413,11 @@ console.log("zip file data:", zipData)</code>
 					</div>
 				</div>
 				<iframe loading="lazy" src="dist/steps/02/index.html" class="small fragment"></iframe>
+				<aside class="notes">
+					<p><code>URL.createObjectURL()</code> permet de créer une URL pour un contenu binaire sous forme de
+						<code>Blob</code>
+					</p>
+				</aside>
 			</section>
 			<section>
 				<h2>Exemple avec zip.js</h2>
@@ -442,6 +456,9 @@ await zipReader.close()</code>
 						</pre>
 					</div>
 				</div>
+				<aside class="notes">
+					<p>Le fichier <code>index.html</code> sert à lire le fichier ZIP généré précédemment</p>
+				</aside>
 			</section>
 			<section>
 				<h2>Intégration dans le projet</h2>
@@ -482,15 +499,16 @@ await zipReader.close()</code>
 							<li class="fragment">Balise fermante <code>--&gt;</code> et fin du contenu HTML</li>
 						</ol>
 					</li>
-					<li class="fragment">Contenu HTML inclut :
-						<ul>
-							<li class="fragment">script de la bibliothèque zip.js (<a
-									href="dist/steps/04/assets/zip.min.js" target="_blank">assets/zip.min.js</a>)</li>
-							<li class="fragment">script affichant le contenu du fichier zip (<a
-									href="dist/steps/04/assets/main.js" target="_blank">assets/main.js</a>)</li>
-						</ul>
-					</li>
 				</ul>
+				<aside class="notes">
+					<p>Contenu HTML inclut :</p>
+					<ul>
+						<li class="fragment">script de la bibliothèque zip.js (<a href="dist/steps/04/assets/zip.min.js"
+								target="_blank">assets/zip.min.js</a>)</li>
+						<li class="fragment">script affichant le contenu du fichier zip (<a
+								href="dist/steps/04/assets/main.js" target="_blank">assets/main.js</a>)</li>
+					</ul>
+				</aside>
 			</section>
 			<section>
 				<h2>Format ZIP (suite)</h2>
@@ -692,6 +710,9 @@ await zipReader.close()</code>
 						</pre>
 					</div>
 				</div>
+				<aside class="notes">
+					<p><code>zipOffset</code> est l'offset de la première entrée dans le fichier ZIP</p>
+				</aside>
 			</section>
 			<section>
 				<h2>Fichier polyglotte HTML/ZIP</h2>
@@ -776,6 +797,9 @@ await zipReader.close()</code>
 						</pre>
 					</div>
 				</div>
+				<aside class="notes">
+					<p><code>globalThis.fetch("")</code> permet de lire la page affichée en binaire</p>
+				</aside>
 				<iframe loading="lazy" src="dist/steps/04/index.html" class="small fragment"></iframe>
 			</section>
 			<section>
@@ -822,6 +846,10 @@ await zipReader.close()</code>
 				</div>
 				<iframe loading="lazy" src="dist/steps/06/index.html" class="small fragment"></iframe>
 				<p class="fragment">Code JavaScript inactif ⚠️</p>
+				<aside class="notes">
+					<p>Une balise <code>&lt;script&gt;</code> ne doit pas posséder d'élement parent afin d'être exécutée
+						lorsqu'elle ajoutée dans le DOM</p>
+				</aside>
 			</section>
 			<section>
 				<h2>Fichier polyglotte HTML/ZIP</h2>
@@ -845,6 +873,10 @@ await zipReader.close()</code>
 				</div>
 				<iframe loading="lazy" src="dist/steps/07/index.html" class="small fragment"></iframe>
 				<p class="fragment">Lecture de la page depuis le système de fichier ⚠️</p>
+				<aside class="notes">
+					<p>L'API <code>fetch</code> ne peut pas lire le fichier depuis le système de fichier dans les
+						navigateurs autres que ceux basés sur Firefox</p>
+				</aside>
 			</section>
 			<section>
 				<h2>Lecture du fichier ZIP depuis le système de fichier</h2>
@@ -907,6 +939,12 @@ await zipReader.close()</code>
 					<code>windows-1252</code> : <iframe loading="lazy" src="dist/steps/09/index.html" class="small"
 						style="height: 1.3em; width: 320px; top: 13px;"></iframe>
 				</p>
+				<aside class="notes">
+					<p>Les caractères affichés avec un fond jaune sont ceux remplacés par le caractère de remplacement
+						<code>U+FFFD</code>
+					</p>
+					<p>Les caractères affichés avec un fond orange sont ceux dont le code est supérieur à 255</p>
+				</aside>
 			</section>
 			<section>
 				<h2>Lecture du fichier ZIP depuis le DOM</h2>
@@ -984,7 +1022,7 @@ await zipReader.close()</code>
 	&lt;body&gt;
 		&lt;p&gt;Please wait...&lt;/p&gt;&lt;!--
 		  Données ZIP 
-	    --&gt;
+		--&gt;
 		&lt;script&gt;&lt;!-- Contenu de assets/main.js --&gt;&lt;/script&gt;
   &lt;/body&gt;
 &lt;/html&gt;</code></pre>
@@ -1562,7 +1600,7 @@ await zipReader.close()</code>
 							<code data-src="dist/steps/13/lib/html-template.js" data-line-numbers="|6-21|6-16|16-17|17-18|18-21" class="language-js"></code>
 						</pre>
 					</div>
-				</div>
+				</div>w
 			</section>
 			<section>
 				<h2>Fichier polyglotte HTML/ZIP/PNG</h2>
@@ -1585,6 +1623,10 @@ await zipReader.close()</code>
 						</pre>
 					</div>
 				</div>
+				<aside class="notes">
+					<p>La valeur de <code>zipOffset</code> est ajustée pour tenir compte des données PNG ajoutées au
+						début du fichier</p>
+				</aside>
 			</section>
 			<section>
 				<h2>Fichier polyglotte HTML/ZIP/PNG</h2>
@@ -1744,7 +1786,7 @@ await zipReader.close()</code>
 							</li>
 							<li class="fragment">Utilisation de <code>String#replaceAll()</code> pour remplacer les
 								chemins dans les fichiers texte au lieu de s'appuyer sur une analyse syntaxique</li>
-							<li class="fragment">Absence de tag <code>&lt;meta&gt;</code> contenant la <a
+							<li class="fragment">Absence de balise <code>&lt;meta&gt;</code> contenant la <a
 									href="https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP" target="_blank">Content
 									Security Policy (CSP)</a>
 							</li>
