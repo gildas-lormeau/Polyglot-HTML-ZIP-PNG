@@ -12,4 +12,4 @@ This file is compatible with HTML (in Standards Mode), PNG, and ZIP. The image d
 
 # Installation
 
-If you are using a Chromium-based browser to view the presentation and test examples, you should install the extension located in [util/web-extension](https://github.com/gildas-lormeau/Polyglot-HTML-ZIP-PNG/tree/main/util/web-extension) to add the support of `file://` URIs in the `fetch` API.
+If you are using a Chromium-based browser to view the presentation and test examples, you should install the extension as an ["unpacked extension"](https://developer.chrome.com/docs/extensions/get-started/tutorial/hello-world#load-unpacked) from the zip file located in [util/web-extension](https://github.com/gildas-lormeau/Polyglot-HTML-ZIP-PNG/tree/main/util/web-extension) in order to add the support of `file://` URIs in the `fetch` API.
