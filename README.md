@@ -16,8 +16,8 @@ Here is the resulting self-extracting HTML file: [demo.png.zip.html](https://git
 
 This file is compatible with: 
  - HTML (page displayed in [no-quirks mode](https://dom.spec.whatwg.org/#concept-document-no-quirks))
- - ZIP
-- PNG
+ - ZIP (contains the displayed page and its resources)
+ - PNG
 
 # Fun fact
 
