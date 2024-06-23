@@ -1,6 +1,6 @@
 const { fetch } = globalThis;
 
-window.fetch = async (url, options) => {
+globalThis.fetch = async (url, options) => {
     url = new URL(url, location.href).href;
     if (url.startsWith("file://")) {
         return new Promise((resolve, reject) => {
