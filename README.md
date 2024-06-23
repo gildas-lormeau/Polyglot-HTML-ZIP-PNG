@@ -7,8 +7,8 @@ This presentation provides a didactic explanation of how (universal) self-extrac
 # Presentation
 
 You can view the web presentation in:
- - [english](https://gildas-lormeau.github.io/Polyglot-HTML-ZIP-PNG/en-EN/)
- - [french](https://gildas-lormeau.github.io/Polyglot-HTML-ZIP-PNG/fr-FR/)
+ - [english](https://gildas-lormeau.github.io/Polyglot-HTML-ZIP-PNG/en-EN/) ([code](https://github.com/gildas-lormeau/Polyglot-HTML-ZIP-PNG/tree/main/en-EN/dist/steps))
+ - [french](https://gildas-lormeau.github.io/Polyglot-HTML-ZIP-PNG/fr-FR/) ([code](https://github.com/gildas-lormeau/Polyglot-HTML-ZIP-PNG/tree/main/fr-FR/dist/steps))
 
 # TL;DR
  
