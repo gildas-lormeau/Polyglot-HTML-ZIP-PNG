@@ -19,7 +19,7 @@ This file is compatible with:
  - ZIP
 - PNG
 
-# Fun fact (the icing on the cake)
+# Fun fact
 
 The image displayed at the center of the page when viewed in HTML is the page itself, but interpreted as a PNG file.
 
