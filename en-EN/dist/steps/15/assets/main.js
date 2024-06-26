@@ -28,7 +28,7 @@ const CHAR_CODE_SUBSTITUTIONS = new Map([
   [8226, 149], [8211, 150], [8212, 151], [732, 152], [8482, 153], [353, 154],
   [8250, 155], [339, 156], [382, 158], [376, 159]
 ]);
-const PNG_HEADER_DATA = "\u2030PNG\n\x1A\n";
+const PNG_SIGNATURE = "\u2030PNG\n\x1A\n";
 
 await main();
 
@@ -44,7 +44,7 @@ async function main() {
 
 function cleanupPNGData() {
   const { textContent } = document.body.firstChild;
-  if (textContent.substring(0, PNG_HEADER_DATA.length) === PNG_HEADER_DATA) {
+  if (textContent.substring(0, PNG_SIGNATURE.length) === PNG_SIGNATURE) {
     document.body.firstChild.remove();
     document.body.lastChild.remove();
   }
