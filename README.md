@@ -2,7 +2,7 @@
 
 Introducing polyglot files – where HTML, ZIP, and PNG collide like a badly merged pull request. Sure, the resulting HTML might look like binary soup, but who needs clarity when you can have multi-format marvels? Discover an amalgam of web development magic and file format chaos, all wrapped up in an intriguing mix!
 
-This [code repository](https://github.com/gildas-lormeau/Polyglot-HTML-ZIP-PNG/) contains a step-by-step presentation for [RennesJS](https://www.meetup.com/fr-FR/RennesJS), showing how to create HTML/ZIP/PNG [polyglot files](https://en.wikipedia.org/wiki/Polyglot_(computing)) in JavaScript.
+This repository contains a step-by-step presentation for [RennesJS](https://www.meetup.com/fr-FR/RennesJS), showing how to create HTML/ZIP/PNG [polyglot files](https://en.wikipedia.org/wiki/Polyglot_(computing)) in JavaScript.
 
 The [presentation](#user-content-presentation) provides a didactic explanation of how (universal) self-extracting files work in [SingleFile](https://github.com/gildas-lormeau/SingleFile).
 
