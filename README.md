@@ -17,7 +17,7 @@ You can view the web presentation in:
 Here is the resulting self-extracting HTML file: [demo.png.zip.html](https://github.com/gildas-lormeau/Polyglot-HTML-ZIP-PNG/raw/main/demo.png.zip.html)
 
 This file is compatible with: 
- - HTML (page displayed in [no-quirks mode](https://dom.spec.whatwg.org/#concept-document-no-quirks))
+ - HTML (extracted page displayed in [no-quirks mode](https://dom.spec.whatwg.org/#concept-document-no-quirks))
  - ZIP (contains the displayed page and its resources) - view it with [ZIP Manager](https://gildas-lormeau.github.io/zip-manager/)
  - PNG - view it with [PNG file chunk inpector](https://www.nayuki.io/page/png-file-chunk-inspector)
 
