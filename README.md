@@ -6,12 +6,6 @@ This [code repository](https://github.com/gildas-lormeau/Polyglot-HTML-ZIP-PNG/)
 
 This presentation provides a didactic explanation of how (universal) self-extracting files work in [SingleFile](https://github.com/gildas-lormeau/SingleFile).
 
-# Presentation
-
-You can view the web presentation in:
- - [english](https://gildas-lormeau.github.io/Polyglot-HTML-ZIP-PNG/en-EN/) ([code](https://github.com/gildas-lormeau/Polyglot-HTML-ZIP-PNG/tree/main/en-EN/dist/steps))
- - [french](https://gildas-lormeau.github.io/Polyglot-HTML-ZIP-PNG/fr-FR/) ([code](https://github.com/gildas-lormeau/Polyglot-HTML-ZIP-PNG/tree/main/fr-FR/dist/steps))
-
 # TL;DR
  
 Here is the resulting self-extracting HTML file: [demo.png.zip.html](https://github.com/gildas-lormeau/Polyglot-HTML-ZIP-PNG/raw/main/demo.png.zip.html)
@@ -24,6 +18,13 @@ This file is compatible with:
 # Fun fact
 
 The image displayed at the center of the page when viewed in HTML is the page itself, but interpreted as a PNG file.
+
+# Presentation
+
+You can view the web presentation in:
+ - [english](https://gildas-lormeau.github.io/Polyglot-HTML-ZIP-PNG/en-EN/) ([code](https://github.com/gildas-lormeau/Polyglot-HTML-ZIP-PNG/tree/main/en-EN/dist/steps))
+ - [french](https://gildas-lormeau.github.io/Polyglot-HTML-ZIP-PNG/fr-FR/) ([code](https://github.com/gildas-lormeau/Polyglot-HTML-ZIP-PNG/tree/main/fr-FR/dist/steps))
+
 
 # Installation
 
