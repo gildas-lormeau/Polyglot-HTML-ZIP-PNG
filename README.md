@@ -32,4 +32,5 @@ If you are using a Chromium-based or a WebKit-based browser to view the first ex
 
 # Known issues
 
-A bug in "Archive Utility" on macOS prevents it from decompressing the resulting file. You can use "unzip" to get around this issue.
+ - A bug in "Archive Utility" on macOS prevents it from decompressing the resulting file. You can use "unzip" to get around this issue.
+ - Depending on the browser you're using, the presentation may be a little slow.
