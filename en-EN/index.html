@@ -954,6 +954,9 @@ await zipReader.close()</code>
 				<p>Comparison of the impact of different 1-byte encodings</p>
 				<ul>
 					<li class=" fragment">Web pages containing a 256-byte binary content with all possible values</li>
+					<li class="fragment">Test with all <a
+						href="https://developer.mozilla.org/en-US/docs/Web/API/TextDecoder/encoding#value"
+						target="_blank">supported encodings</a></li>
 					<li class="fragment">Reading of binary data as text in JavaScript</li>
 					<li class="fragment">Determining and displaying the number of characters:
 						<ul>
@@ -962,9 +965,6 @@ await zipReader.close()</code>
 							<li class="fragment">different from those expected (second column)</li>
 						</ul>
 					</li>
-					<li class="fragment">Test with all <a
-							href="https://developer.mozilla.org/en-US/docs/Web/API/TextDecoder/encoding#value"
-							target="_blank">supported encodings</a></li>
 				</ul>
 			</section>
 			<section>
