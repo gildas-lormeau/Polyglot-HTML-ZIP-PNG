@@ -19,7 +19,7 @@ This file is compatible with:
 
 # Fun fact
 
-The image displayed at the center of the `demo.png.zip.html` file when viewed in HTML is the page itself, but interpreted as a PNG file.
+The image displayed at the center of the file `demo.png.zip.html` when viewed in HTML is the file itself, but interpreted as a PNG file.
 
 # Presentation
 
