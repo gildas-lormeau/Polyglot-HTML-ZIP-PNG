@@ -897,7 +897,7 @@ await zipReader.close()</code>
 								multiple bytes (e.g. <code>UTF-8</code>)
 							</li>
 							<li class="fragment">substitution of <code>U+FFFD</code> replacement characters for
-								characters whose code is <code>0</code> or invalid</li>
+								characters whose code is <code>0</code> or invalid (depending on encoding) </li>
 							<li class="fragment">replacement by a line feed <code>\n</code> of the characters:
 								<ul>
 									<li class="fragment">carriage returns <code>\r</code></li>

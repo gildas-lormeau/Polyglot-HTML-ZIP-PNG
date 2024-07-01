@@ -905,7 +905,7 @@ await zipReader.close()</code>
 								contre plusieurs octets (e.g. <code>UTF-8</code>)
 							</li>
 							<li class="fragment">remplacement par un caractère de remplacement <code>U+FFFD</code> des
-								caractères dont le code est <code>0</code> ou est invalide</li>
+								caractères dont le code est <code>0</code> ou est invalide (suivant l'encodage)</li>
 							<li class="fragment">remplacement par un passage à la ligne <code>\n</code> des caractères :
 								<ul>
 									<li class="fragment">retours chariot <code>\r</code></li>
