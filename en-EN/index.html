@@ -165,13 +165,13 @@
 						</ul>
 					</li>
 					<li class="fragment">Stylesheets and scripts encoded in UTF-8</li>
-					<li class="fragment">Files stored in the <a href="dist/steps/01/project/"
+					<li class="fragment">Files stored in the <a href="code/01/project/"
 							target="_blank"><code>project/</code></a> folder</li>
 				</ul>
 			</section>
 			<section>
 				<h2>Test project</h2>
-				<iframe loading="lazy" src="dist/steps/01/project/index.html"
+				<iframe loading="lazy" src="code/01/project/index.html"
 					style="height:550px; min-width:550px"></iframe>
 			</section>
 			<section>
@@ -188,7 +188,7 @@
 					</div>
 					<div class="panel panel-right">
 						<pre>
-							<code data-src="dist/steps/01/project/index.html" data-line-numbers="|17|23" class="language-html"></code>
+							<code data-src="code/01/project/index.html" data-line-numbers="|17|23" class="language-html"></code>
 						</pre>
 					</div>
 				</div>
@@ -207,7 +207,7 @@
 					</div>
 					<div class="panel panel-right">
 						<pre>
-							<code data-src="dist/steps/01/project/script.js" data-line-numbers="|2" class="language-js"></code>
+							<code data-src="code/01/project/script.js" data-line-numbers="|2" class="language-js"></code>
 						</pre>
 					</div>
 				</div>
@@ -226,7 +226,7 @@
 					</div>
 					<div class="panel panel-right">
 						<pre>
-							<code data-src="dist/steps/01/project/index.html" data-line-numbers="23|7" class="language-html"></code>
+							<code data-src="code/01/project/index.html" data-line-numbers="23|7" class="language-html"></code>
 						</pre>
 					</div>
 				</div>
@@ -245,7 +245,7 @@
 					</div>
 					<div class="panel panel-right">
 						<pre>
-							<code data-src="dist/steps/01/project/style.css" data-line-numbers="|1|17|71" class="language-css"></code>
+							<code data-src="code/01/project/style.css" data-line-numbers="|1|17|71" class="language-css"></code>
 						</pre>
 					</div>
 				</div>
@@ -294,7 +294,7 @@
 			</section>
 			<section>
 				<h2>ZIP Format</h2>
-				<img src="dist/images/zip-structure.svg" style="max-height: 450px;">
+				<img src="images/zip-structure.svg" style="max-height: 450px;">
 				<p style="font-size: .5em; text-align: right;">Source: <a
 						href="https://en.wikipedia.org/wiki/ZIP_(file_format)"
 						target="_blank">https://en.wikipedia.org/wiki/ZIP_(file_format)</a>
@@ -361,7 +361,7 @@ console.log("zip file data:", zipData)</code>
 					</div>
 					<div class="panel panel-right">
 						<pre>
-							<code data-src="dist/steps/02/index.html" data-line-numbers="|22|23" class="language-html"></code>
+							<code data-src="code/02/index.html" data-line-numbers="|22|23" class="language-html"></code>
 						</pre>
 					</div>
 				</div>
@@ -383,7 +383,7 @@ console.log("zip file data:", zipData)</code>
 					</div>
 					<div class="panel panel-right">
 						<pre>
-							<code data-src="dist/steps/02/index.js" data-line-numbers="|3-11|13|1"  class="language-js"></code>
+							<code data-src="code/02/index.js" data-line-numbers="|3-11|13|1"  class="language-js"></code>
 						</pre>
 					</div>
 				</div>
@@ -400,7 +400,7 @@ console.log("zip file data:", zipData)</code>
 					</div>
 					<div class="panel panel-right">
 						<pre>
-							<code data-src="dist/steps/02/lib/utils-zip.js" data-line-numbers="|15-25|18,22|19-20|21|24" class="language-js"></code>
+							<code data-src="code/02/lib/utils-zip.js" data-line-numbers="|15-25|18,22|19-20|21|24" class="language-js"></code>
 						</pre>
 					</div>
 				</div>
@@ -417,11 +417,11 @@ console.log("zip file data:", zipData)</code>
 					</div>
 					<div class="panel panel-right">
 						<pre>
-							<code data-src="dist/steps/02/index.js" data-line-numbers="1|13|14-15"  class="language-js"></code>
+							<code data-src="code/02/index.js" data-line-numbers="1|13|14-15"  class="language-js"></code>
 						</pre>
 					</div>
 				</div>
-				<iframe loading="lazy" src="dist/steps/02/index.html" class="small fragment"></iframe>
+				<iframe loading="lazy" src="code/02/index.html" class="small fragment"></iframe>
 				<aside class="notes">
 					<p><code>URL.createObjectURL()</code> creates a URL for binary content in <code>Blob</code> form</p>
 				</aside>
@@ -459,7 +459,7 @@ await zipReader.close()</code>
 					</div>
 					<div class="panel panel-right">
 						<pre>
-							<code data-src="dist/steps/03/index.html" data-line-numbers="|31|32|33" class="language-html"></code>
+							<code data-src="code/03/index.html" data-line-numbers="|31|32|33" class="language-html"></code>
 						</pre>
 					</div>
 				</div>
@@ -477,7 +477,7 @@ await zipReader.close()</code>
 					</div>
 					<div class="panel panel-right">
 						<pre>
-							<code data-src="dist/steps/03/index.js" data-line-numbers="|10-15|13|23-34|26,32|27|28-31"  class="language-js"></code>
+							<code data-src="code/03/index.js" data-line-numbers="|10-15|13|23-34|26,32|27|28-31"  class="language-js"></code>
 						</pre>
 					</div>
 				</div>
@@ -485,7 +485,7 @@ await zipReader.close()</code>
 			<section>
 				<h2>Integration in the project</h2>
 				<p>Reading the ZIP file</p>
-				<iframe loading="lazy" src="dist/steps/03/index.html" style="height: 450px;"></iframe>
+				<iframe loading="lazy" src="code/03/index.html" style="height: 450px;"></iframe>
 			</section>
 			<section>
 				<h2>ZIP Format (cont.)</h2>
@@ -509,10 +509,10 @@ await zipReader.close()</code>
 				<aside class="notes">
 					<p>HTML content includes:</p>
 					<ul>
-						<li>the zip.js library script (<a href="dist/steps/04/assets/zip.min.js"
+						<li>the zip.js library script (<a href="code/04/assets/zip.min.js"
 								target="_blank">assets/zip.min.js</a>)</li>
 						<li>the script displaying the contents of the zip file (<a
-								href="dist/steps/04/assets/main.js" target="_blank">assets/main.js</a>)</li>
+								href="code/04/assets/main.js" target="_blank">assets/main.js</a>)</li>
 					</ul>
 				</aside>
 			</section>
@@ -565,7 +565,7 @@ await zipReader.close()</code>
 					</div>
 					<div class="panel panel-right">
 						<pre>
-							<code data-src="dist/steps/04/index.html" data-line-numbers="|22|23" class="language-html"></code>
+							<code data-src="code/04/index.html" data-line-numbers="|22|23" class="language-html"></code>
 						</pre>
 					</div>
 				</div>
@@ -586,7 +586,7 @@ await zipReader.close()</code>
 					</div>
 					<div class="panel panel-right">
 						<pre>
-							<code data-src="dist/steps/04/index.js" data-line-numbers="|3" class="language-js"></code>
+							<code data-src="code/04/index.js" data-line-numbers="|3" class="language-js"></code>
 						</pre>
 					</div>
 				</div>
@@ -607,7 +607,7 @@ await zipReader.close()</code>
 					</div>
 					<div class="panel panel-right">
 						<pre>
-							<code data-src="dist/steps/04/lib/html-template.js" data-line-numbers="|2-5|7-21|8-18|18-21|19" class="language-js"></code>
+							<code data-src="code/04/lib/html-template.js" data-line-numbers="|2-5|7-21|8-18|18-21|19" class="language-js"></code>
 						</pre>
 					</div>
 				</div>
@@ -628,7 +628,7 @@ await zipReader.close()</code>
 					</div>
 					<div class="panel panel-right">
 						<pre>
-							<code data-src="dist/steps/04/lib/utils.js" data-line-numbers="|17-19" class="language-js"></code>
+							<code data-src="code/04/lib/utils.js" data-line-numbers="|17-19" class="language-js"></code>
 						</pre>
 					</div>
 				</div>
@@ -649,7 +649,7 @@ await zipReader.close()</code>
 					</div>
 					<div class="panel panel-right">
 						<pre>
-							<code data-src="dist/steps/04/lib/html-template.js" data-line-numbers="19|23" class="language-js"></code>
+							<code data-src="code/04/lib/html-template.js" data-line-numbers="19|23" class="language-js"></code>
 						</pre>
 					</div>
 				</div>
@@ -670,7 +670,7 @@ await zipReader.close()</code>
 					</div>
 					<div class="panel panel-right">
 						<pre>
-							<code data-src="dist/steps/04/index.js" data-line-numbers="3|21-32|22|2" class="language-js"></code>
+							<code data-src="code/04/index.js" data-line-numbers="3|21-32|22|2" class="language-js"></code>
 						</pre>
 					</div>
 				</div>
@@ -691,7 +691,7 @@ await zipReader.close()</code>
 					</div>
 					<div class="panel panel-right">
 						<pre>
-							<code data-src="dist/steps/04/lib/utils.js" data-line-numbers="|7-9" class="language-js"></code>
+							<code data-src="code/04/lib/utils.js" data-line-numbers="|7-9" class="language-js"></code>
 						</pre>
 					</div>
 				</div>
@@ -712,7 +712,7 @@ await zipReader.close()</code>
 					</div>
 					<div class="panel panel-right">
 						<pre>
-							<code data-src="dist/steps/04/index.js" data-line-numbers="2|22|23|24" class="language-js"></code>
+							<code data-src="code/04/index.js" data-line-numbers="2|22|23|24" class="language-js"></code>
 						</pre>
 					</div>
 				</div>
@@ -736,7 +736,7 @@ await zipReader.close()</code>
 					</div>
 					<div class="panel panel-right">
 						<pre>
-							<code data-src="dist/steps/04/lib/utils-zip.js" data-line-numbers="|7-20|7|9-11" class="language-js"></code>
+							<code data-src="code/04/lib/utils-zip.js" data-line-numbers="|7-20|7|9-11" class="language-js"></code>
 						</pre>
 					</div>
 				</div>
@@ -757,7 +757,7 @@ await zipReader.close()</code>
 					</div>
 					<div class="panel panel-right">
 						<pre>
-							<code data-src="dist/steps/04/index.js" data-line-numbers="24|25-29|30-31" class="language-js"></code>
+							<code data-src="code/04/index.js" data-line-numbers="24|25-29|30-31" class="language-js"></code>
 						</pre>
 					</div>
 				</div>
@@ -778,7 +778,7 @@ await zipReader.close()</code>
 					</div>
 					<div class="panel panel-right">
 						<pre>
-							<code data-src="dist/steps/04/lib/html-template.js" data-line-numbers="|19" class="language-js"></code>
+							<code data-src="code/04/lib/html-template.js" data-line-numbers="|19" class="language-js"></code>
 						</pre>
 					</div>
 				</div>
@@ -799,14 +799,14 @@ await zipReader.close()</code>
 					</div>
 					<div class="panel panel-right">
 						<pre>
-							<code data-src="dist/steps/04/assets/main.js" data-line-numbers="|6-9|7|17-31|19|20|38-40|20|22,28|25|26-27|30|7|8|47-53|49,52|51" class="language-js"></code>
+							<code data-src="code/04/assets/main.js" data-line-numbers="|6-9|7|17-31|19|20|38-40|20|22,28|25|26-27|30|7|8|47-53|49,52|51" class="language-js"></code>
 						</pre>
 					</div>
 				</div>
 				<aside class="notes">
 					<p><code>globalThis.fetch("")</code> reads the page displayed in binary form</p>
 				</aside>
-				<iframe loading="lazy" src="dist/steps/04/index.html" class="small fragment"></iframe>
+				<iframe loading="lazy" src="code/04/index.html" class="small fragment"></iframe>
 			</section>
 			<section>
 				<h2>Polyglot HTML/ZIP file</h2>
@@ -824,11 +824,11 @@ await zipReader.close()</code>
 					</div>
 					<div class="panel panel-right">
 						<pre>
-							<code data-src="dist/steps/05/assets/main.js" data-line-numbers="|18-21|19|23-45|33-40|33|70-72|33|6-10|33|34-40|34,40|36,39|44|19|20|58-62|59|1-2|59|60|3-4|60|61" class="language-js"></code>
+							<code data-src="code/05/assets/main.js" data-line-numbers="|18-21|19|23-45|33-40|33|70-72|33|6-10|33|34-40|34,40|36,39|44|19|20|58-62|59|1-2|59|60|3-4|60|61" class="language-js"></code>
 						</pre>
 					</div>
 				</div>
-				<iframe loading="lazy" src="dist/steps/05/index.html" class="small fragment"></iframe>
+				<iframe loading="lazy" src="code/05/index.html" class="small fragment"></iframe>
 			</section>
 			<section>
 				<h2>Polyglot HTML/ZIP file</h2>
@@ -846,11 +846,11 @@ await zipReader.close()</code>
 					</div>
 					<div class="panel panel-right">
 						<pre>
-							<code data-src="dist/steps/06/assets/main.js" data-line-numbers="|1-11|12-19|34-39|36-37|72-86|74,86|75-76|77|78-84|78,80,84|79,83|85" class="language-js"></code>
+							<code data-src="code/06/assets/main.js" data-line-numbers="|1-11|12-19|34-39|36-37|72-86|74,86|75-76|77|78-84|78,80,84|79,83|85" class="language-js"></code>
 						</pre>
 					</div>
 				</div>
-				<iframe loading="lazy" src="dist/steps/06/index.html" class="small fragment"></iframe>
+				<iframe loading="lazy" src="code/06/index.html" class="small fragment"></iframe>
 				<p class="fragment">Inactive JavaScript code ⚠️</p>
 				<aside class="notes">
 					<p>A <code>&lt;script&gt;</code> tag must not have a parent element in order to be executed when
@@ -873,11 +873,11 @@ await zipReader.close()</code>
 					</div>
 					<div class="panel panel-right">
 						<pre>
-							<code data-src="dist/steps/07/assets/main.js" data-line-numbers="|20-21|25-29|28|72-82|76-81" class="language-js"></code>
+							<code data-src="code/07/assets/main.js" data-line-numbers="|20-21|25-29|28|72-82|76-81" class="language-js"></code>
 						</pre>
 					</div>
 				</div>
-				<iframe loading="lazy" src="dist/steps/07/index.html" class="small fragment"></iframe>
+				<iframe loading="lazy" src="code/07/index.html" class="small fragment"></iframe>
 				<p class="fragment">Reading the page from the file system ⚠️</p>
 				<aside class="notes">
 					<p>The <code>fetch</code> API cannot read the file from the filesystem in non-Firefox browsers</p>
@@ -931,16 +931,16 @@ await zipReader.close()</code>
 					</div>
 					<div class="panel panel-right">
 						<pre>
-							<code data-src="dist/steps/08/assets/main.js" data-line-numbers="|3-5|4|7-27|8-11|12-25|15|29-40|15|18-24|26"></code>
+							<code data-src="code/08/assets/main.js" data-line-numbers="|3-5|4|7-27|8-11|12-25|15|29-40|15|18-24|26"></code>
 						</pre>
 					</div>
 				</div>
 				<p class="fragment" style="font-size: 0.7em;">
-					<code>UTF-8</code>: <iframe loading="lazy" src="dist/steps/08/index.html" class="small"
+					<code>UTF-8</code>: <iframe loading="lazy" src="code/08/index.html" class="small"
 						style="height: 1.3em; width: 320px; top: 13px;"></iframe>
 				</p>
 				<p class="fragment" style="font-size: 0.7em;">
-					<code>windows-1252</code>: <iframe loading="lazy" src="dist/steps/09/index.html" class="small"
+					<code>windows-1252</code>: <iframe loading="lazy" src="code/09/index.html" class="small"
 						style="height: 1.3em; width: 320px; top: 13px;"></iframe>
 				</p>
 				<aside class="notes">
@@ -970,7 +970,7 @@ await zipReader.close()</code>
 			<section>
 				<h2>Reading the ZIP file from the DOM</h2>
 				<p>Comparison of the impact of different 1-byte encodings</p>
-				<iframe loading="lazy" src="dist/steps/10/index.html" style="height: 485px;"></iframe>
+				<iframe loading="lazy" src="code/10/index.html" style="height: 485px;"></iframe>
 			</section>
 			<section>
 				<h2>Reading the ZIP file from the DOM</h2>
@@ -1062,7 +1062,7 @@ await zipReader.close()</code>
 					</div>
 					<div class="panel panel-right">
 						<pre>
-							<code data-src="dist/steps/11/index.js" data-line-numbers="|3" class="language-js"></code>
+							<code data-src="code/11/index.js" data-line-numbers="|3" class="language-js"></code>
 						</pre>
 					</div>
 				</div>
@@ -1083,7 +1083,7 @@ await zipReader.close()</code>
 					</div>
 					<div class="panel panel-right">
 						<pre>
-							<code data-src="dist/steps/11/lib/html-template.js" data-line-numbers="|6-16|16-17|17-20" class="language-js"></code>
+							<code data-src="code/11/lib/html-template.js" data-line-numbers="|6-16|16-17|17-20" class="language-js"></code>
 						</pre>
 					</div>
 				</div>
@@ -1104,7 +1104,7 @@ await zipReader.close()</code>
 					</div>
 					<div class="panel panel-right">
 						<pre>
-							<code data-src="dist/steps/11/index.js" data-line-numbers="|3|17-31|18-24|25-26|1" class="language-js"></code>
+							<code data-src="code/11/index.js" data-line-numbers="|3|17-31|18-24|25-26|1" class="language-js"></code>
 						</pre>
 					</div>
 				</div>
@@ -1125,7 +1125,7 @@ await zipReader.close()</code>
 					</div>
 					<div class="panel panel-right">
 						<pre>
-							<code data-src="dist/steps/11/lib/utils-zip.js" data-line-numbers="|35-49|36|37|38,47|39-40,43,45-46|41,44|48" class="language-js"></code>
+							<code data-src="code/11/lib/utils-zip.js" data-line-numbers="|35-49|36|37|38,47|39-40,43,45-46|41,44|48" class="language-js"></code>
 						</pre>
 					</div>
 				</div>
@@ -1146,7 +1146,7 @@ await zipReader.close()</code>
 					</div>
 					<div class="panel panel-right">
 						<pre>
-							<code data-src="dist/steps/11/index.js" data-line-numbers="1|26|27" class="language-js"></code>
+							<code data-src="code/11/index.js" data-line-numbers="1|26|27" class="language-js"></code>
 						</pre>
 					</div>
 				</div>
@@ -1167,7 +1167,7 @@ await zipReader.close()</code>
 					</div>
 					<div class="panel panel-right">
 						<pre>
-							<code data-src="dist/steps/11/lib/html-template.js" data-line-numbers="|18" class="language-js"></code>
+							<code data-src="code/11/lib/html-template.js" data-line-numbers="|18" class="language-js"></code>
 						</pre>
 					</div>
 				</div>
@@ -1188,11 +1188,11 @@ await zipReader.close()</code>
 					</div>
 					<div class="panel panel-right">
 						<pre>
-							<code data-src="dist/steps/11/assets/main.js" data-line-numbers="|38-42|39|44-63|47|70-93|71-74|75-81|79|80|27-34|80|82-85|21-22|82-85|86-91|23-26|86-91|92" class="language-js"></code>
+							<code data-src="code/11/assets/main.js" data-line-numbers="|38-42|39|44-63|47|70-93|71-74|75-81|79|80|27-34|80|82-85|21-22|82-85|86-91|23-26|86-91|92" class="language-js"></code>
 						</pre>
 					</div>
 				</div>
-				<iframe loading="lazy" src="dist/steps/11/index.html" class="small fragment"></iframe>
+				<iframe loading="lazy" src="code/11/index.html" class="small fragment"></iframe>
 				<p class="fragment">Page resources are decoded in <code>windows-1252</code> ⚠️</p>
 			</section>
 			<section>
@@ -1211,11 +1211,11 @@ await zipReader.close()</code>
 					</div>
 					<div class="panel panel-right">
 						<pre>
-							<code data-src="dist/steps/12/assets/main.js" data-line-numbers="|39-43|41|88-115|96-99|99|15-20|99|102-106|21-24|102-106|108-110" class="language-js"></code>
+							<code data-src="code/12/assets/main.js" data-line-numbers="|39-43|41|88-115|96-99|99|15-20|99|102-106|21-24|102-106|108-110" class="language-js"></code>
 						</pre>
 					</div>
 				</div>
-				<iframe loading="lazy" src="dist/steps/12/index.html" class="small fragment"></iframe>
+				<iframe loading="lazy" src="code/12/index.html" class="small fragment"></iframe>
 			</section>
 			<section>
 				<h2>PNG Format</h2>
@@ -1528,7 +1528,7 @@ await zipReader.close()</code>
 					</div>
 					<div class="panel panel-right">
 						<pre>
-							<code data-src="dist/steps/13/index.js" data-line-numbers="|3-9" class="language-js"></code>
+							<code data-src="code/13/index.js" data-line-numbers="|3-9" class="language-js"></code>
 						</pre>
 					</div>
 				</div>
@@ -1550,7 +1550,7 @@ await zipReader.close()</code>
 					</div>
 					<div class="panel panel-right">
 						<pre>
-							<code data-src="dist/steps/13/lib/utils-png.js" data-line-numbers="|5-12|13-14|15-22|30-33|41-45|53-56|65-80|66-70|71-75|122-126|71-75|76-79|105-114|76-79|87-89" class="language-js"></code>
+							<code data-src="code/13/lib/utils-png.js" data-line-numbers="|5-12|13-14|15-22|30-33|41-45|53-56|65-80|66-70|71-75|122-126|71-75|76-79|105-114|76-79|87-89" class="language-js"></code>
 						</pre>
 					</div>
 				</div>
@@ -1572,7 +1572,7 @@ await zipReader.close()</code>
 					</div>
 					<div class="panel panel-right">
 						<pre>
-							<code data-src="dist/steps/13/index.js" data-line-numbers="3-9|10" class="language-js"></code>
+							<code data-src="code/13/index.js" data-line-numbers="3-9|10" class="language-js"></code>
 						</pre>
 					</div>
 				</div>
@@ -1594,7 +1594,7 @@ await zipReader.close()</code>
 					</div>
 					<div class="panel panel-right">
 						<pre>
-							<code data-src="dist/steps/13/lib/html-template.js" data-line-numbers="|6-21|6-16|16-17|17-18|18-21" class="language-js"></code>
+							<code data-src="code/13/lib/html-template.js" data-line-numbers="|6-21|6-16|16-17|17-18|18-21" class="language-js"></code>
 						</pre>
 					</div>
 				</div>
@@ -1616,7 +1616,7 @@ await zipReader.close()</code>
 					</div>
 					<div class="panel panel-right">
 						<pre>
-							<code data-src="dist/steps/13/index.js" data-line-numbers="10|22-27|32-33|35-36|37-38|40-45|47-53|54-66|67-68" class="language-js"></code>
+							<code data-src="code/13/index.js" data-line-numbers="10|22-27|32-33|35-36|37-38|40-45|47-53|54-66|67-68" class="language-js"></code>
 						</pre>
 					</div>
 				</div>
@@ -1642,11 +1642,11 @@ await zipReader.close()</code>
 					</div>
 					<div class="panel panel-right">
 						<pre>
-							<code data-src="dist/steps/13/assets/main.js" data-line-numbers="|37-41|37-38" class="language-js"></code>
+							<code data-src="code/13/assets/main.js" data-line-numbers="|37-41|37-38" class="language-js"></code>
 						</pre>
 					</div>
 				</div>
-				<iframe loading="lazy" src="dist/steps/13/index.html" class="small fragment"></iframe>
+				<iframe loading="lazy" src="code/13/index.html" class="small fragment"></iframe>
 				<p class="fragment">Text nodes induced by the PNG format are visible ⚠️</p>
 			</section>
 			<section>
@@ -1666,11 +1666,11 @@ await zipReader.close()</code>
 					</div>
 					<div class="panel panel-right">
 						<pre>
-							<code data-src="dist/steps/14/assets/main.js" data-line-numbers="|33-34|39-40|53-59|54|55,58|56-57" class="language-js"></code>
+							<code data-src="code/14/assets/main.js" data-line-numbers="|33-34|39-40|53-59|54|55,58|56-57" class="language-js"></code>
 						</pre>
 					</div>
 				</div>
-				<iframe loading="lazy" src="dist/steps/14/index.html" class="small fragment"></iframe>
+				<iframe loading="lazy" src="code/14/index.html" class="small fragment"></iframe>
 				<p class="fragment">The page is rendered in <a href="https://en.wikipedia.org/wiki/Quirks_mode">quirks
 						mode</a> ⚠️</p>
 			</section>
@@ -1691,11 +1691,11 @@ await zipReader.close()</code>
 					</div>
 					<div class="panel panel-right">
 						<pre>
-							<code data-src="dist/steps/15/assets/main.js" data-line-numbers="|35-43|39|120-126|121-122|123|124-125" class="language-js"></code>
+							<code data-src="code/15/assets/main.js" data-line-numbers="|35-43|39|120-126|121-122|123|124-125" class="language-js"></code>
 						</pre>
 					</div>
 				</div>
-				<iframe loading="lazy" src="dist/steps/15/index.html" class="small fragment"></iframe>
+				<iframe loading="lazy" src="code/15/index.html" class="small fragment"></iframe>
 				<p class="fragment">The main image is stored twice in the file 🤔</p>
 			</section>
 			<section>
@@ -1717,7 +1717,7 @@ await zipReader.close()</code>
 					</div>
 					<div class="panel panel-right">
 						<pre>
-							<code data-src="dist/steps/16/project/index.html" data-line-numbers="|17" class="language-html"></code>
+							<code data-src="code/16/project/index.html" data-line-numbers="|17" class="language-html"></code>
 						</pre>
 					</div>
 				</div>
@@ -1741,7 +1741,7 @@ await zipReader.close()</code>
 					</div>
 					<div class="panel panel-right">
 						<pre>
-							<code data-src="dist/steps/16/assets/main.js" data-line-numbers="|6-12" class="language-js"></code>
+							<code data-src="code/16/assets/main.js" data-line-numbers="|6-12" class="language-js"></code>
 						</pre>
 					</div>
 				</div>
@@ -1765,11 +1765,11 @@ await zipReader.close()</code>
 					</div>
 					<div class="panel panel-right">
 						<pre>
-							<code data-src="dist/steps/16/index.js" data-line-numbers="|13-20|22-24" class="language-js"></code>
+							<code data-src="code/16/index.js" data-line-numbers="|13-20|22-24" class="language-js"></code>
 						</pre>
 					</div>
 				</div>
-				<iframe loading="lazy" src="dist/steps/16/index.html" class="small fragment"></iframe>
+				<iframe loading="lazy" src="code/16/index.html" class="small fragment"></iframe>
 			</section>
 			<section>
 				<h2>Conclusion</h2>

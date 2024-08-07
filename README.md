@@ -22,8 +22,8 @@ The image displayed at the center of the page `demo.png.zip.html` when viewed in
 # Presentation
 
 You can view the web presentation in:
- - [english](https://gildas-lormeau.github.io/Polyglot-HTML-ZIP-PNG/en-EN/) ([code](https://github.com/gildas-lormeau/Polyglot-HTML-ZIP-PNG/tree/main/en-EN/dist/steps))
- - [french](https://gildas-lormeau.github.io/Polyglot-HTML-ZIP-PNG/fr-FR/) ([code](https://github.com/gildas-lormeau/Polyglot-HTML-ZIP-PNG/tree/main/fr-FR/dist/steps))
+ - [english](https://gildas-lormeau.github.io/Polyglot-HTML-ZIP-PNG/en-EN/) ([code](https://github.com/gildas-lormeau/Polyglot-HTML-ZIP-PNG/tree/main/en-EN/code))
+ - [french](https://gildas-lormeau.github.io/Polyglot-HTML-ZIP-PNG/fr-FR/) ([code](https://github.com/gildas-lormeau/Polyglot-HTML-ZIP-PNG/tree/main/fr-FR/code))
 
 
 # Installation
