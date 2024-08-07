@@ -84,7 +84,7 @@ gulp.task('js-es5', () => {
         cache.umd = bundle.cache;
         return bundle.write({
             name: 'Reveal',
-            file: './dist/reveal.js',
+            file: './reveal/reveal.js',
             format: 'umd',
             banner: banner,
             sourcemap: true
@@ -106,7 +106,7 @@ gulp.task('js-es6', () => {
     }).then( bundle => {
         cache.esm = bundle.cache;
         return bundle.write({
-            file: './dist/reveal.esm.js',
+            file: './reveal/reveal.esm.js',
             format: 'es',
             banner: banner,
             sourcemap: true
@@ -120,11 +120,9 @@ gulp.task('js', gulp.parallel('js-es5', 'js-es6'));
 gulp.task('plugins', () => {
     return Promise.all([
         { name: 'RevealHighlight', input: './plugin/highlight/plugin.js', output: './plugin/highlight/highlight' },
-        { name: 'RevealMarkdown', input: './plugin/markdown/plugin.js', output: './plugin/markdown/markdown' },
         { name: 'RevealSearch', input: './plugin/search/plugin.js', output: './plugin/search/search' },
         { name: 'RevealNotes', input: './plugin/notes/plugin.js', output: './plugin/notes/notes' },
-        { name: 'RevealZoom', input: './plugin/zoom/plugin.js', output: './plugin/zoom/zoom' },
-        { name: 'RevealMath', input: './plugin/math/plugin.js', output: './plugin/math/math' },
+        { name: 'RevealZoom', input: './plugin/zoom/plugin.js', output: './plugin/zoom/zoom' }
     ].map( plugin => {
         return rollup({
                 cache: cache[plugin.input],
@@ -178,14 +176,14 @@ function compileSass() {
 
 gulp.task('css-themes', () => gulp.src(['./css/theme/source/*.{sass,scss}'])
         .pipe(compileSass())
-        .pipe(gulp.dest('./dist/theme')))
+        .pipe(gulp.dest('./reveal/theme')))
 
 gulp.task('css-core', () => gulp.src(['css/reveal.scss'])
     .pipe(compileSass())
     .pipe(autoprefixer())
     .pipe(minify({compatibility: 'ie9'}))
     .pipe(header(banner))
-    .pipe(gulp.dest('./dist')))
+    .pipe(gulp.dest('./reveal')))
 
 gulp.task('css', gulp.parallel('css-themes', 'css-core'))
 
@@ -271,7 +269,7 @@ gulp.task('package', gulp.series(() =>
     gulp.src(
         [
             './index.html',
-            './dist/**',
+            './reveal/**',
             './lib/**',
             './images/**',
             './plugin/**',
