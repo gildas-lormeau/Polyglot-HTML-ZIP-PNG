@@ -8,7 +8,7 @@ The [presentation](#presentation) provides a didactic explanation of how (univer
  
 Here is the resulting self-extracting HTML file: [demo.png.zip.html](https://github.com/gildas-lormeau/Polyglot-HTML-ZIP-PNG/raw/main/demo.png.zip.html)
 
-Here is a similar online page: https://gildas-lormeau.github.io
+Here is a similar online page: [https://gildas-lormeau.github.io](https://gildas-lormeau.github.io)
 
 This file is compatible with: 
  - HTML (extracted page displayed in [no-quirks mode](https://dom.spec.whatwg.org/#concept-document-no-quirks))
