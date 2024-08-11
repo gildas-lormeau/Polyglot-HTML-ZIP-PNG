@@ -17,7 +17,7 @@ This file is compatible with:
 
 # Fun fact
 
-The image displayed at the center of the page [demo.png.zip.html](https://github.com/gildas-lormeau/Polyglot-HTML-ZIP-PNG/raw/main/demo.png.zip.html) when viewed in HTML is the page itself, but interpreted as a PNG file.
+The image displayed at the center of the page [demo.png.zip.html](https://github.com/gildas-lormeau/Polyglot-HTML-ZIP-PNG/raw/main/demo.png.zip.html) when viewed in HTML is the page itself, but interpreted as a PNG file (cf. the `<img src="#" ...>` tag).
 
 # Presentation
 
