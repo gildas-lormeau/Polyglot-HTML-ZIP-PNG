@@ -25,8 +25,6 @@ You can view the web presentation (packaged as self-extracting files) in:
  - [english](https://gildas-lormeau.github.io/Polyglot-HTML-ZIP-PNG/en-EN/dist/) ([download](https://github.com/gildas-lormeau/Polyglot-HTML-ZIP-PNG/raw/main/en-EN/dist/index.html))
  - [french](https://gildas-lormeau.github.io/Polyglot-HTML-ZIP-PNG/fr-FR/dist/) ([download](https://github.com/gildas-lormeau/Polyglot-HTML-ZIP-PNG/raw/main/fr-FR/dist/index.html))
 
-Note that these presentations can be saved for offline consultation.
-
 # Installation
 
 If you are using a Chromium-based or a WebKit-based browser to view the first examples from the presentation, you should install the extension from the zip file located in [util/web-extension](https://github.com/gildas-lormeau/Polyglot-HTML-ZIP-PNG/tree/main/util/web-extension) in order to add the support of `file://` URIs in the [Fetch API](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API). Alternatively, you can open the examples via an HTTP server.
