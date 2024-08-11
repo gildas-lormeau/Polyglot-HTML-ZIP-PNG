@@ -118,7 +118,7 @@
 	</style>
 </head>
 
-<body>
+<body hidden>
 	<div class="reveal">
 		<div class="slides">
 			<section>
@@ -1815,6 +1815,7 @@ await zipReader.close()</code>
 			transition: "none",
 			plugins: [RevealHighlight, RevealNotes]
 		});
+		document.body.hidden = false;
 	</script>
 </body>
 
