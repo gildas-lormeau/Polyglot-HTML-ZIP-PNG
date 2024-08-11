@@ -4,17 +4,22 @@ import { readFile } from "fs/promises";
 
 async function getFetchSource() {
   const PROJECT_FILE_CONTENTS = new Map();
-  PROJECT_FILE_CONTENTS.set("project/index.html", Array.from(await readFile(new URL("./project/index.html", import.meta.url))));
-  PROJECT_FILE_CONTENTS.set("project/style.css", Array.from(await readFile(new URL("./project/style.css", import.meta.url))));
-  PROJECT_FILE_CONTENTS.set("project/properties.css", Array.from(await readFile(new URL("./project/properties.css", import.meta.url))));
-  PROJECT_FILE_CONTENTS.set("project/script.js", Array.from(await readFile(new URL("./project/script.js", import.meta.url))));
-  PROJECT_FILE_CONTENTS.set("project/image.png", Array.from(await readFile(new URL("./project/image.png", import.meta.url))));
-  PROJECT_FILE_CONTENTS.set("project/background.png", Array.from(await readFile(new URL("./project/background.png", import.meta.url))));
+  PROJECT_FILE_CONTENTS.set("project/index.html", await readFileBase64("./project/index.html"));
+  PROJECT_FILE_CONTENTS.set("project/style.css", await readFileBase64("./project/style.css"));
+  PROJECT_FILE_CONTENTS.set("project/properties.css", await readFileBase64("./project/properties.css"));
+  PROJECT_FILE_CONTENTS.set("project/script.js", await readFileBase64("./project/script.js"));
+  PROJECT_FILE_CONTENTS.set("project/image.png", await readFileBase64("./project/image.png"));
+  PROJECT_FILE_CONTENTS.set("project/background.png", await readFileBase64("./project/background.png"));
   const files = Array.from(PROJECT_FILE_CONTENTS.entries());
   return `(() => {
     const files = new Map(${JSON.stringify(files)});
-    globalThis.fetch = path => new Response(new Uint8Array(files.get(path))); 
+    globalThis.fetch = path => new Response("data:;base64," + files.get(path));
   })();`;
+}
+
+async function readFileBase64(path) {
+  const buffer = await readFile(new URL(path, import.meta.url));
+  return buffer.toString("base64");
 }
 
 export default defineConfig(() => {
