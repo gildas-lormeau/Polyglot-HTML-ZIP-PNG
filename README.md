@@ -25,6 +25,7 @@ You can view the web presentation (as self-extractring files) in:
  - [english](https://gildas-lormeau.github.io/Polyglot-HTML-ZIP-PNG/en-EN/dist/) ([code examples](https://github.com/gildas-lormeau/Polyglot-HTML-ZIP-PNG/tree/main/en-EN/code))
  - [french](https://gildas-lormeau.github.io/Polyglot-HTML-ZIP-PNG/fr-FR/dist/) ([code examples](https://github.com/gildas-lormeau/Polyglot-HTML-ZIP-PNG/tree/main/fr-FR/code))
 
+Note that these presentations can be saved for offline consultation.
 
 # Installation
 
