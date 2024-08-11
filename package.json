@@ -1,0 +1,7 @@
+{
+  "devDependencies": {
+    "single-file-cli": "^2.0.54",
+    "vite": "^5.4.0",
+    "vite-plugin-https-imports": "^0.1.0"
+  }
+}
