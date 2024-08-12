@@ -25,8 +25,7 @@ const newHtml = oldHtml.replace(/<code data-src=\"([^\"]+)\"([^>]*)><\/code>/g, 
 fs.writeFileSync('./build/index.html', newHtml);
 "
 
-npx single-file --dump-content --save-raw-page --remove-hidden-elements=false --compress-HTML=false --block-scripts=false --remove-unused-styles=false --remove-unused-fonts=false --remove-alternative-fonts=false --remove-alternative-medias=false --remove-alternative-images=false --compress-content=true --self-extracting-archive=true --embedded-image=./images/qr-code.png  --insert-single-file-comment=false ./build/index.html > result.html
+mkdir ./dist
+npx single-file --dump-content --save-raw-page --remove-hidden-elements=false --compress-HTML=false --block-scripts=false --remove-unused-styles=false --remove-unused-fonts=false --remove-alternative-fonts=false --remove-alternative-medias=false --remove-alternative-images=false --compress-content=true --self-extracting-archive=true --embedded-image=./images/qr-code.png  --insert-single-file-comment=false ./build/index.html > ./dist/presentation-polyglot-png-zip-html_fr-FR.html
 
 rm -rf ./build
-mkdir ./dist
-mv result.html ./dist/presentation-polyglot-png-zip-html_fr-FR.html
