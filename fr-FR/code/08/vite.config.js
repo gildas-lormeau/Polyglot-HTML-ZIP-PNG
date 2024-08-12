@@ -14,7 +14,15 @@ async function getFetchSource() {
   const files = Array.from(PROJECT_FILE_CONTENTS.entries());
   return `(() => {
     const files = new Map(${JSON.stringify(files)});
-    globalThis.fetch = path => new Response("data:;base64," + files.get(path));
+    globalThis.fetch = path => {
+      const xhr = new XMLHttpRequest();
+      xhr.responseType = "blob";
+      xhr.open("GET", "data:;base64," + files.get(path));
+      xhr.send();
+      return new Promise(resolve => {
+        xhr.onload = () => resolve(new Response(xhr.response));
+      });
+    }
   })();`;
 }
 
