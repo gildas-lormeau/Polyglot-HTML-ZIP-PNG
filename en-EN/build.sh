@@ -12,21 +12,9 @@ cp -R plugin ./build/plugin
 mkdir ./build/code
 
 cp -R code/01/ ./build/code/01/
-npx vite build --mode production ./code/02/
-npx vite build --mode production ./code/03/
-npx vite build --mode production ./code/04/
-npx vite build --mode production ./code/05/
-npx vite build --mode production ./code/06/
-npx vite build --mode production ./code/07/
-npx vite build --mode production ./code/08/
-npx vite build --mode production ./code/09/
-npx vite build --mode production ./code/10/
-npx vite build --mode production ./code/11/
-npx vite build --mode production ./code/12/
-npx vite build --mode production ./code/13/
-npx vite build --mode production ./code/14/
-npx vite build --mode production ./code/15/
-npx vite build --mode production ./code/16/
+for i in {2..16}; do
+  npx vite build --mode production ./code/$(printf "%02d" $i)/
+done
 npx vite build --mode production ./code/final/
 
 cp index.html ./build/index.html
