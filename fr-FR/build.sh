@@ -29,4 +29,4 @@ npx single-file --dump-content --save-raw-page --remove-hidden-elements=false --
 
 rm -rf ./build
 mkdir ./dist
-mv result.html ./dist/index.html
+mv result.html ./dist/presentation-polyglot-png-zip-html_fr-FR.html
