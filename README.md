@@ -8,6 +8,8 @@ The presentation provides a didactic explanation of how (universal) self-extract
  
 Here is the resulting self-extracting HTML file: [demo.png.zip.html](https://github.com/gildas-lormeau/Polyglot-HTML-ZIP-PNG/raw/main/demo.png.zip.html)
 
+The presentation explains how to generate this file and the technical challenges involved.
+
 This file and the presentation files are compatible with: 
  - HTML (extracted page displayed in [no-quirks mode](https://dom.spec.whatwg.org/#concept-document-no-quirks))
  - ZIP (contains the displayed page and its resources) - view it with [ZIP Manager](https://gildas-lormeau.github.io/zip-manager/)
