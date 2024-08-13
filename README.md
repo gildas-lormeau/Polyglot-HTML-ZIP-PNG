@@ -24,8 +24,8 @@ Here is the resulting self-extracting HTML file: [demo.png.zip.html](https://git
 
 This file and the presentation files are compatible with: 
  - HTML (extracted page displayed in [no-quirks mode](https://dom.spec.whatwg.org/#concept-document-no-quirks))
- - ZIP (contains the displayed page and its resources) - view it with [ZIP Manager](https://gildas-lormeau.github.io/zip-manager/)
- - PNG - view it with [PNG file chunk inpector](https://www.nayuki.io/page/png-file-chunk-inspector)
+ - ZIP (contains the displayed page and its resources) - rename it to `.zip` and view it with [ZIP Manager](https://gildas-lormeau.github.io/zip-manager/)
+ - PNG -  rename it to `.png` and view it with [PNG file chunk inpector](https://www.nayuki.io/page/png-file-chunk-inspector)
 
 The presentation explains how to generate this file and the technical challenges involved.
 
