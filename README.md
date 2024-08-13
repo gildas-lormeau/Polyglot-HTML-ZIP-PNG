@@ -27,7 +27,7 @@ This file and the presentation files are compatible with:
  - ZIP (contains the displayed page and its resources) - rename the file to `.zip` and view it with [ZIP Manager](https://gildas-lormeau.github.io/zip-manager/)
  - PNG -  rename the file to `.png` and view it with [PNG file chunk inpector](https://www.nayuki.io/page/png-file-chunk-inspector)
 
-If you are intrigued or more curious, you can also view it on [https://hexed.it/](https://hexed.it/).
+If you are intrigued or more curious, you can also view it on [https://hexed.it](https://hexed.it).
 
 The presentation explains how to generate this file and the technical challenges involved.
 
