@@ -35,5 +35,5 @@ The image displayed at the center of the page [demo.png.zip.html](https://github
 
 # Known issues
 
- - A bug in "Archive Utility" on macOS prevents it from decompressing the resulting file. You can use "unzip" to get around this issue.
+ - A bug in "Archive Utility" on macOS prevents it from decompressing the resulting file. You can use `unzip` to get around this issue.
  - Depending on the browser you're using, the presentation may be a little slow.
