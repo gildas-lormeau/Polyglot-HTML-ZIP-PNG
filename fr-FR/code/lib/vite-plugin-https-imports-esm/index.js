@@ -1,6 +1,6 @@
-import { matcher } from './matcher';
-import { resolver } from './resolver';
-import { loader } from './loader';
+import { matcher } from './matcher.js';
+import { resolver } from './resolver.js';
+import { loader } from './loader.js';
 export default function (options = {}) {
     const match = matcher(options);
     return {
