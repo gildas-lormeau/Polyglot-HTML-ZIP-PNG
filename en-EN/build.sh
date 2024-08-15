@@ -13,9 +13,9 @@ mkdir ./build/code
 
 cp -R code/01/ ./build/code/01/
 for i in {2..16}; do
-  npx vite build --mode production ./code/$(printf "%02d" $i)/
+  npx vite build --mode production --emptyOutDir ./code/$(printf "%02d" $i)/
 done
-npx vite build --mode production ./code/final/
+npx vite build --mode production --emptyOutDir ./code/final/
 
 cp index.html ./build/index.html
 node -e "

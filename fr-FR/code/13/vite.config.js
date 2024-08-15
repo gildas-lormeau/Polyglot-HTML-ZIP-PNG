@@ -1,5 +1,5 @@
 import { defineConfig } from "vite";
-import httpsImports from "vite-plugin-https-imports";
+import httpsImports from "../lib/vite-plugin-https-imports-esm/index.js";
 import { readFile } from "fs/promises";
 
 async function getFetchSource() {

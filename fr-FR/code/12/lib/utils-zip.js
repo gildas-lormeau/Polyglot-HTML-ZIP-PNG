@@ -2,7 +2,7 @@ import {
   ZipWriter,
   BlobReader,
   Uint8ArrayWriter
-} from "https://unpkg.com/@zip.js/zip.js/index.js";
+} from "https://unpkg.com/@zip.js/zip.js@2.7.48/index.js";
 import {
   encodeText
 } from "./utils.js";
