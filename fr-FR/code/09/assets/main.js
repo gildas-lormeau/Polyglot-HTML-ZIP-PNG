@@ -31,7 +31,7 @@ function getCharCodeHex(data, index) {
   if (charCode < 256) {
     return charCode.toString(16).padStart(2, "0");
   } else {
-    if (charCode === 65533) {
+    if (charCode === 0xFFFD) {
       return `<span title=${charCode} class="yellow">  </span>`;
     } else {
       return `<span title=${charCode} class="orange">  </span>`;
