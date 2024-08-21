@@ -2,7 +2,7 @@ import {
   ZipReader,
   BlobReader,
   BlobWriter
-} from "https://unpkg.com/@zip.js/zip.js@2.7.48/index.js";
+} from "https://unpkg.com/@zip.js/zip.js@2.7.49/index.js";
 
 const fileInput = document.querySelector("input");
 const mainElement = document.querySelector("main");

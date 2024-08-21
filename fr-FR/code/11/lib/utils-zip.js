@@ -2,7 +2,7 @@ import {
   ZipWriter,
   BlobReader,
   Uint8ArrayWriter
-} from "https://unpkg.com/@zip.js/zip.js@2.7.48/index.js";
+} from "https://unpkg.com/@zip.js/zip.js@2.7.49/index.js";
 import {
   encodeText
 } from "./utils.js";
@@ -15,8 +15,7 @@ const LINE_FEED_CHAR_CODE = 10;
 async function getZipData(inputFolder, filenames, offset = 0) {
   const zipDataWriter = new Uint8ArrayWriter();
   await zipDataWriter.init();
-  zipDataWriter.writable.size = offset;
-  const zip = new ZipWriter(zipDataWriter);
+  const zip = new ZipWriter(zipDataWriter, { offset });
   for (const filename of filenames) {
     const path = `${inputFolder}/${filename}`;
     const data = await (await fetch(path)).blob();

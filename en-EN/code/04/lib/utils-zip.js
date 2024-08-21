@@ -2,14 +2,13 @@ import {
   ZipWriter,
   BlobReader,
   Uint8ArrayWriter
-} from "https://unpkg.com/@zip.js/zip.js@2.7.48/index.js";
+} from "https://unpkg.com/@zip.js/zip.js@2.7.49/index.js";
 
 async function getZipData(inputFolder, filenames, offset = 0) {
   const zipDataWriter = new Uint8ArrayWriter();
   await zipDataWriter.init();
   // Set the offset of the first entry
-  zipDataWriter.writable.size = offset;
-  const zip = new ZipWriter(zipDataWriter);
+  const zip = new ZipWriter(zipDataWriter, { offset });
   for (const filename of filenames) {
     const path = `${inputFolder}/${filename}`;
     const data = await (await fetch(path)).blob();
