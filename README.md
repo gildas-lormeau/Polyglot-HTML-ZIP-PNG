@@ -1,8 +1,6 @@
 # Introduction
 
-This repository contains a step-by-step presentation for [RennesJS](https://www.meetup.com/fr-FR/RennesJS), showing how to create HTML/ZIP/PNG [polyglot files](https://en.wikipedia.org/wiki/Polyglot_(computing)) in JavaScript.
-
-The presentation provides a didactic explanation of how (universal) self-extracting files work in [SingleFile](https://github.com/gildas-lormeau/SingleFile).
+Imagine a digital chameleon: a file that can be transformed by a simple change of name into an HTML web page, a ZIP archive containing that same page, or a PNG image. This dream is a reality! Discover an innovative approach to sharing and storing web content, and learn how to create these polyglot files in JavaScript!
 
 # Presentation
 
