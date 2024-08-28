@@ -27,11 +27,11 @@ If you are intrigued or more curious, you can also view it on [HexEd.it](https:/
 
 The presentation explains how to generate this file and the technical challenges involved.
 
-# Fun fact
+# Fun Fact
 
 The image displayed at the center of the page [demo.png.zip.html](https://github.com/gildas-lormeau/Polyglot-HTML-ZIP-PNG/raw/main/demo.png.zip.html) when viewed in HTML is the page itself, but interpreted as a PNG file (cf. the `<img src="#" ...>` tag).
 
-# Known issues
+# Known Issues
 
  - A bug in "Archive Utility" on macOS prevents it from decompressing the resulting file. You can use `unzip` to get around this issue.
  - Depending on the browser you're using, the presentation may be a little slow.
