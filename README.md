@@ -10,7 +10,7 @@ You can view the web presentation in:
 
 Press `F1` during the presentation to see the keyboard shortcuts.
 
-# Installation
+# Installation (Chromium-based or WebKit-based browsers)
 
 If you are using a Chromium-based or a WebKit-based browser to view the first examples from the presentation, you should [install the extension](https://developer.chrome.com/docs/extensions/get-started/tutorial/hello-world#load-unpacked) from the zip file located in [util/web-extension](https://github.com/gildas-lormeau/Polyglot-HTML-ZIP-PNG/tree/main/util/web-extension) in order to add the support of `file://` URIs in the [Fetch API](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API). Alternatively, you can open the examples via an HTTP server.
 
