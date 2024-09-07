@@ -2,7 +2,7 @@ import {
   ZipWriter,
   BlobReader,
   Uint8ArrayWriter
-} from "https://unpkg.com/@zip.js/zip.js@2.7.50/index.js";
+} from "https://unpkg.com/@zip.js/zip.js@2.7.52/index.js";
 
 /**
  * Returns a zip file containing the files in the input folder with the given

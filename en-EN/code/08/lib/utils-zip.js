@@ -2,7 +2,7 @@ import {
   ZipWriter,
   BlobReader,
   BlobWriter
-} from "https://unpkg.com/@zip.js/zip.js@2.7.50/index.js";
+} from "https://unpkg.com/@zip.js/zip.js@2.7.52/index.js";
 
 async function getZipData(inputFolder, filenames, offset = 0) {
   const zipDataWriter = new BlobWriter();

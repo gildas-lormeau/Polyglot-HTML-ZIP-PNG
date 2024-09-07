@@ -9,7 +9,7 @@
     "inclusion": "^1.0.1",
     "minimatch": "^10.0.1",
     "ora": "^8.0.1",
-    "single-file-cli": "^2.0.55",
+    "single-file-cli": "^2.0.60",
     "vite": "^5.4.0"
   }
 }
