@@ -1,6 +1,6 @@
 # Introduction
 
-Imagine a digital chameleon: a file that can be transformed by simply renaming it into an HTML page, a ZIP archive containing that same page, or a PNG image. This dream is a reality! Discover an innovative approach to sharing and storing web content, and learn how to create these polyglot files in JavaScript!
+Imagine a digital chameleon: a file that can be transformed by simply renaming it into an HTML page, a ZIP archive containing that same page, or a PNG image. Discover an innovative approach to sharing and storing web content, and learn how to create these polyglot files in JavaScript!
 
 # Presentation
 
@@ -12,7 +12,7 @@ Press `F1` during the presentation to see the keyboard shortcuts.
 
 # Installation (Chromium and WebKit)
 
-If you are using a Chromium-based or a WebKit-based browser to view the first examples from the presentation, you should [install the extension](https://developer.chrome.com/docs/extensions/get-started/tutorial/hello-world#load-unpacked) from the zip file located in [util/web-extension](https://github.com/gildas-lormeau/Polyglot-HTML-ZIP-PNG/tree/main/util/web-extension) in order to add the support of `file://` URIs in the [Fetch API](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API). Alternatively, you can open the examples via an HTTP server.
+If you are using a Chromium-based or a WebKit-based browser to view the first examples from the presentation, you should [install the extension](https://developer.chrome.com/docs/extensions/get-started/tutorial/hello-world#load-unpacked) from the zip file located in [util/web-extension](https://github.com/gildas-lormeau/Polyglot-HTML-ZIP-PNG/tree/main/util/web-extension) in order to add the support of `file://` URIs in the [Fetch API](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API). Alternatively, you can view the examples via an HTTP server.
 
 # TL;DR
  
