@@ -69,11 +69,11 @@ function createTextChunk(keyword, data) {
     ...data
   ]);
   const chunkData = new Uint8Array([
-    ...getUint32Array(payloadData.length),
     ...TEXT_TYPE_CHUNK,
     ...payloadData
   ]);
   return new Uint8Array([
+    ...getUint32Array(payloadData.length),
     ...chunkData,
     ...getCRC32(chunkData)
   ]);
