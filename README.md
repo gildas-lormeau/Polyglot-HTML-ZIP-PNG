@@ -2,10 +2,6 @@
 
 Imagine a digital chameleon: a file that can be transformed by simply renaming it into an HTML page, a ZIP archive containing that same page, or a PNG image. Discover an innovative approach to sharing and storing web content, and learn how to create these polyglot files in JavaScript!
 
-# Disclaimer
-
-All structural violence inflicted on HTML in this presentation is purely incidental, and the creator disclaims any responsibility for any harm caused by its use.
-
 # Presentation
 
 You can view the web presentation in:
