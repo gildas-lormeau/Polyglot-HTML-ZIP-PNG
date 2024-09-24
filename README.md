@@ -1,8 +1,10 @@
-# Introduction
+# Create your HTML / ZIP / PNG polyglot file in JavaScript
+
+## Introduction
 
 Imagine a digital chameleon: a file that combines ZIP, HTML, and PNG into one versatile format. It can be displayed as a web page, unzipped like an archive, or viewed as an image. Discover an innovative approach to sharing and storing web content, and learn how to create these polyglot files in JavaScript!
 
-# Presentation
+## Presentation
 
 You can view the web presentation in:
  - [english](https://gildas-lormeau.github.io/Polyglot-HTML-ZIP-PNG/en-EN/dist/presentation-polyglot-png-zip-html_en-EN.html) ([download](https://github.com/gildas-lormeau/Polyglot-HTML-ZIP-PNG/raw/main/en-EN/dist/presentation-polyglot-png-zip-html_en-EN.html))
@@ -10,11 +12,11 @@ You can view the web presentation in:
 
 Press `F1` during the presentation to see the keyboard shortcuts.
 
-# Installation (Chromium and WebKit)
+## Installation (Chromium and WebKit)
 
 If you are using a Chromium-based or a WebKit-based browser to view the first examples from the presentation, you should [install the extension](https://developer.chrome.com/docs/extensions/get-started/tutorial/hello-world#load-unpacked) from the zip file located in [util/web-extension](https://github.com/gildas-lormeau/Polyglot-HTML-ZIP-PNG/tree/main/util/web-extension) in order to add the support of `file://` URIs in the [Fetch API](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API). Alternatively, you can view the examples via an HTTP server.
 
-# TL;DR
+## TL;DR
  
 Here is the resulting self-extracting HTML file: [demo.png.zip.html](https://github.com/gildas-lormeau/Polyglot-HTML-ZIP-PNG/raw/main/demo.png.zip.html)
 
@@ -27,11 +29,11 @@ If you are intrigued or more curious, you can also view it on [HexEd.it](https:/
 
 The presentation explains how to generate this file and the technical challenges involved.
 
-# Fun Fact
+## Fun Fact
 
 The image displayed at the center of the page [demo.png.zip.html](https://github.com/gildas-lormeau/Polyglot-HTML-ZIP-PNG/raw/main/demo.png.zip.html) when viewed in HTML is the page itself, but interpreted as a PNG file (cf. the `<img src="#" ...>` tag).
 
-# Known Issues
+## Known Issues
 
  - A bug in "Archive Utility" on macOS prevents it from decompressing the resulting file. You can use `unzip` to get around this issue.
  - Depending on the browser you're using, the presentation may be a little slow.
