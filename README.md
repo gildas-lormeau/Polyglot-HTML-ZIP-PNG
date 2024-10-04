@@ -29,7 +29,7 @@ If you are intrigued or more curious, you can also view it on [HexEd.it](https:/
 
 The presentation explains how to generate this file and the technical challenges involved.
 
-## Creation of polyglot files with single-file CLI
+## Creation of polyglot files with single-file
 
 Install [`single-file-cli`](https://www.npmjs.com/package/single-file-cli) from NPM and run `single-file` as shown below.
 
