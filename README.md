@@ -35,7 +35,12 @@ Install [`single-file-cli`](https://www.npmjs.com/package/single-file-cli) from 
 
 ```sh
 npm install single-file-cli
-npx single-file --dump-content --compress-content=true --self-extracting-archive=true --embedded-image=./image.png https://www.example.com > output.png.zip.html
+npx single-file \
+  --compress-content \
+  --self-extracting-archive \
+  --embedded-image=./image.png \
+  --dump-content \
+  https://www.example.com > output.png.zip.html
 ```
 
 ## Fun Fact
