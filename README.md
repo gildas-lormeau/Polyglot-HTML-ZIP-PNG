@@ -29,6 +29,15 @@ If you are intrigued or more curious, you can also view it on [HexEd.it](https:/
 
 The presentation explains how to generate this file and the technical challenges involved.
 
+## Creation of polyglot files with single-file CLI
+
+Install [`single-file-cli`](https://www.npmjs.com/package/single-file-cli) from NPM and run `single-file` as shown below.
+
+```sh
+npm install single-file-cli
+npx single-file --dump-content --compress-content=true --self-extracting-archive=true --embedded-image=./image.png https://www.example.com > output.png.zip.html
+```
+
 ## Fun Fact
 
 The image displayed at the center of the page [demo.png.zip.html](https://github.com/gildas-lormeau/Polyglot-HTML-ZIP-PNG/raw/main/demo.png.zip.html) is the page itself, but interpreted as a PNG file (cf. the `<img src="#" ...>` tag).
