@@ -25,6 +25,8 @@ If you are intrigued or more curious, you can also view it on [HexEd.it](https:/
 
 The presentation explains how to generate this file and the technical challenges involved.
 
+Fun fact: the image displayed at the center of the page [demo.png.zip.html](https://github.com/gildas-lormeau/Polyglot-HTML-ZIP-PNG/raw/main/demo.png.zip.html) is the page itself, but interpreted as a PNG file (cf. the `<img src="#" ...>` tag).
+
 ## Installation (Chromium and WebKit)
 
 If you are using a Chromium-based or a WebKit-based browser to view the first examples from the presentation, you should [install the extension](https://developer.chrome.com/docs/extensions/get-started/tutorial/hello-world#load-unpacked) from the zip file located in [util/web-extension](https://github.com/gildas-lormeau/Polyglot-HTML-ZIP-PNG/tree/main/util/web-extension) in order to add the support of `file://` URIs in the [Fetch API](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API). Alternatively, you can view the examples via an HTTP server.
@@ -42,10 +44,6 @@ npx single-file \
   --dump-content \
   https://www.example.com > output.png.zip.html
 ```
-
-## Fun Fact
-
-The image displayed at the center of the page [demo.png.zip.html](https://github.com/gildas-lormeau/Polyglot-HTML-ZIP-PNG/raw/main/demo.png.zip.html) is the page itself, but interpreted as a PNG file (cf. the `<img src="#" ...>` tag).
 
 ## Known Issues
 
