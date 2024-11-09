@@ -2,7 +2,7 @@
 
 ## Introduction
 
-Imagine a digital chameleon: a file that combines ZIP, HTML, and PNG into one versatile format. It can be displayed as a web page, unzipped like an archive, or viewed as an image. Discover an innovative approach to sharing and storing web content, and learn how to create these polyglot files in JavaScript!
+Imagine a digital chameleon: a file that combines ZIP, HTML, and PNG into one versatile format. It can be displayed as a web page, unzipped to obtain all the page's resources, or viewed as an image. Discover an innovative approach to sharing and storing web content, and learn how to create these polyglot files in JavaScript!
 
 ## Presentation
 
