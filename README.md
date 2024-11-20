@@ -43,7 +43,7 @@ Alternatively, you can view the examples via an HTTP server.
 
 This issue is addressed in the subsequent examples of the presentation.
 
-## Creation of polyglot files with single-file
+## Creation of Polyglot Files with single-file
 
 Install [`single-file-cli`](https://www.npmjs.com/package/single-file-cli) from NPM and run `single-file` as shown below.
 
