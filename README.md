@@ -18,7 +18,7 @@ Press `F1` during the presentation to see the keyboard shortcuts.
 
 ### Resulting File
  
-See [demo.png.zip.html](https://github.com/gildas-lormeau/Polyglot-HTML-ZIP-PNG/raw/main/demo.png.zip.html)
+Download [demo.png.zip.html](https://github.com/gildas-lormeau/Polyglot-HTML-ZIP-PNG/raw/main/demo.png.zip.html).
 
 ### File Compatibility
 
