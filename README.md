@@ -15,8 +15,12 @@ You can view the web presentation in:
 Press `F1` during the presentation to see the keyboard shortcuts.
 
 ## TL;DR
+
+### Resulting File
  
-Here is the resulting self-extracting HTML file: [demo.png.zip.html](https://github.com/gildas-lormeau/Polyglot-HTML-ZIP-PNG/raw/main/demo.png.zip.html)
+See [demo.png.zip.html](https://github.com/gildas-lormeau/Polyglot-HTML-ZIP-PNG/raw/main/demo.png.zip.html)
+
+### File Compatibility
 
 This file and the presentation files are compatible with: 
  - HTML (displays the extracted page in [no-quirks mode](https://dom.spec.whatwg.org/#concept-document-no-quirks))
@@ -27,7 +31,9 @@ If you are intrigued or more curious, you can also view it with [HexEd.it](https
 
 The presentation explains how to generate this file and the technical challenges involved.
 
-Fun fact: the image displayed at the center of the page [demo.png.zip.html](https://github.com/gildas-lormeau/Polyglot-HTML-ZIP-PNG/raw/main/demo.png.zip.html) is the page itself, but interpreted as a PNG file (cf. the `<img src="#" ...>` tag).
+### Fun Fact
+
+The image displayed at the center of the page [demo.png.zip.html](https://github.com/gildas-lormeau/Polyglot-HTML-ZIP-PNG/raw/main/demo.png.zip.html) is the page itself, but interpreted as a PNG file (cf. the `<img src="#" ...>` tag).
 
 ## Viewing the presentation in Chromium (and WebKit) browsers
 
