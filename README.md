@@ -2,7 +2,9 @@
 
 ## Introduction
 
-Imagine a digital chameleon: a file that combines ZIP, HTML, and PNG into one versatile format. It can be displayed as a web page, unzipped to obtain all the page's resources, or viewed as an image. Discover an innovative approach to sharing and storing web content, and learn how to create these polyglot files in JavaScript!
+Imagine a digital chameleon: a file that combines ZIP, HTML, and PNG into one versatile format. It can be displayed as a web page, unzipped to obtain all the page's resources, or viewed as an image. 
+
+Discover an innovative approach to sharing and storing web content, and learn how to create these polyglot files in JavaScript!
 
 ## Presentation
 
@@ -17,9 +19,9 @@ Press `F1` during the presentation to see the keyboard shortcuts.
 Here is the resulting self-extracting HTML file: [demo.png.zip.html](https://github.com/gildas-lormeau/Polyglot-HTML-ZIP-PNG/raw/main/demo.png.zip.html)
 
 This file and the presentation files are compatible with: 
- - HTML (extracted page displayed in [no-quirks mode](https://dom.spec.whatwg.org/#concept-document-no-quirks))
+ - HTML (displays the extracted page in [no-quirks mode](https://dom.spec.whatwg.org/#concept-document-no-quirks))
  - ZIP (contains the displayed page and its resources) - rename the file to `.zip` and view it with [ZIP Manager](https://gildas-lormeau.github.io/zip-manager/)
- - PNG -  rename the file to `.png` and view it with [PNG file chunk inpector](https://www.nayuki.io/page/png-file-chunk-inspector)
+ - PNG - rename the file to `.png` and view it with [PNG file chunk inpector](https://www.nayuki.io/page/png-file-chunk-inspector)
 
 If you are intrigued or more curious, you can also view it on [HexEd.it](https://hexed.it).
 
