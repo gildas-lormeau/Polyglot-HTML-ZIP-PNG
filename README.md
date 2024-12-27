@@ -22,7 +22,7 @@ Download [demo.png.zip.html](https://github.com/gildas-lormeau/Polyglot-HTML-ZIP
 
 ### Summary
 
-See [SUMMARY.md](SUMMARY.md).
+See [here](SUMMARY.md).
 
 ### File Compatibility
 
