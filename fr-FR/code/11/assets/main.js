@@ -19,7 +19,7 @@ const TEXT_EXTENSIONS = [
 ];
 const SCRIPT_TAG_NAME = "script";
 /* CSS Selector for the consolidation data element */
-const EXTRA_DATA_ELEMENT_SELECTOR = "script[type='text/json']";
+const EXTRA_DATA_ELEMENT_SELECTOR = "script[type='application/json']";
 /* Carriage return character code */
 const CARRIAGE_RETURN_CHAR_CODE = 13;
 /* Line feed character code */

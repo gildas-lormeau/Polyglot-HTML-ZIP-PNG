@@ -15,7 +15,7 @@ const template = [`<!DOCTYPE html>
   <p>Please wait...</p>
     <!--`, /* PNG image data chunks */ `-->
     <!--`, /* ZIP data */ `-->
-    <script type=text/json>`, /* Consolidation data */ `</script>
+    <script type=application/json>`, /* Consolidation data */ `</script>
     <script type=module>${minifyScript(MAIN_SCRIPT)}</script>
   </body>
 </html>`];

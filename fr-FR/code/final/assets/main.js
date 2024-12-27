@@ -16,7 +16,7 @@ const TEXT_TYPES = {
 };
 const DEFAULT_TYPE = "application/octet-stream";
 const CHARSET_UTF8 = "charset=utf-8";
-const EXTRA_DATA_ELEMENT_SELECTOR = "script[type='text/json']";
+const EXTRA_DATA_ELEMENT_SELECTOR = "script[type='application/json']";
 const CARRIAGE_RETURN_CHAR_CODE = 13;
 const LINE_FEED_CHAR_CODE = 10;
 const CHAR_CODE_SUBSTITUTIONS = new Map([

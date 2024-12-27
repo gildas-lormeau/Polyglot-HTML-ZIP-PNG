@@ -23,7 +23,7 @@ const DEFAULT_TYPE = "application/octet-stream";
 /* UTF-8 charset */
 const CHARSET_UTF8 = "charset=utf-8";
 const SCRIPT_TAG_NAME = "script";
-const EXTRA_DATA_ELEMENT_SELECTOR = "script[type='text/json']";
+const EXTRA_DATA_ELEMENT_SELECTOR = "script[type='application/json']";
 const CARRIAGE_RETURN_CHAR_CODE = 13;
 const LINE_FEED_CHAR_CODE = 10;
 const CHAR_CODE_SUBSTITUTIONS = new Map([
