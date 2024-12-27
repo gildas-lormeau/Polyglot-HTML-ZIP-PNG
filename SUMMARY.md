@@ -1,6 +1,6 @@
 # Learn how to create HTML/ZIP/PNG polyglot files in JavaScript 
 
-This document is a summary of the presentation available [here](README.md).
+This article is a summary of the presentation available [here](README.md).
 
 ## Introduction
 
