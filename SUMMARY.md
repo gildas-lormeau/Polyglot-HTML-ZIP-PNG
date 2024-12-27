@@ -95,7 +95,7 @@ Here is the resulting structure viewed as PNG chunks:
       <p>Please wait...</p>
       <!-- 
 ]
-[PNG IDAT chunk(s)]
+[IDAT chunk(s)]
 [tEXt chunk
       -->
       <!-- [ZIP data] -->
@@ -106,7 +106,7 @@ Here is the resulting structure viewed as PNG chunks:
     </body>
   </html>
 ]
-[PNG IEND chunk]
+[IEND chunk]
 ```
 
 ## Optimization Through Image Reuse
