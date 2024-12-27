@@ -47,7 +47,13 @@ Alternatively, you can view the examples via an HTTP server.
 
 This issue is addressed in the subsequent examples of the presentation.
 
-## Creation of Polyglot Files with single-file
+## Creation of Polyglot Files with SingleFile
+
+- From the browser:
+
+Install [SingleFile](https://github.com/gildas-lormeau/SingleFile?tab=readme-ov-file#install), and select in the options page `File format > format > self-extracting file (universal)` and enable `File format > format > embed image`.
+
+- From the command line interface:
 
 Install [`single-file-cli`](https://www.npmjs.com/package/single-file-cli) from NPM and run `single-file` as shown below.
 
