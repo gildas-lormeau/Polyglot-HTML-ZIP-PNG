@@ -1,6 +1,6 @@
 # How to Create HTML/ZIP/PNG Polyglot Files
 
-This article is a summary of the presentation available [here](README.md). The resulting demo file can be downloaded at the end of the article.
+This article is a summary of the presentation available [here](README.md). The resulting demo file can be downloaded at the end of the article. The repository can be found at https://github.com/gildas-lormeau/Polyglot-HTML-ZIP-PNG.
 
 ## Introduction
 
