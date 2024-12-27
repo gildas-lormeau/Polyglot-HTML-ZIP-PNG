@@ -36,7 +36,7 @@ The `assets/main.js` script on this "bootstrap page" reads the ZIP data by calli
 To overcome the filesystem limitation, we can read ZIP data directly from the DOM. This approach requires careful handling of character encoding. The bootstrap page is now encoded in `windows-1252`, which allows data to be read from the DOM with minimum degradation. Some encoding challenges emerge:
 1. DOM text content gets decoded to `UTF-16` instead of `windows-1252`
 2. The `NULL` character (`U+0000`) gets decoded to the replacement character (`U+FFFD`)
-3. Carriage returns (`\r`) and carriage return + line feeds (`\r\n`) gets decoded to line feeds (`\n`)
+3. Carriage returns (`\r`) and carriage return + line feeds (`\r\n`) get decoded to line feeds (`\n`)
 
 The first 2 points can be fixed by using an association table to convert characters to `windows-1252`. For the last point, "consolidation data" in a JSON script tag is added in the bootstrap page. This data tracks the offsets of carriage returns and carriage return + line feeds, and enables accurate reconstruction of the original content when extracting the ZIP data.
 
