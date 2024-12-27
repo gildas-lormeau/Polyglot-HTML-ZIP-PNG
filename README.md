@@ -20,6 +20,10 @@ Press `F1` during the presentation to see the keyboard shortcuts.
  
 Download [demo.png.zip.html](https://github.com/gildas-lormeau/Polyglot-HTML-ZIP-PNG/raw/main/demo.png.zip.html).
 
+### Summary
+
+See [SUMMARY.md](SUMMARY.md).
+
 ### File Compatibility
 
 This file and the presentation files are compatible with: 
