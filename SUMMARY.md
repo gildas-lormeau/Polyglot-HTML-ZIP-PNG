@@ -81,7 +81,8 @@ The ultimate implementation combines all three formats into a single file. The H
 Here is the resulting structure viewed as PNG chunks:
 
 ```
-[PNG Signature + IHDR chunk]
+[PNG Signature]
+[IHDR chunk]
 [tEXt chunk
   <!doctype html>
   <html>
