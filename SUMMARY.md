@@ -1,3 +1,5 @@
+This document is a summary of the presentation available [here](README.md).
+
 ## Introduction
 
 [SingleFile](https://github.com/gildas-lormeau/SingleFile), a tool for web archiving, commonly stores web page resources as data URIs. While effective, this approach can be inefficient for large resources. A more elegant solution emerges through combining the ZIP format's flexible structure with HTML. We'll then take it a step further by encapsulating this entire structure within a PNG file.
