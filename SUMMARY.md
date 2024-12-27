@@ -1,4 +1,4 @@
-# How to create HTML/ZIP/PNG polyglot files
+# How to Create HTML/ZIP/PNG Polyglot Files
 
 This article is a summary of the presentation available [here](README.md). The resulting demo file can be downloaded at the end of the article.
 
