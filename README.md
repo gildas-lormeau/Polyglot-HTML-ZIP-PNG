@@ -1,4 +1,4 @@
-# HTML Meets ZIP Meets PNG: When Files Have More Layers Than an Onion
+# Learn how to create HTML/ZIP/PNG polyglot files in JavaScript 
 
 ## Introduction
 
