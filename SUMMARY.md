@@ -116,3 +116,7 @@ Here is the resulting structure viewed as PNG chunks:
 ## Optimization Through Image Reuse
 
 The final optimization removes the image from the ZIP file and reuses the page, interpreted as a PNG file, to replace it in the displayed page.
+
+## Resulting File
+ 
+Download [demo.png.zip.html](https://github.com/gildas-lormeau/Polyglot-HTML-ZIP-PNG/raw/main/demo.png.zip.html).
