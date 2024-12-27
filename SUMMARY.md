@@ -76,7 +76,7 @@ Here is the minimum structure of a PNG file:
 3. One or more `IDAT` chunks
 4. `IEND` chunk (12 bytes)
 
-## The Final Form: HTML/ZIP/PNG Polyglot
+## The Final Form: HTML/ZIP/PNG Polyglot Files
 
 The ultimate implementation combines all three formats into a single file. The HTML format's fault tolerance allows for this complex structure. However, this approach introduces new challenges:
 1. The signature, the `IHDR` and the `IEND` chunks become visible as text nodes briefly and should be removed as soon as the page is parsed
