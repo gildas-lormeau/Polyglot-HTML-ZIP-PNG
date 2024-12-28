@@ -115,7 +115,7 @@ Here is the resulting structure viewed as PNG chunks:
 
 ## Optimization Through Image Reuse
 
-The final optimization removes the image from the ZIP file and reuses the page, interpreted as a PNG file, to replace it in the displayed page.
+The final optimization removes the main image (i.e. the logo of RennesJS) from the ZIP file and reuses the page, interpreted as a PNG file, to replace it in the displayed page.
 
 ## Resulting File
  
