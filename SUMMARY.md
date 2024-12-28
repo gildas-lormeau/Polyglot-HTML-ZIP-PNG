@@ -119,4 +119,4 @@ The final optimization removes the image from the ZIP file and reuses the page, 
 
 ## Resulting File
  
-Download [demo.png.zip.html](https://github.com/gildas-lormeau/Polyglot-HTML-ZIP-PNG/raw/main/demo.png.zip.html).
+Download [demo.png.zip.html](https://github.com/gildas-lormeau/Polyglot-HTML-ZIP-PNG/raw/main/demo.png.zip.html) (a bug in "Archive Utility" on macOS prevents it from decompressing the resulting file, you can use unzip to get around this issue.)
