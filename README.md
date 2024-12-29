@@ -53,7 +53,7 @@ This issue is addressed in the subsequent examples of the presentation.
 
 - From the browser
 
-Install [SingleFile](https://github.com/gildas-lormeau/SingleFile?tab=readme-ov-file#install) and select in the options page `File format > format > self-extracting ZIP (universal)` and enable `File format > format > embed image`.
+Install [SingleFile](https://github.com/gildas-lormeau/SingleFile?tab=readme-ov-file#install), select in the options page `File format > format > self-extracting ZIP (universal)` and enable `File format > format > embed image`.
 
 - From the command line interface
 
