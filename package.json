@@ -2,7 +2,7 @@
   "type": "module",
   "scripts": {
     "build": "cd ./en-EN && ./build.sh && cd ../fr-FR && ./build.sh",
-    "build-pdf": "npx md-to-pdf SUMMARY.md"
+    "build-pdf": "npx md-to-pdf SUMMARY.md && cd ./fr-FR && npx md-to-pdf RESUME.md"
   },
   "engines": {
     "node": ">=22.0.0"

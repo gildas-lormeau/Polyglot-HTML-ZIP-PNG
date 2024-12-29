@@ -41,7 +41,7 @@ npx single-file \
   --compress-content=true \
   --self-extracting-archive=true \
   --embedded-image=./images/qr-code-mini.png \
-  --embedded-pdf=./../SUMMARY.pdf \
+  --embedded-pdf=./RESUME.pdf \
   --insert-single-file-comment=false \
   ./build/index.html > ./dist/presentation-polyglot-png-zip-html_en-EN.html
 
