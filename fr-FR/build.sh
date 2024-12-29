@@ -41,8 +41,7 @@ npx single-file \
   --compress-content=true \
   --self-extracting-archive=true \
   --embedded-image=./images/qr-code-mini.png \
-  --embed-pdf \
-  --embed-pdf-options='{ "pageRanges": "1-1", "paperWidth": 11, "paperHeight": 8.5 }' \
+  --embedded-pdf=./../SUMMARY.pdf \
   --insert-single-file-comment=false \
   ./build/index.html > ./dist/presentation-polyglot-png-zip-html_fr-FR.html
 
