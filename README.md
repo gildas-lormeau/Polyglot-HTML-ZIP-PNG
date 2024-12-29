@@ -23,7 +23,8 @@ Press `F1` during the presentation to see the keyboard shortcuts.
 
 ### Summary
 
-See [here](SUMMARY.md).
+ - [english](SUMMARY.md)
+ - [french](./fr-FR/RESUME.md)
 
 ### File Compatibility
 
