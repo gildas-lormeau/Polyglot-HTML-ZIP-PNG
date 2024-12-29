@@ -39,7 +39,7 @@ The presentation explains how to generate this file and the technical challenges
 
 ### Fun Fact
 
-The image displayed at the center of the page [demo.png.zip.html](https://github.com/gildas-lormeau/Polyglot-HTML-ZIP-PNG/raw/main/demo.png.zip.html) is the page itself, but interpreted as a PNG file (cf. the `<img src="#" ...>` tag).
+The image displayed at the center of the page [demo.png.zip.html](https://gildas-lormeau.github.io/Polyglot-HTML-ZIP-PNG/demo.png.zip.html) is the page itself, but interpreted as a PNG file (cf. the `<img src="#" ...>` tag).
 
 ## Viewing the Presentation in Chromium (and WebKit) Browsers
 
