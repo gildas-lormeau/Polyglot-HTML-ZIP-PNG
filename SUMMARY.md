@@ -21,7 +21,7 @@ Here is the basic structure of the self-extracting page:
   <head>
     <meta charset=utf-8>
     <title>Please wait...</title>
-    <script src=lib/zip.min.js></script>
+     <script><!-- Content of lib/zip.min.js --></script>
   </head>
   <body>
     <p>Please wait...</p>
@@ -49,7 +49,7 @@ Here is the resulting structure:
   <head>
     <meta charset=windows-1252>
     <title>Please wait...</title>
-    <script src=lib/zip.min.js></script>
+     <script><!-- Content of lib/zip.min.js --></script>
   </head>
   <body>
     <p>Please wait...</p>
@@ -93,7 +93,7 @@ Here is the resulting structure viewed as PNG chunks:
     <head>
       <meta charset=windows-1252>
       <title>Please wait...</title>
-      <script src=lib/zip.min.js></script>
+       <script><!-- Content of lib/zip.min.js --></script>
     </head>
     <body>
       <p>Please wait...</p>
