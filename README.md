@@ -23,8 +23,8 @@ Press `F1` during the presentation to see the keyboard shortcuts.
 
 ### Summary
 
- - [english](SUMMARY.md)
- - [french](./fr-FR/RESUME.md)
+ - [english](SUMMARY.md) ([pdf](https://github.com/gildas-lormeau/Polyglot-HTML-ZIP-PNG/raw/main/SUMMARY.pdf))
+ - [french](./fr-FR/RESUME.md) ([pdf](https://github.com/gildas-lormeau/Polyglot-HTML-ZIP-PNG/raw/main/fr-FR/RESUME.pdf))
 
 ### File Compatibility
 
