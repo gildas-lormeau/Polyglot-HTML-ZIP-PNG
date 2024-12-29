@@ -54,11 +54,15 @@ figure {
 
 figcaption {
   margin-block-start: 1em;
+}
+
+figcaption, figcaption > button {
   font-size: min(3vw, 1.25em);
 }
 
 img {
   max-width: 33vw;
+  max-height: 33vh;
 }
 
 button {
