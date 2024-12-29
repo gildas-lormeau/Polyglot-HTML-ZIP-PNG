@@ -48,7 +48,7 @@ function cleanupPNGData() {
 async function extractResources(zip) {
   const { ZipReader, BlobReader, TextWriter, BlobWriter } = zip;
   const resources = {};
-  const zipReader = new ZipReader(new BlobReader(getZipData()));
+  const zipReader = new ZipReader(new BlobReader(await getZipData()));
   const entries = await zipReader.getEntries();
   for (const entry of entries) {
     const { filename } = entry;
@@ -66,25 +66,29 @@ async function extractResources(zip) {
   return resources;
 }
 
-function getZipData() {
-  const bodyNodes = Array.from(document.body.childNodes);
-  const zipDataNode = bodyNodes.findLast(
-    node => node.nodeType === Node.COMMENT_NODE);
-  const zipData = [];
-  let { textContent } = zipDataNode;
-  for (let index = 0; index < textContent.length; index++) {
-    let charCode = textContent.charCodeAt(index);
-    zipData.push(CHAR_CODE_SUBSTITUTIONS.get(charCode) ?? charCode);
+async function getZipData() {
+  try {
+    return (await fetch("")).blob();
+  } catch (_error) {
+    const bodyNodes = Array.from(document.body.childNodes);
+    const zipDataNode = bodyNodes.findLast(
+      node => node.nodeType === Node.COMMENT_NODE);
+    const zipData = [];
+    let { textContent } = zipDataNode;
+    for (let index = 0; index < textContent.length; index++) {
+      let charCode = textContent.charCodeAt(index);
+      zipData.push(CHAR_CODE_SUBSTITUTIONS.get(charCode) ?? charCode);
+    }
+    const extraDataNode = document.querySelector(EXTRA_DATA_ELEMENT_SELECTOR);
+    const extraData = JSON.parse(extraDataNode.textContent);
+    const [insertionsCRLF, substitutionsLF] = extraData;
+    insertionsCRLF.forEach(index => zipData.splice(index, 1,
+      CARRIAGE_RETURN_CHAR_CODE,
+      LINE_FEED_CHAR_CODE));
+    substitutionsLF.forEach(index => zipData[index] =
+      CARRIAGE_RETURN_CHAR_CODE);
+    return new Blob([new Uint8Array(zipData)]);
   }
-  const extraDataNode = document.querySelector(EXTRA_DATA_ELEMENT_SELECTOR);
-  const extraData = JSON.parse(extraDataNode.textContent);
-  const [insertionsCRLF, substitutionsLF] = extraData;
-  insertionsCRLF.forEach(index => zipData.splice(index, 1,
-    CARRIAGE_RETURN_CHAR_CODE,
-    LINE_FEED_CHAR_CODE));
-  substitutionsLF.forEach(index => zipData[index] =
-    CARRIAGE_RETURN_CHAR_CODE);
-  return new Blob([new Uint8Array(zipData)]);
 }
 
 function resolveDependencies(resources) {
