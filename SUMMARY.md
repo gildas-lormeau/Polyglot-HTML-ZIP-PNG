@@ -119,4 +119,4 @@ The final optimization removes the main image (i.e. the logo of RennesJS) from t
 
 ## Resulting File
  
-Download [demo.png.zip.html](https://github.com/gildas-lormeau/Polyglot-HTML-ZIP-PNG/raw/main/demo.png.zip.html) (a bug in "Archive Utility" on macOS prevents it from decompressing the resulting file, you can use unzip to get around this issue).
+Download [demo.png.zip.html](https://github.com/gildas-lormeau/Polyglot-HTML-ZIP-PNG/raw/main/demo.png.zip.html) (a bug in "Archive Utility" on macOS prevents it from decompressing the resulting file, you can use unzip to get around this issue). Alternatively, you can also view the file [demo.png.zip.html](https://gildas-lormeau.github.io/Polyglot-HTML-ZIP-PNG/demo.png.zip.html).
