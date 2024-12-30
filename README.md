@@ -33,7 +33,7 @@ Press `F1` during the presentation to see the keyboard shortcuts.
 ### Resulting File
 
 - download file: [demo.png.zip.html](https://github.com/gildas-lormeau/Polyglot-HTML-ZIP-PNG/raw/main/demo.png.zip.html)
-- view file: [demo.png.zip.html](https://gildas-lormeau.github.io/Polyglot-HTML-ZIP-PNG/demo.png.zip.html)
+- view page: [demo.png.zip.html](https://gildas-lormeau.github.io/Polyglot-HTML-ZIP-PNG/demo.png.zip.html)
 
 ### Summary
 
