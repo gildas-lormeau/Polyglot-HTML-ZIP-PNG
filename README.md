@@ -86,7 +86,7 @@ npx single-file \
 ## Known Issues
 
  - A bug in "Archive Utility" on macOS prevents it from decompressing the resulting file. You can use `unzip` to get around this issue.
- - The HTML page cannot be viewed on iOS from the filesystem because it is displayed by default in a viewer which does not support JavaScript.
+ - The HTML page cannot be viewed when opened from the filesystem on iOS because the page is displayed by default in a viewer which does not support JavaScript. Installing a third-party browser can help you get around this problem.
  - Depending on the browser you're using, the presentation may be a little slow.
 
 ## Thank You
