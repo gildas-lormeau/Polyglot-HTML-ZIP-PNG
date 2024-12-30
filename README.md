@@ -1,5 +1,15 @@
 # Learn how to create HTML/ZIP/PNG polyglot files in JavaScript 
 
+## Table of contents
+
+- [Introduction](#introduction)
+- [Presentation](#presentation)
+- [TL;DR](#tldr)
+- [Viewing the Presentation in Chromium (and WebKit) Browsers](#viewing-the-presentation-in-chromium-and-webkit-browsers)
+- [Creation of Polyglot Files with SingleFile](#creation-of-polyglot-files-with-singlefile)
+- [Known Issues](#known-issues)
+- [Thank You](#thank-you)
+
 ## Introduction
 
 Imagine a digital chameleon: a file that combines ZIP, HTML, and PNG into one versatile format. It can be displayed as a web page, unzipped to obtain all the page's resources, or viewed as an image. 
@@ -51,11 +61,11 @@ This issue is addressed in the subsequent examples of the presentation.
 
 ## Creation of Polyglot Files with SingleFile
 
-- From the browser
+- from the browser
 
 Install [SingleFile](https://github.com/gildas-lormeau/SingleFile?tab=readme-ov-file#install), select in the options page `File format > format > self-extracting ZIP (universal)` and enable `File format > format > embed image`.
 
-- From the command line interface
+- from the command line interface
 
 Install [`single-file-cli`](https://www.npmjs.com/package/single-file-cli) from NPM and run `single-file` as shown below.
 
