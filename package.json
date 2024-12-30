@@ -11,10 +11,10 @@
     "axios": "^1.7.9",
     "chalk": "^5.4.1",
     "inclusion": "^1.0.1",
+    "md-to-pdf": "^5.2.4",
     "minimatch": "^10.0.1",
     "ora": "^8.1.1",
     "single-file-cli": "^2.0.73",
-    "vite": "^6.0.6",
-    "md-to-pdf": "^5.2.4"
+    "vite": "^6.0.6"
   }
 }
