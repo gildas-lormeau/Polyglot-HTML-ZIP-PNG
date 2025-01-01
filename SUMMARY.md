@@ -120,7 +120,7 @@ graph TD
     A[PNG File] --> B[PNG Signature]
     A --> C[IHDR Chunk]
     A --> D[tEXt Chunk]
-    A --> E[IDAT Chunk(s)]
+    A --> E[IDAT Chunks]
     A --> F[tEXt Chunk]
     A --> G[IEND Chunk]
 
