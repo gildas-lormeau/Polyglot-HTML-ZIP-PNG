@@ -125,9 +125,6 @@ graph TD
     A --> G[IEND Chunk]
 
     D --> H[HTML Start]
-    H --> I[DOCTYPE]
-    H --> J[Head Section]
-    H --> K[Body Start]
 
     F --> L[ZIP Data in HTML Comment]
     L --> M[File Entries]
