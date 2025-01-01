@@ -112,6 +112,31 @@ Structure vue comme des chunks PNG :
 [Chunk IEND]
 ```
 
+Diagramme de la structure résultante:
+
+```mermaid
+graph TD
+    A[Fichier PNG] --> B[Signature PNG]
+    A --> C[Chunk IHDR]
+    A --> D[Chunk tEXt]
+    A --> E[Chunk(s) IDAT]
+    A --> F[Chunk tEXt]
+    A --> G[Chunk IEND]
+
+    D --> H[Début HTML]
+    H --> I[DOCTYPE]
+    H --> J[Section Head]
+    H --> K[Début Body]
+
+    F --> L[Données ZIP dans un Commentaire HTML]
+    L --> M[Entrées de fichier]
+    L --> N[Annuaire Central]
+
+    F --> P[Fin HTML]
+    P --> Q[Scripts]
+    P --> R[Fin Body]
+```
+
 ## Optimisation grâce à la réutilisation d'images
 
 L'optimisation finale retire l'image principale (i.e. le logo de RennesJS) du fichier ZIP et réutilise la page, interprétée comme un fichier PNG, pour la remplacer dans la page affichée.
