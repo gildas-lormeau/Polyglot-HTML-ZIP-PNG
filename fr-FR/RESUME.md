@@ -124,9 +124,6 @@ graph TD
     A --> G[Chunk IEND]
 
     D --> H[Début HTML]
-    H --> I[DOCTYPE]
-    H --> J[Section Head]
-    H --> K[Début Body]
 
     F --> L[Données ZIP dans un Commentaire HTML]
     L --> M[Entrées de fichier]
