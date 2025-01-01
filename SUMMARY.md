@@ -120,7 +120,7 @@ graph TD
     A[PNG File] --> B[PNG Signature]
     A --> C[IHDR Chunk]
     A --> D[tEXt Chunk]
-    A --> E[IDAT Chunks]
+    A --> E[IDAT Chunk(s)]
     A --> F[tEXt Chunk]
     A --> G[IEND Chunk]
 
@@ -132,7 +132,6 @@ graph TD
     F --> L[ZIP Data in HTML Comment]
     L --> M[File Entries]
     L --> N[Central Directory]
-    L --> O[ZIP Comment]
 
     F --> P[HTML End]
     P --> Q[Scripts]
