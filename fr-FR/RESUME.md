@@ -119,7 +119,7 @@ graph TD
     A[Fichier PNG] --> B[Signature PNG]
     A --> C[Chunk IHDR]
     A --> D[Chunk tEXt]
-    A --> E[Chunk(s) IDAT]
+    A --> E[Chunks IDAT]
     A --> F[Chunk tEXt]
     A --> G[Chunk IEND]
 
