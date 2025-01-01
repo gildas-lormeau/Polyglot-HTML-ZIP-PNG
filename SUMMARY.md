@@ -113,6 +113,32 @@ Here is the resulting structure viewed as PNG chunks:
 [IEND chunk]
 ```
 
+Here is the diagram of the resulting structure:
+
+```mermaid
+graph TD
+    A[PNG File] --> B[PNG Signature]
+    A --> C[IHDR Chunk]
+    A --> D[tEXt Chunk]
+    A --> E[IDAT Chunks]
+    A --> F[tEXt Chunk]
+    A --> G[IEND Chunk]
+
+    D --> H[HTML Start]
+    H --> I[DOCTYPE]
+    H --> J[Head Section]
+    H --> K[Body Start]
+
+    F --> L[ZIP Data in HTML Comment]
+    L --> M[File Entries]
+    L --> N[Central Directory]
+    L --> O[ZIP Comment]
+
+    F --> P[HTML End]
+    P --> Q[Scripts]
+    P --> R[Body End]
+```
+
 ## Optimization Through Image Reuse
 
 The final optimization removes the main image (i.e. the logo of RennesJS) from the ZIP file and reuses the page, interpreted as a PNG file, to replace it in the displayed page.
