@@ -297,7 +297,7 @@
 			</section>
 			<section>
 				<h2>ZIP Format</h2>
-				<img src="images/zip-structure.svg" style="max-height: 450px;">
+				<img src="images/zip-structure.svg" style="max-height: 450px;" alt="Structure of a ZIP file">
 				<p style="font-size: .5em; text-align: right;">Source: <a
 						href="https://en.wikipedia.org/wiki/ZIP_(file_format)"
 						target="_blank">https://en.wikipedia.org/wiki/ZIP_(file_format)</a>
@@ -1794,7 +1794,7 @@ await zipReader.close()</code>
 			<section>
 				<h2>Thank you!</h2>
 				<p>Questions? 🤔, Feedback? 📝</p>
-				<img src="./images/qr-code.png" style="max-height: 50vh;">
+				<img src="./images/qr-code.png" style="max-height: 50vh;" alt="QR Code">
 			</section>
 		</div>
 	</div>
@@ -1807,7 +1807,7 @@ await zipReader.close()</code>
 		for (const codeElement of codeElements) {
 			const path = codeElement.dataset.src;
 			if (path) {
-				const text = await (await fetch(path)).text();
+				const text = await(await fetch(path)).text();
 				codeElement.textContent = text;
 			}
 		}
