@@ -133,6 +133,23 @@ graph TD
     F --> P[HTML End]
     P --> Q[Scripts]
     P --> R[Body End]
+
+    style A fill:#355082
+    style B fill:#355082
+    style C fill:#355082
+    style D fill:#355082
+    style E fill:#355082
+    style F fill:#355082
+    style G fill:#355082
+
+    style H fill:#055336
+    style L fill:#055336
+    style P fill:#055336
+    style Q fill:#055336
+    style R fill:#055336
+
+    style M fill:#822121
+    style N fill:#822121
 ```
 
 ## Optimization Through Image Reuse
