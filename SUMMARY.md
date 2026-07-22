@@ -64,7 +64,7 @@ Here is the resulting structure:
 
 ## Adding PNG to the Mix
 
-The PNG format consists of a signature followed by chunks. Each chunk contains these fieds:
+The PNG format consists of a signature followed by chunks. Each chunk contains these fields:
 - Length (4 bytes)
 - Type identifier (4 bytes) e.g., `IHDR` (header), `IDAT` (data), `IEND` (end of file), `tEXt` (custom data)...
 - Data content (n bytes)
